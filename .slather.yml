@@ -1,0 +1,8 @@
+xcodeproj: ./WBooks.xcodeproj
+scheme: WBooks
+ignore:
+  - WBooks/AppDelegate.swift
+  - WBooks/Environment.swift
+  - WBooks/Services/RollbarService.swift
+  - WBooksTests/*
+  - WBooksUITests/*
