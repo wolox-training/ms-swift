@@ -11,6 +11,8 @@ import UIKit
 import WolmoCore
 
 class LogInView: UIView, NibLoadable {
+    @IBOutlet weak var imageLogo: UIImageView!
+    @IBOutlet weak var background: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,11 +21,10 @@ class LogInView: UIView, NibLoadable {
     
 }
 
-
 private extension LogInView {
     
     func setupView() {
-        // TODO
+        
     }
-    
 }
+

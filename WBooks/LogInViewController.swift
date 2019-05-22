@@ -28,6 +28,23 @@ final class LogInViewController: UIViewController {
         label.sizeToFit()
         view.addSubview(label)
          */
+        // assignBackground(named: "bc_inicio")
+        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bc_inicio"))
+    }
+    
+    
+    func assignBackground(named background: String) {
+        let backgroundImage = UIImage(named: background)
+        
+        // BUG: Background Image not displaying correctly in iPhone Xr
+        var backgroundView: UIImageView!
+        backgroundView = UIImageView(frame: view.frame)
+        backgroundView.contentMode = UIViewContentMode.scaleAspectFill
+        backgroundView.clipsToBounds = false
+        backgroundView.image = backgroundImage
+        backgroundView.center = view.center
+        view.addSubview(backgroundView)
+        self.view.sendSubview(toBack: backgroundView)
     }
     
     override func didReceiveMemoryWarning() {
