@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zvf-Sr-ffA">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--LogInView-->
+        <scene sceneID="sZR-Uc-JHM">
+            <objects>
+                <viewController title="LogInView" id="zvf-Sr-ffA" customClass="LogInController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8A1-bU-Thm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_inicio" translatesAutoresizingMaskIntoConstraints="NO" id="Szi-ZE-6eo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LyU-Ym-KIp">
+                                <rect key="frame" x="127" y="221" width="160" height="122"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-P4-4sk">
+                                <rect key="frame" x="75" y="543" width="264" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <state key="normal" title="INGRESAR CON GOOGLE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="googleLogInButton:" destination="bPD-dh-WrV" eventType="touchUpInside" id="ZSp-am-rBw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designed, developed and used by woloxers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-Kp-H5X">
+                                <rect key="frame" x="42" y="773" width="330" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Szi-ZE-6eo" firstAttribute="top" secondItem="8A1-bU-Thm" secondAttribute="top" id="0VR-Aa-jXh"/>
+                            <constraint firstItem="LyU-Ym-KIp" firstAttribute="centerX" secondItem="eoa-P4-4sk" secondAttribute="centerX" id="6Xq-lF-yUj"/>
+                            <constraint firstItem="eoa-P4-4sk" firstAttribute="centerX" secondItem="Scc-Kp-H5X" secondAttribute="centerX" id="7H6-vz-Lm1"/>
+                            <constraint firstAttribute="bottom" secondItem="Szi-ZE-6eo" secondAttribute="bottom" id="DYr-RS-5qv"/>
+                            <constraint firstAttribute="trailing" secondItem="Szi-ZE-6eo" secondAttribute="trailing" id="De5-dl-hf7"/>
+                            <constraint firstAttribute="bottom" secondItem="eoa-P4-4sk" secondAttribute="bottom" constant="315" id="Qgq-ns-Avu"/>
+                            <constraint firstItem="LyU-Ym-KIp" firstAttribute="leading" secondItem="SKg-WL-tUA" secondAttribute="leading" constant="127" id="axp-aH-tqO"/>
+                            <constraint firstItem="Szi-ZE-6eo" firstAttribute="centerX" secondItem="eoa-P4-4sk" secondAttribute="centerX" id="fNL-pB-aHM"/>
+                            <constraint firstItem="LyU-Ym-KIp" firstAttribute="top" secondItem="SKg-WL-tUA" secondAttribute="top" constant="177" id="i82-tu-DOS"/>
+                            <constraint firstItem="SKg-WL-tUA" firstAttribute="bottom" secondItem="Scc-Kp-H5X" secondAttribute="bottom" constant="68" id="joX-V8-Fm9"/>
+                            <constraint firstItem="Szi-ZE-6eo" firstAttribute="leading" secondItem="8A1-bU-Thm" secondAttribute="leading" id="tCO-Ex-0gA"/>
+                            <constraint firstItem="Scc-Kp-H5X" firstAttribute="leading" secondItem="SKg-WL-tUA" secondAttribute="leading" constant="42" id="vcK-9E-cmy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SKg-WL-tUA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="giQ-Gp-WRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bPD-dh-WrV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="110.14492753623189" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bc_inicio" width="750" height="1334"/>
+        <image name="logo" width="161" height="122"/>
+    </resources>
+</document>

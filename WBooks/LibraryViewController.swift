@@ -8,11 +8,17 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
-
+final class LibraryViewController: UIViewController {
+    
+    private let libraryView: LibraryView = LibraryView.loadFromNib()!
+    
+    override func loadView() {
+        view = libraryView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         view.backgroundColor = UIColor.white
         
         let frame = CGRect(x: 0, y: view.frame.size.height / 2 - 11, width: view.frame.size.width, height: 22)
@@ -21,8 +27,13 @@ final class ViewController: UIViewController {
         label.textAlignment = .center
         label.sizeToFit()
         view.addSubview(label)
-    }
+        */
+        
+        // Set background image
 
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
