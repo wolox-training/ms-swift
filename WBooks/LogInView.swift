@@ -34,9 +34,5 @@ private extension LogInView {
         buttonLogIn.clipsToBounds = true
         buttonLogIn.layer.borderColor = UIColor.white.cgColor
         buttonLogIn.layer.borderWidth = 4
-        buttonLogIn.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
-    }
-    @objc func logInButtonPressed() {
-        print("Button pressed!")
     }
 }
