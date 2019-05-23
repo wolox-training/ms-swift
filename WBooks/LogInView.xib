@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,14 +20,22 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWBooks" translatesAutoresizingMaskIntoConstraints="NO" id="LzA-g6-EjE">
-                    <rect key="frame" x="86.5" y="192.5" width="241" height="155"/>
+                    <rect key="frame" x="86.333333333333329" y="192.33333333333337" width="241.33333333333337" height="155"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bf-X3-n2p">
-                    <rect key="frame" x="77.5" y="540" width="259" height="91.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="77.666666666666657" y="540" width="258.66666666666674" height="91.666666666666629"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="INGRESAR CON GOOGLE"/>
+                    <state key="normal" title="INGRESAR CON GOOGLE">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designed, developed and used by Woloxers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4G-zi-Gx0">
+                    <rect key="frame" x="34.666666666666657" y="803" width="345" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -42,21 +50,26 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9bf-X3-n2p" secondAttribute="bottom" constant="230.5" id="UZE-kH-3q7"/>
                 <constraint firstItem="LzA-g6-EjE" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.173" id="abS-w1-rqE"/>
                 <constraint firstItem="9bf-X3-n2p" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1022" id="eh3-X8-N3u"/>
+                <constraint firstItem="p4G-zi-Gx0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iox-qj-Rvb"/>
                 <constraint firstItem="fFR-IL-gyq" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="jws-Nc-4bf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="p4G-zi-Gx0" secondAttribute="bottom" constant="38" id="oHF-fr-uoY"/>
+                <constraint firstItem="p4G-zi-Gx0" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.833333" id="psa-GR-V7X"/>
                 <constraint firstItem="LzA-g6-EjE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" multiplier="4.34783" constant="1" id="rCc-o0-Szs"/>
                 <constraint firstItem="fFR-IL-gyq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yfP-jv-ALr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="background" destination="fFR-IL-gyq" id="Ohw-q5-zkB"/>
+                <outlet property="buttonLogIn" destination="9bf-X3-n2p" id="acI-ZQ-N5G"/>
                 <outlet property="imageLogo" destination="LzA-g6-EjE" id="U9s-wZ-09B"/>
+                <outlet property="labelCredits" destination="p4G-zi-Gx0" id="Ooa-di-H63"/>
             </connections>
             <point key="canvasLocation" x="37.681159420289859" y="34.821428571428569"/>
         </view>
         <customObject id="OHt-5h-4MD"/>
     </objects>
     <resources>
-        <image name="bc_inicio" width="750" height="1334"/>
+        <image name="bc_inicio" width="1125" height="2001"/>
         <image name="logoWBooks" width="161" height="122"/>
     </resources>
 </document>

@@ -10,6 +10,8 @@ import UIKit
 
 final class LogInViewController: UIViewController {
     
+    @IBOutlet weak var labelCredits: UILabel!
+    
     private let logInView: LogInView = LogInView.loadFromNib()!
     
     override func loadView() {
@@ -28,24 +30,16 @@ final class LogInViewController: UIViewController {
         label.sizeToFit()
         view.addSubview(label)
          */
-        // assignBackground(named: "bc_inicio")
-        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bc_inicio"))
-    }
-    
-    
-    func assignBackground(named background: String) {
-        let backgroundImage = UIImage(named: background)
+  //      let screenHeight = self.view.frame.height
+  //      labelCredits.font = labelCredits.font.withSize(screenHeight * relativeFontFactorForLabelCredits)
+  //      adjustLabelCreditsFont()
         
-        // BUG: Background Image not displaying correctly in iPhone Xr
-        var backgroundView: UIImageView!
-        backgroundView = UIImageView(frame: view.frame)
-        backgroundView.contentMode = UIViewContentMode.scaleAspectFill
-        backgroundView.clipsToBounds = false
-        backgroundView.image = backgroundImage
-        backgroundView.center = view.center
-        view.addSubview(backgroundView)
-        self.view.sendSubview(toBack: backgroundView)
     }
+    
+ //   func adjustLabelCreditsFont() {
+     //   labelCredits.font = labelCredits.font.withSize(screenHeight * relativeFontFactorForLabelCredits)
+//    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
