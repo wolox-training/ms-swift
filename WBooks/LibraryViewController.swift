@@ -46,7 +46,12 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
             print("Error on dequeueReusableCell")
             return UITableViewCell()
         }
-        
+       /*
+        let cellBackgroundColor = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
+        cell.viewDisplay.layer.cornerRadius = 20
+        cell.viewDisplay.layer.masksToBounds = true
+        cell.viewDisplay.layer.backgroundColor = cellBackgroundColor.cgColor
+        */
         // Fill in the cell with info
         
         let dict = usersArray[indexPath.row]
@@ -57,6 +62,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.topLabel.text = dict["title"]
         cell.botLabel.text = dict["author"]
         
+
         return cell
     }
     

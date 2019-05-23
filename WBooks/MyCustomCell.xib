@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhF-kV-VqR">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <rect key="frame" x="8" y="8" width="359" height="84"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1o-xl-KeY">
                             <rect key="frame" x="133" y="14" width="74.5" height="21"/>
@@ -26,7 +26,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="85" placeholderIntrinsicHeight="75" translatesAutoresizingMaskIntoConstraints="NO" id="asc-Rp-5Ih">
-                            <rect key="frame" x="24" y="12.5" width="85" height="75"/>
+                            <rect key="frame" x="24" y="4.5" width="85" height="75"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYw-fA-e4A">
                             <rect key="frame" x="133" y="43" width="102" height="21"/>
@@ -48,10 +48,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="OhF-kV-VqR" secondAttribute="trailing" id="Jc4-zq-gqj"/>
-                <constraint firstItem="OhF-kV-VqR" firstAttribute="leading" secondItem="eZg-2N-Bnc" secondAttribute="leading" id="VBC-Z6-EAF"/>
-                <constraint firstItem="OhF-kV-VqR" firstAttribute="top" secondItem="eZg-2N-Bnc" secondAttribute="top" id="erw-n1-mvx"/>
-                <constraint firstAttribute="bottom" secondItem="OhF-kV-VqR" secondAttribute="bottom" id="iKj-7s-K9Y"/>
+                <constraint firstAttribute="bottom" secondItem="OhF-kV-VqR" secondAttribute="bottom" constant="8" id="Eik-C1-IOn"/>
+                <constraint firstItem="OhF-kV-VqR" firstAttribute="leading" secondItem="c3U-ne-WNI" secondAttribute="leading" constant="8" id="arF-C9-r3f"/>
+                <constraint firstItem="c3U-ne-WNI" firstAttribute="trailing" secondItem="OhF-kV-VqR" secondAttribute="trailing" constant="8" id="h8W-68-Xn2"/>
+                <constraint firstItem="OhF-kV-VqR" firstAttribute="top" secondItem="eZg-2N-Bnc" secondAttribute="top" constant="8" id="zgj-H5-HuQ"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

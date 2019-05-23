@@ -18,12 +18,13 @@ class MyCustomCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let cellBackgroundColor = UIColor(displayP3Red: 231, green: 245, blue: 249, alpha: 1)
-        viewDisplay.layer.cornerRadius = 5
+        let cellBackgroundColor = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
+        viewDisplay.layer.cornerRadius = 22
         viewDisplay.layer.masksToBounds = true
         viewDisplay.layer.backgroundColor = cellBackgroundColor.cgColor
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
