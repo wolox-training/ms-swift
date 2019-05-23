@@ -12,6 +12,7 @@ import WolmoCore
 
 class LibraryView: UIView, NibLoadable {
     
+    @IBOutlet weak var tblBooks: UITableView!
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
