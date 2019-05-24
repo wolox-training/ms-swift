@@ -31,8 +31,9 @@ class MyCustomCell: UITableViewCell {
         topLabel.font = UIFont.boldSystemFont(ofSize: 20)
         botLabel.font = UIFont.systemFont(ofSize: 12)
         
+        topLabel.lineBreakMode = .byWordWrapping
         topLabel.numberOfLines = 0
-        
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

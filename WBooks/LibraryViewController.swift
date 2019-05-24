@@ -27,32 +27,11 @@ final class LibraryViewController: UIViewController {
         libraryView.tblBooks.register(nib, forCellReuseIdentifier: "MyCustomCell")
         libraryView.tblBooks.delegate = self
         libraryView.tblBooks.dataSource = self
-        parseData()
+        
+  //      libraryView.tblBooks.estimatedRowHeight = 68.0
+   //     libraryView.tblBooks.rowHeight = UITableViewAutomaticDimension
     }
 
-}
-
-// MARK: Data Handling
-extension LibraryViewController {
-    // Modifies titles for printing purposes
-    func parseData() {
-        for it in 0..<bookArray.count {
-            var string = bookArray[it]["title"]
-            // If the title is too long, it jumps to next line
-            if string!.count > 26 {
-                string!.insert("\n", at: string!.index(string!.startIndex, offsetBy: 26))
-                let isSpace = string![string!.index(string!.startIndex, offsetBy: 27)]
-                if isSpace == " " {
-                    string!.remove(at: string!.index(string!.startIndex, offsetBy: 27))
-                }
-                
-                // I want to use another dictionary to store the printable titles, and another to store the original ones, how?
-                bookArray[it]["title"] = string!
-                
-            }
-
-        }
-    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -66,6 +45,11 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+  /*
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+*/
     // Spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return spacingBetweenCells
