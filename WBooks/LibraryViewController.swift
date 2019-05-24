@@ -9,12 +9,13 @@
 import UIKit
 
 final class LibraryViewController: UIViewController {
-    
+
     private let libraryView: LibraryView = LibraryView.loadFromNib()!
     
-    // Add private?
-    private var usersArray : Array = [["title": "A little bird told me", "author": "Timothy Cross"], ["title": "When the doves disappeared", "author": "Sofi Oksanen"], ["title": "The best book in the world", "author": "Peter Stjerstrom"], ["title": "Be creative", "author": "unknown"], ["title": "Redesign the web", "author": "Wolox"], ["title": "Yellow", "author": "Matias Schwalb"]]
-    private var imgArray : Array = ["img_book1", "img_book2", "img_book3", "img_book4", "img_book5", "img_book6"]
+    let spacingBetweenCells: CGFloat = 10
+    
+    // Hard coded data array
+    private var bookArray: Array = [["title": "When the doves disappeared", "author": "Timothy Cross", "img": "img_book1"], ["title": "When the doves disappearedasdasdasdasdasasdasdas", "author": "Sofi Oksanen", "img": "img_book2"], ["title": "The best book in the world", "author": "Peter Stjerstrom", "img": "img_book3"], ["title": "Be creative", "author": "unknown", "img": "img_book4"], ["title": "Redesign the web", "author": "Wolox", "img": "img_book5"], ["title": "Yellow", "author": "Matias Schwalb", "img": "img_book6"]]
     
     override func loadView() {
         view = libraryView
@@ -26,43 +27,72 @@ final class LibraryViewController: UIViewController {
         libraryView.tblBooks.register(nib, forCellReuseIdentifier: "MyCustomCell")
         libraryView.tblBooks.delegate = self
         libraryView.tblBooks.dataSource = self
+        parseData()
     }
 
+}
+
+// MARK: Data Handling
+extension LibraryViewController {
+    // Modifies titles for printing purposes
+    func parseData() {
+        for it in 0..<bookArray.count {
+            var string = bookArray[it]["title"]
+            // If the title is too long, it jumps to next line
+            if string!.count > 26 {
+                string!.insert("\n", at: string!.index(string!.startIndex, offsetBy: 26))
+                let isSpace = string![string!.index(string!.startIndex, offsetBy: 27)]
+                if isSpace == " " {
+                    string!.remove(at: string!.index(string!.startIndex, offsetBy: 27))
+                }
+                
+                // I want to use another dictionary to store the printable titles, and another to store the original ones, how?
+                bookArray[it]["title"] = string!
+                
+            }
+
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return bookArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersArray.count
+        return 1
     }
     
+    // Spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return spacingBetweenCells
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    // Cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? MyCustomCell else {
             print("Error on dequeueReusableCell")
             return UITableViewCell()
         }
-       /*
-        let cellBackgroundColor = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
-        cell.viewDisplay.layer.cornerRadius = 20
-        cell.viewDisplay.layer.masksToBounds = true
-        cell.viewDisplay.layer.backgroundColor = cellBackgroundColor.cgColor
-        */
+
         // Fill in the cell with info
         
-        let dict = usersArray[indexPath.row]
-        
-        cell.topLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        cell.botLabel.font = UIFont.italicSystemFont(ofSize: 12)
-        cell.imageBook.image = UIImage(named: imgArray[indexPath.row])
+        let dict = bookArray[indexPath.section]
+
+        cell.imageBook.image = UIImage(named: dict["img"]!)
         cell.topLabel.text = dict["title"]
         cell.botLabel.text = dict["author"]
         
-
         return cell
     }
     

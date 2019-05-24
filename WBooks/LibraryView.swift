@@ -23,7 +23,9 @@ class LibraryView: UIView, NibLoadable {
 private extension LibraryView {
     
     func setupView() {
-        // TODO
+        let tableBackgroundColor = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
+        self.layer.backgroundColor = tableBackgroundColor.cgColor
+        tblBooks.layer.backgroundColor = UIColor.clear.cgColor
     }
     
 }
