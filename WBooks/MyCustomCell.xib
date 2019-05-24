@@ -28,8 +28,8 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="85" placeholderIntrinsicHeight="75" translatesAutoresizingMaskIntoConstraints="NO" id="asc-Rp-5Ih">
                             <rect key="frame" x="24" y="4.5" width="85" height="75"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" misplaced="YES" text="Bottom Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYw-fA-e4A">
-                            <rect key="frame" x="133" y="57" width="102" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" text="Bottom Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYw-fA-e4A">
+                            <rect key="frame" x="133" y="32.5" width="102" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -37,11 +37,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="uYw-fA-e4A" firstAttribute="top" secondItem="H1o-xl-KeY" secondAttribute="bottom" constant="8" id="1jy-TG-qEt"/>
+                        <constraint firstItem="uYw-fA-e4A" firstAttribute="firstBaseline" secondItem="H1o-xl-KeY" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="20B-rB-gt7"/>
                         <constraint firstItem="asc-Rp-5Ih" firstAttribute="leading" secondItem="OhF-kV-VqR" secondAttribute="leading" constant="24" id="4UD-0t-uxn"/>
-                        <constraint firstItem="H1o-xl-KeY" firstAttribute="leading" secondItem="asc-Rp-5Ih" secondAttribute="trailing" constant="24" id="DaK-Lg-8Dw"/>
-                        <constraint firstItem="uYw-fA-e4A" firstAttribute="leading" secondItem="asc-Rp-5Ih" secondAttribute="trailing" constant="24" id="N2Q-e3-Zk9"/>
-                        <constraint firstAttribute="trailing" secondItem="asc-Rp-5Ih" secondAttribute="trailing" constant="250" id="azv-fY-Wg5"/>
+                        <constraint firstItem="asc-Rp-5Ih" firstAttribute="top" secondItem="OhF-kV-VqR" secondAttribute="top" constant="4.5" id="6jh-jc-oiZ"/>
+                        <constraint firstAttribute="bottom" secondItem="asc-Rp-5Ih" secondAttribute="bottom" constant="4.5" id="EKe-0Z-YZ4"/>
+                        <constraint firstItem="H1o-xl-KeY" firstAttribute="leading" secondItem="asc-Rp-5Ih" secondAttribute="trailing" constant="24" id="GEG-Dd-HHt"/>
+                        <constraint firstItem="uYw-fA-e4A" firstAttribute="leading" secondItem="OhF-kV-VqR" secondAttribute="leading" constant="133" id="PDf-BZ-nZA"/>
+                        <constraint firstItem="H1o-xl-KeY" firstAttribute="leading" secondItem="OhF-kV-VqR" secondAttribute="leading" constant="133" id="Xro-mM-5Oi"/>
+                        <constraint firstItem="uYw-fA-e4A" firstAttribute="leading" secondItem="asc-Rp-5Ih" secondAttribute="trailing" constant="24" id="cug-A3-b3B"/>
                         <constraint firstAttribute="trailing" secondItem="H1o-xl-KeY" secondAttribute="trailing" constant="8" id="ezi-KV-jwJ"/>
                         <constraint firstItem="asc-Rp-5Ih" firstAttribute="centerY" secondItem="OhF-kV-VqR" secondAttribute="centerY" id="j21-tQ-42D"/>
                         <constraint firstItem="H1o-xl-KeY" firstAttribute="top" secondItem="OhF-kV-VqR" secondAttribute="top" constant="8" id="sdO-tn-o4G"/>
