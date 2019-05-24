@@ -187,6 +187,13 @@
 			name = "Library View";
 			sourceTree = "<group>";
 		};
+		315F28AA22988A970080A576 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
 		316AF80722959FB700A3A2B3 /* ConfigurationFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +248,7 @@
 		9D1575031CB1B27500EA395E /* WBooks */ = {
 			isa = PBXGroup;
 			children = (
+				315F28AA22988A970080A576 /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
 				316AF80F2295A82800A3A2B3 /* Library */,
 				316AF80722959FB700A3A2B3 /* ConfigurationFiles */,

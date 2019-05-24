@@ -9,8 +9,9 @@
 import UIKit
 
 final class LibraryViewController: UIViewController {
-
-    private let libraryView: LibraryView = LibraryView.loadFromNib()!
+  
+//    private let libraryView = UINavigationController(rootViewController: LibraryViewController()).awakeFromNib()
+   private let libraryView: LibraryView = LibraryView.loadFromNib()!
     
     let spacingBetweenCells: CGFloat = 10
     
@@ -25,11 +26,9 @@ final class LibraryViewController: UIViewController {
         super.viewDidLoad()
         let nib = UINib.init(nibName: "MyCustomCell", bundle: nil)
         libraryView.tblBooks.register(nib, forCellReuseIdentifier: "MyCustomCell")
-        libraryView.tblBooks.delegate = self
+        libraryView.tblBooks.delegate = self  
         libraryView.tblBooks.dataSource = self
-        
-  //      libraryView.tblBooks.estimatedRowHeight = 68.0
-   //     libraryView.tblBooks.rowHeight = UITableViewAutomaticDimension
+
     }
 
 }

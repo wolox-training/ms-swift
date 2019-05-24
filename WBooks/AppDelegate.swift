@@ -30,12 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NetworkActivityLogger.shared.level = .debug
         NetworkActivityLogger.shared.startLogging()
-        
+
         window = UIWindow(frame: UIScreen.main.bounds)
         // window?.rootViewController = LibraryViewController()
         // App starts with the log in scren
         window?.rootViewController = LogInViewController()
         window?.makeKeyAndVisible()
+        
+        UINavigationBar.appearance().barTintColor = .red
         
         return true
     }
