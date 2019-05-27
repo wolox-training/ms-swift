@@ -11,9 +11,9 @@ import UIKit
 final class LibraryViewController: UIViewController {
   
 //    private let libraryView = UINavigationController(rootViewController: LibraryViewController()).awakeFromNib()
-   private let libraryView: LibraryView = LibraryView.loadFromNib()!
+    private let libraryView: LibraryView = LibraryView.loadFromNib()!
     
-    let spacingBetweenCells: CGFloat = 10
+    static let spacingBetweenCells: CGFloat = 10
     
     // Hard coded data array
     private var bookArray: Array = [["title": "When the doves disappeared", "author": "Timothy Cross", "img": "img_book1"], ["title": "When the doves disappearedasdasdasdasdasasdasdas", "author": "Sofi Oksanen", "img": "img_book2"], ["title": "The best book in the world", "author": "Peter Stjerstrom", "img": "img_book3"], ["title": "Be creative", "author": "unknown", "img": "img_book4"], ["title": "Redesign the web", "author": "Wolox", "img": "img_book5"], ["title": "Yellow", "author": "Matias Schwalb", "img": "img_book6"]]
@@ -24,10 +24,10 @@ final class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib.init(nibName: "MyCustomCell", bundle: nil)
-        libraryView.tblBooks.register(nib, forCellReuseIdentifier: "MyCustomCell")
-        libraryView.tblBooks.delegate = self  
-        libraryView.tblBooks.dataSource = self
+        let nib = UINib(nibName: "LibraryCell", bundle: nil)
+        libraryView.tableBooks.register(nib, forCellReuseIdentifier: "LibraryCell")
+        libraryView.tableBooks.delegate = self  
+        libraryView.tableBooks.dataSource = self
     }
 
 }
@@ -50,7 +50,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
 
     // Spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return spacingBetweenCells
+        return LibraryViewController.spacingBetweenCells
     }
     
     // Make the background color show through
@@ -62,7 +62,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     // Cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? MyCustomCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCell", for: indexPath) as? LibraryCell else {
             print("Error on dequeueReusableCell")
             return UITableViewCell()
         }

@@ -52,7 +52,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="barImage" destination="PSw-t3-fQI" id="p6X-sd-0t8"/>
-                <outlet property="tblBooks" destination="p25-Rh-0Vz" id="18l-hf-Pgc"/>
+                <outlet property="tableBooks" destination="p25-Rh-0Vz" id="18l-hf-Pgc"/>
             </connections>
             <point key="canvasLocation" x="-323.1884057971015" y="30.803571428571427"/>
         </view>

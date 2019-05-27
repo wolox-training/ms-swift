@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCustomCell: UITableViewCell {
+class LibraryCell: UITableViewCell {
 
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var botLabel: UILabel!
@@ -35,11 +35,11 @@ class MyCustomCell: UITableViewCell {
         topLabel.numberOfLines = 0
     
     }
-
+/*
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     //    print("Pressed a cell")
         // Configure the view for the selected state
     }
-
+*/
 }

@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="eZg-2N-Bnc" userLabel="My Custom Cell" customClass="MyCustomCell" customModule="WBooks" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="eZg-2N-Bnc" customClass="LibraryCell" customModule="WBooks" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
