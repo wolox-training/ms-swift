@@ -12,6 +12,7 @@ import WolmoCore
 
 final class NavigationController: UINavigationController {
     
+    
     func setupNav() {
         
         // Text
@@ -21,7 +22,8 @@ final class NavigationController: UINavigationController {
         let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
         topViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         topViewController?.navigationItem.rightBarButtonItem = searchButton
-        // Alarm button
+        
+        // Notifications button
         let notificationsButton = UIBarButtonItem(image: UIImage(named: "ic_notifications"), style: .plain, target: self, action: #selector(notificationsButtonTapped))
         topViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         topViewController?.navigationItem.leftBarButtonItem = notificationsButton
