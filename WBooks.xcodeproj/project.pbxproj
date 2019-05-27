@@ -20,6 +20,7 @@
 		316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8152295AADE00A3A2B3 /* LogInViewController.swift */; };
 		316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8172295AAEA00A3A2B3 /* LogInView.swift */; };
 		316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AF8192295AAF600A3A2B3 /* LogInView.xib */; };
+		318AA13E229C4D7B008BEAE5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AA13D229C4D7B008BEAE5 /* TabBarController.swift */; };
 		9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575041CB1B27500EA395E /* AppDelegate.swift */; };
 		9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575061CB1B27500EA395E /* LibraryViewController.swift */; };
 		9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D15750B1CB1B27500EA395E /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		316AF8152295AADE00A3A2B3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		316AF8172295AAEA00A3A2B3 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		316AF8192295AAF600A3A2B3 /* LogInView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
+		318AA13D229C4D7B008BEAE5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9D1575011CB1B27500EA395E /* WBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1575041CB1B27500EA395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D1575061CB1B27500EA395E /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,14 @@
 			name = "Log In";
 			sourceTree = "<group>";
 		};
+		318AA13A229C4C65008BEAE5 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				318AA13D229C4D7B008BEAE5 /* TabBarController.swift */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
 		9D1574F81CB1B27500EA395E = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 		9D1575031CB1B27500EA395E /* WBooks */ = {
 			isa = PBXGroup;
 			children = (
+				318AA13A229C4C65008BEAE5 /* Tab Bar */,
 				3144CB80229C1E1E002A680A /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
 				316AF80F2295A82800A3A2B3 /* Library */,
@@ -514,6 +525,7 @@
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
 				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
+				318AA13E229C4D7B008BEAE5 /* TabBarController.swift in Sources */,
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

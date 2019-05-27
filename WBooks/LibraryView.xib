@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="818" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p25-Rh-0Vz">
-                    <rect key="frame" x="0.0" y="128" width="414" height="734"/>
+                    <rect key="frame" x="0.0" y="128" width="414" height="628"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="D4D-rJ-Ujt"/>
@@ -36,10 +36,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="p25-Rh-0Vz" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="3o5-Qk-3tr"/>
                 <constraint firstItem="p25-Rh-0Vz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Bl8-IV-Wdi"/>
                 <constraint firstItem="PSw-t3-fQI" firstAttribute="trailing" secondItem="p25-Rh-0Vz" secondAttribute="trailing" id="Dbt-nt-oZa"/>
                 <constraint firstItem="p25-Rh-0Vz" firstAttribute="top" secondItem="vAz-KM-dvg" secondAttribute="bottom" constant="45" id="Kv5-wC-mty"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="p25-Rh-0Vz" secondAttribute="bottom" constant="106" id="OZ2-LV-eOP"/>
                 <constraint firstItem="vAz-KM-dvg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="S9q-yg-KbO"/>
                 <constraint firstItem="PSw-t3-fQI" firstAttribute="leading" secondItem="p25-Rh-0Vz" secondAttribute="leading" id="b02-Bu-lmP"/>
                 <constraint firstItem="PSw-t3-fQI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cAa-PA-wUb"/>
