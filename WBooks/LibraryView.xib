@@ -27,12 +27,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav bar" translatesAutoresizingMaskIntoConstraints="NO" id="PSw-t3-fQI">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIBRARY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAz-KM-dvg">
-                    <rect key="frame" x="154.5" y="50" width="105" height="29"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -40,8 +34,6 @@
                 <constraint firstItem="p25-Rh-0Vz" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="3o5-Qk-3tr"/>
                 <constraint firstItem="PSw-t3-fQI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9Ux-SK-EjL"/>
                 <constraint firstItem="p25-Rh-0Vz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Bl8-IV-Wdi"/>
-                <constraint firstItem="vAz-KM-dvg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="S9q-yg-KbO"/>
-                <constraint firstItem="vAz-KM-dvg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="XH6-HN-Dcj"/>
                 <constraint firstItem="p25-Rh-0Vz" firstAttribute="top" secondItem="PSw-t3-fQI" secondAttribute="bottom" constant="-160" id="lvP-NK-1s0"/>
                 <constraint firstItem="PSw-t3-fQI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mmi-tL-irk"/>
                 <constraint firstItem="PSw-t3-fQI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pHM-HM-mJz"/>

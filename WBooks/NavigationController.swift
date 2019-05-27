@@ -11,12 +11,10 @@ import UIKit
 import WolmoCore
 
 final class NavigationController: UINavigationController {
-    
-    
     func setupNav() {
         
         // Text
-        navigationItem.title = "LIBRARY"
+        navigationItem.prompt = "LIBRARY"
         
         // Search button
         let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
