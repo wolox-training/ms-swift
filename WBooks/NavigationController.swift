@@ -19,6 +19,12 @@ final class NavigationController: UINavigationController {
   //      navigationBar.barStyle = .black
    //     navigationBar.alpha = 0.0
         //      setBackgroundImage(img!)
+        /*
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+ */
         // Search button
         let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
         self.topViewController?.navigationItem.rightBarButtonItem = searchButton

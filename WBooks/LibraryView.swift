@@ -28,7 +28,7 @@ private extension LibraryView {
         self.layer.backgroundColor = tableBackgroundColor.cgColor
         tblBooks.layer.backgroundColor = UIColor.clear.cgColor
         
-        barImage.isHidden = true // Delete this after debugging navigation controller
+  //      barImage.isHidden = true // Delete this after debugging navigation controller
     }
     
 }
