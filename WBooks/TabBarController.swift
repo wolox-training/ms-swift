@@ -26,7 +26,6 @@ class TabBarController: UITabBarController {
         wishList.tabBarItem.image = UIImage(named: "ic_wishlist")
         wishList.tabBarItem.tag = 1
         
-        
         viewControllers = [home, wishList]
     }
 }

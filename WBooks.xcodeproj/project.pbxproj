@@ -21,6 +21,9 @@
 		316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8172295AAEA00A3A2B3 /* LogInView.swift */; };
 		316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AF8192295AAF600A3A2B3 /* LogInView.xib */; };
 		318AA13E229C4D7B008BEAE5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AA13D229C4D7B008BEAE5 /* TabBarController.swift */; };
+		318AA141229C5668008BEAE5 /* WishListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318AA140229C5668008BEAE5 /* WishListView.xib */; };
+		318AA143229C567E008BEAE5 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AA142229C567E008BEAE5 /* WishListView.swift */; };
+		318AA145229C5699008BEAE5 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AA144229C5699008BEAE5 /* WishListViewController.swift */; };
 		9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575041CB1B27500EA395E /* AppDelegate.swift */; };
 		9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575061CB1B27500EA395E /* LibraryViewController.swift */; };
 		9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D15750B1CB1B27500EA395E /* Assets.xcassets */; };
@@ -97,6 +100,9 @@
 		316AF8172295AAEA00A3A2B3 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		316AF8192295AAF600A3A2B3 /* LogInView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
 		318AA13D229C4D7B008BEAE5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		318AA140229C5668008BEAE5 /* WishListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListView.xib; sourceTree = "<group>"; };
+		318AA142229C567E008BEAE5 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		318AA144229C5699008BEAE5 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		9D1575011CB1B27500EA395E /* WBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1575041CB1B27500EA395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D1575061CB1B27500EA395E /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -175,8 +181,8 @@
 		312A13322296F373008FBCF6 /* Library Cell */ = {
 			isa = PBXGroup;
 			children = (
-				312C4AD822971EA5006150C3 /* LibraryCell.xib */,
 				312C4ADA22971EBF006150C3 /* LibraryCell.swift */,
+				312C4AD822971EA5006150C3 /* LibraryCell.xib */,
 			);
 			name = "Library Cell";
 			sourceTree = "<group>";
@@ -237,6 +243,16 @@
 			name = "Tab Bar";
 			sourceTree = "<group>";
 		};
+		318AA13F229C5629008BEAE5 /* Wish List */ = {
+			isa = PBXGroup;
+			children = (
+				318AA144229C5699008BEAE5 /* WishListViewController.swift */,
+				318AA142229C567E008BEAE5 /* WishListView.swift */,
+				318AA140229C5668008BEAE5 /* WishListView.xib */,
+			);
+			name = "Wish List";
+			sourceTree = "<group>";
+		};
 		9D1574F81CB1B27500EA395E = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +277,7 @@
 		9D1575031CB1B27500EA395E /* WBooks */ = {
 			isa = PBXGroup;
 			children = (
+				318AA13F229C5629008BEAE5 /* Wish List */,
 				318AA13A229C4C65008BEAE5 /* Tab Bar */,
 				3144CB80229C1E1E002A680A /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
@@ -446,6 +463,7 @@
 				316AF80922959FD300A3A2B3 /* Release.xcconfig in Resources */,
 				9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */,
 				312C4AD922971EA5006150C3 /* LibraryCell.xib in Resources */,
+				318AA141229C5668008BEAE5 /* WishListView.xib in Resources */,
 				316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,12 +536,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */,
+				318AA145229C5699008BEAE5 /* WishListViewController.swift in Sources */,
 				316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */,
 				CEB934DD1D21992100DF75C2 /* Environment.swift in Sources */,
 				316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */,
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
+				318AA143229C567E008BEAE5 /* WishListView.swift in Sources */,
 				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
 				318AA13E229C4D7B008BEAE5 /* TabBarController.swift in Sources */,
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,
