@@ -28,7 +28,6 @@ final class LibraryViewController: UIViewController {
         libraryView.tblBooks.register(nib, forCellReuseIdentifier: "MyCustomCell")
         libraryView.tblBooks.delegate = self  
         libraryView.tblBooks.dataSource = self
-
     }
 
 }
@@ -78,5 +77,4 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
 }

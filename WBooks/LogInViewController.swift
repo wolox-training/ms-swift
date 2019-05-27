@@ -23,9 +23,8 @@ final class LogInViewController: UIViewController {
         
         logInView.buttonLogIn.addTapGestureRecognizer { _ in
             print("Hi!")
-//            let libraryVC = LibraryViewController()
-            let navController = UINavigationController(rootViewController: LibraryViewController())
-//            self.present(libraryVC, animated: true, completion: nil)
+            let navController = NavigationController(rootViewController: LibraryViewController())
+            navController.setupNav()
             self.present(navController, animated: true, completion: nil)
         }
     }

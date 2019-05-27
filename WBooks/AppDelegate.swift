@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = LogInViewController()
         window?.makeKeyAndVisible()
         
-        UINavigationBar.appearance().barTintColor = .red
+  //      UINavigationBar.appearance().barTintColor = .red
         
         return true
     }
