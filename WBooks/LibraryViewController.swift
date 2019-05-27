@@ -10,7 +10,6 @@ import UIKit
 
 final class LibraryViewController: UIViewController {
   
-//    private let libraryView = UINavigationController(rootViewController: LibraryViewController()).awakeFromNib()
     private let libraryView: LibraryView = LibraryView.loadFromNib()!
 
     static let spacingBetweenCells: CGFloat = 10
@@ -85,6 +84,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         
         navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = UIImage()
+        navigationBar?.backgroundColor = .clear
         navigationBar?.isTranslucent = true
     }
 }

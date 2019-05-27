@@ -21,14 +21,6 @@ final class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let navController = NavigationController(rootViewController: LibraryViewController())
- //       let navigationBar = navigationController?.navigationBar
-        let navigationBar = navController.navigationBar
-        
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = true
-        
         logInView.buttonLogIn.addTapGestureRecognizer { _ in
             print("Hi!")
             let navController = NavigationController(rootViewController: LibraryViewController())
@@ -36,14 +28,4 @@ final class LogInViewController: UIViewController {
             self.present(navController, animated: true, completion: nil)
         }
     }
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let navigationBar = self.navigationController?.navigationBar
-        
-        navigationBar?.setBackgroundImage(UIImage(), for: .default)
-        navigationBar?.shadowImage = UIImage()
-        navigationBar?.isTranslucent = true
-    }*/
 }
