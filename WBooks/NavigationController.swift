@@ -31,8 +31,25 @@ final class NavigationController: UINavigationController {
         // Alarm button
         let notificationsButton = UIBarButtonItem(image: UIImage(named: "ic_notifications"), style: .plain, target: self, action: #selector(notificationsButtonTapped))
         self.topViewController?.navigationItem.leftBarButtonItem = notificationsButton
+        /*
+        let navigationBar = self.navigationController?.navigationBar
+        
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.isTranslucent = true
+        */
     }
-    
+    /*
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let navigationBar = self.navigationController?.navigationBar
+        
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.isTranslucent = true
+    }
+    */
     @objc func searchButtonTapped() {
         print("Search button tapped")
     }

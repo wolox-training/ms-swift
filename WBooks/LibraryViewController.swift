@@ -77,4 +77,14 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let navigationBar = self.navigationController?.navigationBar
+        
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.isTranslucent = true
+    }
 }
