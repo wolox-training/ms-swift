@@ -12,10 +12,6 @@ import WolmoCore
 
 final class NavigationController: UINavigationController {
     func setupNav() {
-        
-        // Text
-        navigationItem.prompt = "LIBRARY"
-        
         // Search button
         let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
         topViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
