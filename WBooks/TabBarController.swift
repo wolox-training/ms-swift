@@ -29,6 +29,24 @@ class TabBarController: UITabBarController {
         wishList.tabBarItem.image = UIImage(named: "ic_wishlist")
         wishList.tabBarItem.tag = 1
         
-        viewControllers = [home, wishList]
+        let addNew = AddNewViewController()
+        addNew.tabBarItem = UITabBarItem()
+        addNew.tabBarItem.title = "Add New"
+        addNew.tabBarItem.image = UIImage(named: "ic_add new")
+        addNew.tabBarItem.tag = 2
+        
+        let rentals = RentalsViewController()
+        rentals.tabBarItem = UITabBarItem()
+        rentals.tabBarItem.title = "Rentals"
+        rentals.tabBarItem.image = UIImage(named: "ic_myrentals")
+        rentals.tabBarItem.tag = 3
+        
+        let settings = SettingsViewController()
+        settings.tabBarItem = UITabBarItem()
+        settings.tabBarItem.title = "Settings"
+        settings.tabBarItem.image = UIImage(named: "ic_settings")
+        settings.tabBarItem.tag = 4
+        
+        viewControllers = [home, wishList, addNew, rentals, settings]
     }
 }
