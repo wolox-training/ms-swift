@@ -34,6 +34,7 @@
 		31D50A04229DA44A00E0F144 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D50A03229DA44A00E0F144 /* SettingsViewController.swift */; };
 		31D50A06229DA45100E0F144 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D50A05229DA45100E0F144 /* SettingsView.xib */; };
 		31D50A09229DB88600E0F144 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31D50A0B229DB88600E0F144 /* Localizable.strings */; };
+		31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D50A0F229DCF8100E0F144 /* LibraryViewModel.swift */; };
 		9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575041CB1B27500EA395E /* AppDelegate.swift */; };
 		9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575061CB1B27500EA395E /* LibraryViewController.swift */; };
 		9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D15750B1CB1B27500EA395E /* Assets.xcassets */; };
@@ -123,6 +124,7 @@
 		31D50A03229DA44A00E0F144 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		31D50A05229DA45100E0F144 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		31D50A0A229DB88600E0F144 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		31D50A0F229DCF8100E0F144 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 		9D1575011CB1B27500EA395E /* WBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1575041CB1B27500EA395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D1575061CB1B27500EA395E /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		312A13332296F37E008FBCF6 /* Library View */ = {
 			isa = PBXGroup;
 			children = (
+				31D50A0F229DCF8100E0F144 /* LibraryViewModel.swift */,
 				9D1575061CB1B27500EA395E /* LibraryViewController.swift */,
 				316AF8102295A89900A3A2B3 /* LibraryView.swift */,
 				316AF8122295A8B100A3A2B3 /* LibraryView.xib */,
@@ -601,6 +604,7 @@
 				31D50A02229DA43F00E0F144 /* SettingsView.swift in Sources */,
 				31D509F8229D921500E0F144 /* AddNewViewController.swift in Sources */,
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
+				31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
 				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,

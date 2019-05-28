@@ -14,8 +14,8 @@ final class LibraryViewController: UIViewController {
 
     static let spacingBetweenCells: CGFloat = 10
     
-    // Hard coded data array
-    private var bookArray: Array = [["title": "When the doves disappeared", "author": "Timothy Cross", "img": "img_book1"], ["title": "When the doves disappearedasdasdasdasdasasdasdas", "author": "Sofi Oksanen", "img": "img_book2"], ["title": "The best book in the world", "author": "Peter Stjerstrom", "img": "img_book3"], ["title": "Be creative", "author": "unknown", "img": "img_book4"], ["title": "Redesign the web", "author": "Wolox", "img": "img_book5"], ["title": "Yellow", "author": "Matias Schwalb", "img": "img_book6"]]
+    // MVVM
+    private let libraryViewModel: LibraryViewModel = LibraryViewModel()
     
     override func loadView() {
         view = libraryView
@@ -35,7 +35,7 @@ final class LibraryViewController: UIViewController {
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return bookArray.count
+        return libraryViewModel.countMembersInBookArray()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,27 +68,10 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Fill in the cell with info
         
-        let dict = bookArray[indexPath.section]
-
-        cell.imageBook.image = UIImage(named: dict["img"]!)
-        cell.topLabel.text = dict["title"]
-        cell.botLabel.text = dict["author"]
+        cell.imageBook.image = libraryViewModel.getBookImageAtIndex(index: indexPath.section)
+        cell.topLabel.text = libraryViewModel.getBookTitleAtIndex(index: indexPath.section)
+        cell.botLabel.text = libraryViewModel.getBookAuthorAtIndex(index: indexPath.section)
         
         return cell
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let navigationBar = self.navigationController?.navigationBar
-        
-        navigationBar?.setBackgroundImage(UIImage(), for: .default)
-        navigationBar?.shadowImage = UIImage()
-        navigationBar?.backgroundColor = .clear
-        navigationBar?.isTranslucent = true
-        navigationBar?.tintColor = UIColor.white
-        
-        navigationBar?.topItem?.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
-        navigationBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
 }
