@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
         home.setupNav()
    //    let home = LibraryViewController()
         home.tabBarItem = UITabBarItem()
-        home.tabBarItem.title = "Library"
+        home.tabBarItem.title = "TAB_LIBRARY_TITLE".localized()
         home.tabBarItem.image = UIImage(named: "ic_library")
         home.tabBarItem.tag = 0
         print(home)
@@ -25,25 +25,25 @@ class TabBarController: UITabBarController {
         let wishList = WishListViewController()   // Not developed yet
 //        let wishList = LogInViewController()    // Using LogInViewController for debugging until WishList is developed
         wishList.tabBarItem = UITabBarItem()
-        wishList.tabBarItem.title = "Wishlist"
+        wishList.tabBarItem.title = "TAB_WISHLIST_TITLE".localized()
         wishList.tabBarItem.image = UIImage(named: "ic_wishlist")
         wishList.tabBarItem.tag = 1
         
         let addNew = AddNewViewController()
         addNew.tabBarItem = UITabBarItem()
-        addNew.tabBarItem.title = "Add New"
+        addNew.tabBarItem.title = "TAB_ADDNEW_TITLE".localized()
         addNew.tabBarItem.image = UIImage(named: "ic_add new")
         addNew.tabBarItem.tag = 2
         
         let rentals = RentalsViewController()
         rentals.tabBarItem = UITabBarItem()
-        rentals.tabBarItem.title = "Rentals"
+        rentals.tabBarItem.title = "TAB_RENTALS_TITLE".localized()
         rentals.tabBarItem.image = UIImage(named: "ic_myrentals")
         rentals.tabBarItem.tag = 3
         
         let settings = SettingsViewController()
         settings.tabBarItem = UITabBarItem()
-        settings.tabBarItem.title = "Settings"
+        settings.tabBarItem.title = "TAB_SETTINGS_TITLE".localized()
         settings.tabBarItem.image = UIImage(named: "ic_settings")
         settings.tabBarItem.tag = 4
         

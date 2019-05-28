@@ -88,8 +88,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         navigationBar?.isTranslucent = true
         navigationBar?.tintColor = UIColor.white
         
-        navigationBar?.topItem?.title = "LIBRARY"
+        navigationBar?.topItem?.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
         navigationBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-
     }
 }

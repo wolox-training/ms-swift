@@ -38,5 +38,6 @@ private extension LogInView {
         buttonLogIn.layer.borderColor = UIColor.white.cgColor
         buttonLogIn.layer.borderWidth = 4
         buttonLogIn.titleLabel?.font = UIFont.boldSystemFont(ofSize: buttonFontSize)
+        buttonLogIn.setTitle("LOGIN_BUTTON_TITLE".localized(), for: .normal)
     }
 }
