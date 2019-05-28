@@ -10,6 +10,9 @@
 		0CCF002A219208080061050C /* WolmoReactiveCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF0029219208080061050C /* WolmoReactiveCore.framework */; };
 		0CCF002C219208110061050C /* Wormholy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF002B219208110061050C /* Wormholy.framework */; };
 		0CCF002E219208180061050C /* WolmoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF002D219208180061050C /* WolmoCore.framework */; };
+		312C4AD922971EA5006150C3 /* LibraryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C4AD822971EA5006150C3 /* LibraryCell.xib */; };
+		312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312C4ADA22971EBF006150C3 /* LibraryCell.swift */; };
+		3144CB82229C1E31002A680A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3144CB81229C1E31002A680A /* NavigationController.swift */; };
 		316AF80922959FD300A3A2B3 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 316AF80822959FD300A3A2B3 /* Release.xcconfig */; };
 		316AF80E2295A4AA00A3A2B3 /* LogInVIew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316AF80D2295A4AA00A3A2B3 /* LogInVIew.storyboard */; };
 		316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8102295A89900A3A2B3 /* LibraryView.swift */; };
@@ -79,6 +82,9 @@
 		0CCF0029219208080061050C /* WolmoReactiveCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WolmoReactiveCore.framework; path = Carthage/Build/iOS/WolmoReactiveCore.framework; sourceTree = "<group>"; };
 		0CCF002B219208110061050C /* Wormholy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Wormholy.framework; path = Carthage/Build/iOS/Wormholy.framework; sourceTree = "<group>"; };
 		0CCF002D219208180061050C /* WolmoCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WolmoCore.framework; path = Carthage/Build/iOS/WolmoCore.framework; sourceTree = "<group>"; };
+		312C4AD822971EA5006150C3 /* LibraryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCell.xib; sourceTree = "<group>"; };
+		312C4ADA22971EBF006150C3 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		3144CB81229C1E31002A680A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		316AF80822959FD300A3A2B3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		316AF80A22959FDF00A3A2B3 /* Alpha.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Alpha.xcconfig; sourceTree = "<group>"; };
 		316AF80B22959FE000A3A2B3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -164,6 +170,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		312A13322296F373008FBCF6 /* Library Cell */ = {
+			isa = PBXGroup;
+			children = (
+				312C4AD822971EA5006150C3 /* LibraryCell.xib */,
+				312C4ADA22971EBF006150C3 /* LibraryCell.swift */,
+			);
+			name = "Library Cell";
+			sourceTree = "<group>";
+		};
+		312A13332296F37E008FBCF6 /* Library View */ = {
+			isa = PBXGroup;
+			children = (
+				9D1575061CB1B27500EA395E /* LibraryViewController.swift */,
+				316AF8102295A89900A3A2B3 /* LibraryView.swift */,
+				316AF8122295A8B100A3A2B3 /* LibraryView.xib */,
+			);
+			name = "Library View";
+			sourceTree = "<group>";
+		};
+		3144CB80229C1E1E002A680A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3144CB81229C1E31002A680A /* NavigationController.swift */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
 		316AF80722959FB700A3A2B3 /* ConfigurationFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,9 +211,8 @@
 		316AF80F2295A82800A3A2B3 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				9D1575061CB1B27500EA395E /* LibraryViewController.swift */,
-				316AF8102295A89900A3A2B3 /* LibraryView.swift */,
-				316AF8122295A8B100A3A2B3 /* LibraryView.xib */,
+				312A13332296F37E008FBCF6 /* Library View */,
+				312A13322296F373008FBCF6 /* Library Cell */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -219,6 +251,7 @@
 		9D1575031CB1B27500EA395E /* WBooks */ = {
 			isa = PBXGroup;
 			children = (
+				3144CB80229C1E1E002A680A /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
 				316AF80F2295A82800A3A2B3 /* Library */,
 				316AF80722959FB700A3A2B3 /* ConfigurationFiles */,
@@ -401,6 +434,7 @@
 				316AF80E2295A4AA00A3A2B3 /* LogInVIew.storyboard in Resources */,
 				316AF80922959FD300A3A2B3 /* Release.xcconfig in Resources */,
 				9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */,
+				312C4AD922971EA5006150C3 /* LibraryCell.xib in Resources */,
 				316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,8 +510,10 @@
 				316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */,
 				CEB934DD1D21992100DF75C2 /* Environment.swift in Sources */,
 				316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */,
+				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
+				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
