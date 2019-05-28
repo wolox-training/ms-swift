@@ -27,8 +27,6 @@ private extension LibraryView {
         let tableBackgroundColor = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
         layer.backgroundColor = tableBackgroundColor.cgColor
         tableBooks.layer.backgroundColor = UIColor.clear.cgColor
-        
-  //      barImage.isHidden = true // Delete this after debugging navigation controller
     }
     
 }

@@ -10,9 +10,8 @@ import UIKit
 
 final class LibraryViewController: UIViewController {
   
-//    private let libraryView = UINavigationController(rootViewController: LibraryViewController()).awakeFromNib()
     private let libraryView: LibraryView = LibraryView.loadFromNib()!
-    
+
     static let spacingBetweenCells: CGFloat = 10
     
     // Hard coded data array
@@ -24,8 +23,8 @@ final class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "LibraryCell", bundle: nil)
-        libraryView.tableBooks.register(nib, forCellReuseIdentifier: "LibraryCell")
+        let nib = UINib(nibName: LibraryCell.xibFileCellName, bundle: nil)
+        libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileCellName)
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
     }
@@ -62,7 +61,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     // Cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCell", for: indexPath) as? LibraryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileCellName, for: indexPath) as? LibraryCell else {
             print("Error on dequeueReusableCell")
             return UITableViewCell()
         }
@@ -76,5 +75,21 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.botLabel.text = dict["author"]
         
         return cell
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let navigationBar = self.navigationController?.navigationBar
+        
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.backgroundColor = .clear
+        navigationBar?.isTranslucent = true
+        navigationBar?.tintColor = UIColor.white
+        
+        navigationBar?.topItem?.title = "LIBRARY"
+        navigationBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class LibraryCell: UITableViewCell {
 
+    static let xibFileCellName = "LibraryCell"
+    
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var botLabel: UILabel!
     @IBOutlet weak var imageBook: UIImageView!
@@ -24,9 +26,9 @@ class LibraryCell: UITableViewCell {
         viewDisplay.layer.masksToBounds = true
         viewDisplay.layer.backgroundColor = UIColor.white.cgColor
  
-        self.layer.cornerRadius = 22
-        self.layer.masksToBounds = true
-        self.layer.backgroundColor = cellBackgroundColor.cgColor
+        layer.cornerRadius = 22
+        layer.masksToBounds = true
+        layer.backgroundColor = cellBackgroundColor.cgColor
         
         topLabel.font = UIFont.boldSystemFont(ofSize: 20)
         botLabel.font = UIFont.systemFont(ofSize: 12)
@@ -35,11 +37,4 @@ class LibraryCell: UITableViewCell {
         topLabel.numberOfLines = 0
     
     }
-/*
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    //    print("Pressed a cell")
-        // Configure the view for the selected state
-    }
-*/
 }

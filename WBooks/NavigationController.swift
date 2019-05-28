@@ -11,28 +11,22 @@ import UIKit
 import WolmoCore
 
 final class NavigationController: UINavigationController {
-    
     func setupNav() {
- //       let img = UIImage(named: "bc_nav bar")
- //       navigationBar.setBackgroundImage(img, for: .default)
-  //      navigationBar.isTranslucent = true
-  //      navigationBar.barStyle = .black
-   //     navigationBar.alpha = 0.0
-        //      setBackgroundImage(img!)
-        /*
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
- */
+        
+        // Text
+        navigationItem.prompt = "LIBRARY"
+        
         // Search button
         let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
-        self.topViewController?.navigationItem.rightBarButtonItem = searchButton
-        // Alarm button
+        topViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        topViewController?.navigationItem.rightBarButtonItem = searchButton
+        
+        // Notifications button
         let notificationsButton = UIBarButtonItem(image: UIImage(named: "ic_notifications"), style: .plain, target: self, action: #selector(notificationsButtonTapped))
-        self.topViewController?.navigationItem.leftBarButtonItem = notificationsButton
+        topViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        topViewController?.navigationItem.leftBarButtonItem = notificationsButton
+
     }
-    
     @objc func searchButtonTapped() {
         print("Search button tapped")
     }
