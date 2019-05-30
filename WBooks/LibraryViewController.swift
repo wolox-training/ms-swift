@@ -10,7 +10,7 @@ import UIKit
 
 final class LibraryViewController: UIViewController {
   
-    private let libraryView: LibraryView = LibraryView.loadFromNib()!
+    private lazy var libraryView: LibraryView = LibraryView.loadFromNib()!
 
     static let spacingBetweenCells: CGFloat = 10
     
@@ -30,9 +30,9 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
         
-        libraryViewModel.loadBooks()
         libraryView.tableBooks.reloadData()
-        print("I have loaded \(libraryViewModel.bookArray.count) elements in bookArray")
+        
+     //   print("I have loaded \(libraryViewModel.bookArray.count) elements in bookArray")
     }
 
 }
@@ -41,9 +41,9 @@ final class LibraryViewController: UIViewController {
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-                print(libraryViewModel.bookArray.count)
+ //       print("In number of sections \(libraryViewModel.bookArray.count)")
         return libraryViewModel.bookArray.count
-   //     return 8    // Hard coded for debugging
+      //  return 8    // Hard coded for debugging
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
