@@ -14,6 +14,8 @@ final class LibraryViewController: UIViewController {
 
     static let spacingBetweenCells: CGFloat = 10
     
+  //  var booksDidLoad: Bool = false
+    
     // MVVM
     private let libraryViewModel: LibraryViewModel = LibraryViewModel()
     
@@ -29,6 +31,8 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.dataSource = self
         
         libraryViewModel.loadBooks()
+        libraryView.tableBooks.reloadData()
+        print("I have loaded \(libraryViewModel.bookArray.count) elements in bookArray")
     }
 
 }
@@ -37,6 +41,7 @@ final class LibraryViewController: UIViewController {
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+                print(libraryViewModel.bookArray.count)
         return libraryViewModel.bookArray.count
    //     return 8    // Hard coded for debugging
     }
@@ -74,8 +79,6 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.imageBook.image = UIImage(named: libraryViewModel.getBookImageAtIndex(index: indexPath.section))
         cell.topLabel.text = libraryViewModel.getBookTitleAtIndex(index: indexPath.section)
         cell.botLabel.text = libraryViewModel.getBookAuthorAtIndex(index: indexPath.section)
-        
- 
         
         return cell
     }

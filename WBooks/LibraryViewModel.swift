@@ -26,14 +26,23 @@ final class LibraryViewModel {
     
     func booksLoaded(books: [Book]) {
         bookArray = books
+        print("------------------- count is: " + String(bookArray.count) + " -------------------")
+        for index in 0 ..< bookArray.count {
+            print("id: " + String(bookArray[index].id))
+            print("title: " + bookArray[index].title)
+            print("author: " + bookArray[index].author)
+            print("genre: " + bookArray[index].genre)
+            print("year: " + bookArray[index].year)
+            print("------- DONE -------")
+        }
     }
 
     func loadBooks() {
         let repository = BookRepository()
         
         let onSuccess = { books in
-            print(books)
-          //  self.booksLoaded(books: books)
+         //   print(books)
+            self.booksLoaded(books: books)
         }
         
         let onError = { error in
@@ -67,4 +76,3 @@ final class LibraryViewModel {
         return bookArray[index].image
     }
 }
-
