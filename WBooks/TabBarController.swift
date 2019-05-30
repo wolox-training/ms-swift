@@ -41,7 +41,8 @@ class TabBarController: UITabBarController {
         rentals.tabBarItem.image = UIImage(named: "ic_myrentals")
         rentals.tabBarItem.tag = 3
         
-        let settings = SettingsViewController()
+        let settings = BookDetailViewController()
+        // let settings = SettingsViewController()
         settings.tabBarItem = UITabBarItem()
         settings.tabBarItem.title = "TAB_SETTINGS_TITLE".localized()
         settings.tabBarItem.image = UIImage(named: "ic_settings")
