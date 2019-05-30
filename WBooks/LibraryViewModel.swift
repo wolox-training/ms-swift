@@ -13,24 +13,43 @@ final class LibraryViewModel {
     init() {
         // Does my class inherit from another superclass?
         // If no, should my initializer do something?
-        
+ /*
         // Hardcoded initial data array
         for index in 0...5 {
             let myTitle = "title number " + String(index)
             let myAuthor = "author number " + String(index)
             let myImageName = "img_book" + String(index + 1)
-            addBookToArray(title: myTitle, author: myAuthor, imageName: myImageName)
-        }
+//            addBookToArray(title: myTitle, author: myAuthor, imageName: myImageName)
+   */     }
+    
+    var bookArray: [Book] = []
+    
+    func booksLoaded(books: [Book]) {
+        bookArray = books
     }
-    
-    private var bookArray: [Book] = []
-    
-    func addBookToArray(title: String, author: String, imageName: String) {
+
+    func loadBooks() {
+        let repository = BookRepository()
         
-        let book: Book = Book(title: title, author: author, image: UIImage(named: imageName)!)
+        let onSuccess = { books in
+            print(books)
+          //  self.booksLoaded(books: books)
+        }
+        
+        let onError = { error in
+            print(error)
+        }
+        
+        repository.fetchBooks(onSuccess: onSuccess, onError: onError)
+    }
+/*
+    func addBookToArray(id: Int, title: String, author: String, genre: String, year: String, image: String) {
+        
+        let book: Book = Book(id: id, title: title, author: author, image: image)
         
         bookArray.append(book)
     }
+ */
     
     func countMembersInBookArray() -> Int {
         return bookArray.count
@@ -44,13 +63,8 @@ final class LibraryViewModel {
         return bookArray[index].author
     }
     
-    func getBookImageAtIndex(index: Int) -> UIImage {
+    func getBookImageAtIndex(index: Int) -> String {
         return bookArray[index].image
     }
 }
 
-struct Book {
-    var title: String
-    var author: String
-    var image: UIImage
-}

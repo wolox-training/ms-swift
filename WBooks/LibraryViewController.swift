@@ -27,6 +27,8 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileCellName)
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
+        
+        libraryViewModel.loadBooks()
     }
 
 }
@@ -35,7 +37,8 @@ final class LibraryViewController: UIViewController {
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return libraryViewModel.countMembersInBookArray()
+        return libraryViewModel.bookArray.count
+   //     return 8    // Hard coded for debugging
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,10 +70,12 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         // Fill in the cell with info
-        
-        cell.imageBook.image = libraryViewModel.getBookImageAtIndex(index: indexPath.section)
+     
+        cell.imageBook.image = UIImage(named: libraryViewModel.getBookImageAtIndex(index: indexPath.section))
         cell.topLabel.text = libraryViewModel.getBookTitleAtIndex(index: indexPath.section)
         cell.botLabel.text = libraryViewModel.getBookAuthorAtIndex(index: indexPath.section)
+        
+ 
         
         return cell
     }
