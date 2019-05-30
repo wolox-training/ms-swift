@@ -30,9 +30,10 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
         
+        libraryViewModel.loadBooks()
         libraryView.tableBooks.reloadData()
-        
-     //   print("I have loaded \(libraryViewModel.bookArray.count) elements in bookArray")
+
+        print("I have loaded \(libraryViewModel.bookArray.count) elements in bookArray")
     }
 
 }
