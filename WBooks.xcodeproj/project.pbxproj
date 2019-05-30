@@ -20,6 +20,20 @@
 		316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8152295AADE00A3A2B3 /* LogInViewController.swift */; };
 		316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8172295AAEA00A3A2B3 /* LogInView.swift */; };
 		316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AF8192295AAF600A3A2B3 /* LogInView.xib */; };
+		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
+		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
+		31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B6229D797800E0F144 /* WishListView.swift */; };
+		31D509EB229D817A00E0F144 /* WishListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D509EA229D817A00E0F144 /* WishListView.xib */; };
+		31D509F2229D91E600E0F144 /* AddNewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D509F1229D91E600E0F144 /* AddNewView.xib */; };
+		31D509F6229D920100E0F144 /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509F5229D920100E0F144 /* AddNewView.swift */; };
+		31D509F8229D921500E0F144 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509F7229D921500E0F144 /* AddNewViewController.swift */; };
+		31D509FB229D923200E0F144 /* RentalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509FA229D923200E0F144 /* RentalsView.swift */; };
+		31D509FD229D924100E0F144 /* RentalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509FC229D924100E0F144 /* RentalsViewController.swift */; };
+		31D509FF229D925300E0F144 /* RentalsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D509FE229D925300E0F144 /* RentalsView.xib */; };
+		31D50A02229DA43F00E0F144 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D50A01229DA43F00E0F144 /* SettingsView.swift */; };
+		31D50A04229DA44A00E0F144 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D50A03229DA44A00E0F144 /* SettingsViewController.swift */; };
+		31D50A06229DA45100E0F144 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D50A05229DA45100E0F144 /* SettingsView.xib */; };
+		31D50A09229DB88600E0F144 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31D50A0B229DB88600E0F144 /* Localizable.strings */; };
 		9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575041CB1B27500EA395E /* AppDelegate.swift */; };
 		9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575061CB1B27500EA395E /* LibraryViewController.swift */; };
 		9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D15750B1CB1B27500EA395E /* Assets.xcassets */; };
@@ -95,6 +109,20 @@
 		316AF8152295AADE00A3A2B3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		316AF8172295AAEA00A3A2B3 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		316AF8192295AAF600A3A2B3 /* LogInView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
+		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		31D509E6229D7CF800E0F144 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		31D509EA229D817A00E0F144 /* WishListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListView.xib; sourceTree = "<group>"; };
+		31D509F1229D91E600E0F144 /* AddNewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewView.xib; sourceTree = "<group>"; };
+		31D509F5229D920100E0F144 /* AddNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewView.swift; sourceTree = "<group>"; };
+		31D509F7229D921500E0F144 /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		31D509FA229D923200E0F144 /* RentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalsView.swift; sourceTree = "<group>"; };
+		31D509FC229D924100E0F144 /* RentalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalsViewController.swift; sourceTree = "<group>"; };
+		31D509FE229D925300E0F144 /* RentalsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentalsView.xib; sourceTree = "<group>"; };
+		31D50A01229DA43F00E0F144 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		31D50A03229DA44A00E0F144 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		31D50A05229DA45100E0F144 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		31D50A0A229DB88600E0F144 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D1575011CB1B27500EA395E /* WBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1575041CB1B27500EA395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D1575061CB1B27500EA395E /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +255,54 @@
 			name = "Log In";
 			sourceTree = "<group>";
 		};
+		31D509B5229D796F00E0F144 /* Wish List */ = {
+			isa = PBXGroup;
+			children = (
+				31D509B7229D797800E0F144 /* WishListViewController.swift */,
+				31D509B6229D797800E0F144 /* WishListView.swift */,
+				31D509EA229D817A00E0F144 /* WishListView.xib */,
+			);
+			name = "Wish List";
+			sourceTree = "<group>";
+		};
+		31D509E5229D7CF200E0F144 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				31D509E6229D7CF800E0F144 /* TabBarController.swift */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		31D509F0229D91D300E0F144 /* Add New */ = {
+			isa = PBXGroup;
+			children = (
+				31D509F7229D921500E0F144 /* AddNewViewController.swift */,
+				31D509F5229D920100E0F144 /* AddNewView.swift */,
+				31D509F1229D91E600E0F144 /* AddNewView.xib */,
+			);
+			name = "Add New";
+			sourceTree = "<group>";
+		};
+		31D509F9229D921D00E0F144 /* Rentals */ = {
+			isa = PBXGroup;
+			children = (
+				31D509FC229D924100E0F144 /* RentalsViewController.swift */,
+				31D509FA229D923200E0F144 /* RentalsView.swift */,
+				31D509FE229D925300E0F144 /* RentalsView.xib */,
+			);
+			name = Rentals;
+			sourceTree = "<group>";
+		};
+		31D50A00229DA42D00E0F144 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				31D50A03229DA44A00E0F144 /* SettingsViewController.swift */,
+				31D50A01229DA43F00E0F144 /* SettingsView.swift */,
+				31D50A05229DA45100E0F144 /* SettingsView.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		9D1574F81CB1B27500EA395E = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +327,11 @@
 		9D1575031CB1B27500EA395E /* WBooks */ = {
 			isa = PBXGroup;
 			children = (
+				31D509E5229D7CF200E0F144 /* Tab Bar */,
+				31D50A00229DA42D00E0F144 /* Settings */,
+				31D509F9229D921D00E0F144 /* Rentals */,
+				31D509F0229D91D300E0F144 /* Add New */,
+				31D509B5229D796F00E0F144 /* Wish List */,
 				3144CB80229C1E1E002A680A /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
 				316AF80F2295A82800A3A2B3 /* Library */,
@@ -261,6 +342,7 @@
 				9D15750B1CB1B27500EA395E /* Assets.xcassets */,
 				9D1575101CB1B27500EA395E /* Info.plist */,
 				CEB934DC1D21992100DF75C2 /* Environment.swift */,
+				31D50A0B229DB88600E0F144 /* Localizable.strings */,
 			);
 			path = WBooks;
 			sourceTree = "<group>";
@@ -431,10 +513,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				316AF8132295A8B100A3A2B3 /* LibraryView.xib in Resources */,
+				31D50A06229DA45100E0F144 /* SettingsView.xib in Resources */,
+				31D50A09229DB88600E0F144 /* Localizable.strings in Resources */,
 				316AF80E2295A4AA00A3A2B3 /* LogInVIew.storyboard in Resources */,
 				316AF80922959FD300A3A2B3 /* Release.xcconfig in Resources */,
 				9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */,
 				312C4AD922971EA5006150C3 /* LibraryCell.xib in Resources */,
+				31D509F2229D91E600E0F144 /* AddNewView.xib in Resources */,
+				31D509FF229D925300E0F144 /* RentalsView.xib in Resources */,
+				31D509EB229D817A00E0F144 /* WishListView.xib in Resources */,
 				316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,12 +596,21 @@
 				9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */,
 				316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */,
 				CEB934DD1D21992100DF75C2 /* Environment.swift in Sources */,
+				31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */,
 				316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */,
+				31D50A02229DA43F00E0F144 /* SettingsView.swift in Sources */,
+				31D509F8229D921500E0F144 /* AddNewViewController.swift in Sources */,
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
+				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
+				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
 				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
+				31D509FB229D923200E0F144 /* RentalsView.swift in Sources */,
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,
+				31D509FD229D924100E0F144 /* RentalsViewController.swift in Sources */,
+				31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */,
+				31D50A04229DA44A00E0F144 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +644,17 @@
 			targetProxy = 9D1575211CB1B27500EA395E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		31D50A0B229DB88600E0F144 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31D50A0A229DB88600E0F144 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CE39E8751D1DAED00004FE95 /* Debug */ = {
