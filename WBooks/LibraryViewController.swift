@@ -6,12 +6,14 @@
 //  Copyright © 2016 Wolox. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import WolmoCore
 
 final class LibraryViewController: UIViewController {
   
     private let libraryView: LibraryView = LibraryView.loadFromNib()!
-
+    
     static let spacingBetweenCells: CGFloat = 10
     
     // MVVM
@@ -27,6 +29,8 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileCellName)
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
+        
+        setupBindings()
     }
 
 }
@@ -35,7 +39,7 @@ final class LibraryViewController: UIViewController {
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return libraryViewModel.countMembersInBookArray()
+        return libraryViewModel.books.value.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,18 +64,31 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // Cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileCellName, for: indexPath) as? LibraryCell else {
-            print("Error on dequeueReusableCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileCellName) as? LibraryCell else {
             return UITableViewCell()
         }
-
-        // Fill in the cell with info
         
-        cell.imageBook.image = libraryViewModel.getBookImageAtIndex(index: indexPath.section)
-        cell.topLabel.text = libraryViewModel.getBookTitleAtIndex(index: indexPath.section)
-        cell.botLabel.text = libraryViewModel.getBookAuthorAtIndex(index: indexPath.section)
+        let book: Book = libraryViewModel.books.value[indexPath.section]
+        
+        cell.imageBook?.image = UIImage()   // Add grey frame to make loading prettier
+        
+        if let url = book.imageUrl {
+            cell.imageBook?.load(url: url)
+        }
+        
+        cell.topLabel?.text = book.title
+        cell.botLabel?.text = book.author
         
         return cell
     }
+}
+
+private extension LibraryViewController {
+    
+    func setupBindings() {
+        libraryViewModel.books.producer.startWithValues { [unowned self] _ in
+            self.libraryView.tableBooks.reloadData()
+        }
+    }
+    
 }

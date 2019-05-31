@@ -7,50 +7,22 @@
 //
 
 import Foundation
-import UIKit
+import ReactiveSwift
+import WolmoCore
+import Result
 
-final class LibraryViewModel {
-    init() {
-        // Does my class inherit from another superclass?
-        // If no, should my initializer do something?
+class LibraryViewModel {
+    
+    private let mutableBooks = MutableProperty<[Book]>([])
+    public let books : Property<[Book]>
+    
+    private let bookRepository: WBookRepositoryType
+    
+    init(bookRepository: WBookRepositoryType = NetworkingBootstrapper.shared.createWBooksRepository()) {
+        self.bookRepository = bookRepository
         
-        // Hardcoded initial data array
-        for index in 0...5 {
-            let myTitle = "title number " + String(index)
-            let myAuthor = "author number " + String(index)
-            let myImageName = "img_book" + String(index + 1)
-            addBookToArray(title: myTitle, author: myAuthor, imageName: myImageName)
-        }
+        books = Property(mutableBooks)
+        mutableBooks <~ bookRepository.fetchEntities()
+            .flatMapError { _ in SignalProducer<[Book], NoError>.empty }
     }
-    
-    private var bookArray: [Book] = []
-    
-    func addBookToArray(title: String, author: String, imageName: String) {
-        
-        let book: Book = Book(title: title, author: author, image: UIImage(named: imageName)!)
-        
-        bookArray.append(book)
-    }
-    
-    func countMembersInBookArray() -> Int {
-        return bookArray.count
-    }
-    
-    func getBookTitleAtIndex(index: Int) -> String {
-        return bookArray[index].title
-    }
-    
-    func getBookAuthorAtIndex(index: Int) -> String {
-        return bookArray[index].author
-    }
-    
-    func getBookImageAtIndex(index: Int) -> UIImage {
-        return bookArray[index].image
-    }
-}
-
-struct Book {
-    var title: String
-    var author: String
-    var image: UIImage
 }
