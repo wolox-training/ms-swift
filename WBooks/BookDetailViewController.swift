@@ -11,7 +11,6 @@ import UIKit
 final class BookDetailViewController: UIViewController {
 
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
-    let bookDetail = BookDetail()
     
     override func loadView() {
         view = bookDetailView
@@ -19,11 +18,10 @@ final class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let subStackView = UIStackView(arrangedSubviews: [bookDetail])
-        subStackView.axis = .horizontal
-        subStackView.distribution = .fillEqually
-        subStackView.alignment = .fill
-        subStackView.spacing = 5
+        let childVC = BookDetailController()
+        addChildViewController(childVC)
+        view.addSubview(childVC.view)
+        // Setup constraints
+        childVC.didMove(toParentViewController: self)
     }
 }

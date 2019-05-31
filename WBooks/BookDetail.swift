@@ -6,15 +6,15 @@
 //  Copyright © 2019 Wolox. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import WolmoCore
 
-class BookDetail: UIView {
+class BookDetail: UIView, NibLoadable {
     
-    static let xibFileBookDetailName = "BookDetail"
-
     override func awakeFromNib() {
         // Initialization
-        
+        super.awakeFromNib()
         layer.cornerRadius = 22
         layer.masksToBounds = true
         

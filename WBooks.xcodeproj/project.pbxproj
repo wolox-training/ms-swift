@@ -26,6 +26,7 @@
 		31841ECD22A05F66000CDFC6 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31841ECC22A05F66000CDFC6 /* BookDetailViewModel.swift */; };
 		31841ED122A06890000CDFC6 /* BookDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31841ED022A06890000CDFC6 /* BookDetail.xib */; };
 		31841ED322A068A0000CDFC6 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31841ED222A068A0000CDFC6 /* BookDetail.swift */; };
+		318E461C22A15FD700649BE1 /* BookDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E461B22A15FD700649BE1 /* BookDetailController.swift */; };
 		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
 		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
 		31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B6229D797800E0F144 /* WishListView.swift */; };
@@ -122,6 +123,7 @@
 		31841ECC22A05F66000CDFC6 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		31841ED022A06890000CDFC6 /* BookDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetail.xib; sourceTree = "<group>"; };
 		31841ED222A068A0000CDFC6 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
+		318E461B22A15FD700649BE1 /* BookDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailController.swift; sourceTree = "<group>"; };
 		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		31D509E6229D7CF800E0F144 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				31841ED222A068A0000CDFC6 /* BookDetail.swift */,
+				318E461B22A15FD700649BE1 /* BookDetailController.swift */,
 				31841ED022A06890000CDFC6 /* BookDetail.xib */,
 			);
 			name = Detail;
@@ -657,6 +660,7 @@
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
 				31841EC922A05F47000CDFC6 /* BookDetailView.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
+				318E461C22A15FD700649BE1 /* BookDetailController.swift in Sources */,
 				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
 				31D509FB229D923200E0F144 /* RentalsView.swift in Sources */,
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,
