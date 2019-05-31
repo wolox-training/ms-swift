@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="aYZ-6M-eRd" customClass="BookDetail" customModule="WBooks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvi-OG-lCL">
+                    <rect key="frame" x="14" y="14" width="347" height="267"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sua-pN-5x8">
+                    <rect key="frame" x="143" y="137" width="88" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.96078431369999995" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="jvi-OG-lCL" firstAttribute="leading" secondItem="QLt-ni-G5d" secondAttribute="leading" constant="14" id="3Zj-vE-hUz"/>
+                <constraint firstItem="jvi-OG-lCL" firstAttribute="top" secondItem="aYZ-6M-eRd" secondAttribute="top" constant="14" id="G3r-F0-faQ"/>
+                <constraint firstAttribute="bottom" secondItem="jvi-OG-lCL" secondAttribute="bottom" constant="14" id="fB3-5e-91L"/>
+                <constraint firstItem="QLt-ni-G5d" firstAttribute="trailing" secondItem="jvi-OG-lCL" secondAttribute="trailing" constant="14" id="gNp-WU-D7h"/>
+                <constraint firstItem="jvi-OG-lCL" firstAttribute="centerY" secondItem="aYZ-6M-eRd" secondAttribute="centerY" id="hUB-sQ-xwe"/>
+                <constraint firstItem="jvi-OG-lCL" firstAttribute="centerX" secondItem="aYZ-6M-eRd" secondAttribute="centerX" id="hcq-DU-fS1"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="QLt-ni-G5d"/>
+            <point key="canvasLocation" x="126.81159420289856" y="134.26339285714286"/>
+        </view>
+    </objects>
+</document>
