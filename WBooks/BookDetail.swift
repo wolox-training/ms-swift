@@ -18,5 +18,7 @@ class BookDetail: UIView, NibLoadable {
         layer.cornerRadius = 22
         layer.masksToBounds = true
         
+       // clipsToBounds = true
+       // frame = CGRect(origin: CGPoint(x: 80, y: 100), size: self.frame.size)
     }
 }

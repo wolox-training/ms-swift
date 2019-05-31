@@ -12,6 +12,8 @@ import WolmoCore
 
 class BookDetailView: UIView, NibLoadable {
     
+    @IBOutlet weak var childDetailView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.backgroundColor = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1).cgColor

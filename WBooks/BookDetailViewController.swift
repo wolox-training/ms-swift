@@ -11,17 +11,13 @@ import UIKit
 final class BookDetailViewController: UIViewController {
 
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
-    
+    private let bookDetail = BookDetailController()
     override func loadView() {
         view = bookDetailView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let childVC = BookDetailController()
-        addChildViewController(childVC)
-        view.addSubview(childVC.view)
-        // Setup constraints
-        childVC.didMove(toParentViewController: self)
+        bookDetailView.childDetailView.addSubview(bookDetail.view)
     }
 }

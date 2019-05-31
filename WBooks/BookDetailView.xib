@@ -15,8 +15,25 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookDetailView" customModule="WBooks" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-FT-vzP" userLabel="ChildDetailView">
+                    <rect key="frame" x="20" y="90" width="375" height="295"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="5NY-FT-vzP" secondAttribute="height" multiplier="75:59" id="Rsh-Mx-iUG"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5NY-FT-vzP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="46" id="0Wy-g1-apN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5NY-FT-vzP" secondAttribute="trailing" constant="19" id="18L-Rv-kjP"/>
+                <constraint firstItem="5NY-FT-vzP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="j0D-uQ-8Ak"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="childDetailView" destination="5NY-FT-vzP" id="czU-77-Uy1"/>
+            </connections>
             <point key="canvasLocation" x="37.681159420289859" y="34.821428571428569"/>
         </view>
     </objects>
