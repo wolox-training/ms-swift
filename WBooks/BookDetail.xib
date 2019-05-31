@@ -108,10 +108,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="QLt-ni-G5d"/>
             <connections>
+                <outlet property="addToWishlistButton" destination="8yO-4g-pP9" id="ydp-f3-TeJ"/>
                 <outlet property="authorLabel" destination="7Ci-3d-9eV" id="8O7-hq-1M2"/>
                 <outlet property="availabilityLabel" destination="Eou-fd-2rW" id="Qgx-xY-N1j"/>
                 <outlet property="bookCover" destination="uDU-pi-2tl" id="Lei-Uy-1ld"/>
                 <outlet property="genreLabel" destination="2gA-IP-hpf" id="WW1-5g-5TJ"/>
+                <outlet property="rentButton" destination="zpj-9X-RhT" id="bs3-WQ-HM9"/>
                 <outlet property="titleLabel" destination="kim-Ro-WcW" id="9Qh-Wn-9k4"/>
                 <outlet property="whiteView" destination="jvi-OG-lCL" id="ktb-Dt-k2e"/>
                 <outlet property="yearLabel" destination="MlE-zh-tGd" id="u0R-jo-6Yd"/>

@@ -19,6 +19,8 @@ class BookDetail: UIView, NibLoadable {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var addToWishlistButton: UIButton!
+    @IBOutlet weak var rentButton: UIButton!
     
     override func awakeFromNib() {
         // Initialization
@@ -34,6 +36,11 @@ class BookDetail: UIView, NibLoadable {
         
         availabilityLabel.font = UIFont.boldSystemFont(ofSize: 12)
         availabilityLabel.textColor = UIColor.green
+        
+        addToWishlistButton.clipsToBounds = true
+        addToWishlistButton.layer.borderColor = UIColor.red.cgColor
+        addToWishlistButton.layer.borderWidth = 4
+        addToWishlistButton.layer.cornerRadius = 30 * (UIScreen.main.bounds.height / 896)
         
        // clipsToBounds = true
        // frame = CGRect(origin: CGPoint(x: 80, y: 100), size: self.frame.size)
