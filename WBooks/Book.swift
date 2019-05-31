@@ -21,7 +21,6 @@ struct Book {
     let year: String
     let genre: String
     
-    
     init(id: Int, author: String, title: String, image: String?, year: String, genre: String) {
         self.id = id
         self.author = author
