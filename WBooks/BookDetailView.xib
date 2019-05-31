@@ -16,12 +16,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-FT-vzP" userLabel="ChildDetailView">
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="295" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-FT-vzP" userLabel="ChildDetailView">
                     <rect key="frame" x="20" y="90" width="375" height="295"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="5NY-FT-vzP" secondAttribute="height" multiplier="75:59" id="Rsh-Mx-iUG"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

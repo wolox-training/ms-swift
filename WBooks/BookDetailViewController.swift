@@ -19,5 +19,6 @@ final class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookDetailView.childDetailView.addSubview(bookDetail.view)
+        
     }
 }
