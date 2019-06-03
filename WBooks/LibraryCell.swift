@@ -20,7 +20,6 @@ class LibraryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let cellBackgroundColor = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
        
         viewDisplay.layer.cornerRadius = 22
         viewDisplay.layer.masksToBounds = true
@@ -28,7 +27,7 @@ class LibraryCell: UITableViewCell {
  
         layer.cornerRadius = 22
         layer.masksToBounds = true
-        layer.backgroundColor = cellBackgroundColor.cgColor
+        layer.backgroundColor = UIColor.wLightBlue.cgColor
         
         topLabel.font = UIFont.boldSystemFont(ofSize: 20)
         botLabel.font = UIFont.systemFont(ofSize: 12)

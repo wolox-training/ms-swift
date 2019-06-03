@@ -48,6 +48,7 @@
 		31D50A06229DA45100E0F144 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D50A05229DA45100E0F144 /* SettingsView.xib */; };
 		31D50A09229DB88600E0F144 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31D50A0B229DB88600E0F144 /* Localizable.strings */; };
 		31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D50A0F229DCF8100E0F144 /* LibraryViewModel.swift */; };
+		31E925EE22A5627100F9EC8D /* WColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E925ED22A5627100F9EC8D /* WColor.swift */; };
 		9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575041CB1B27500EA395E /* AppDelegate.swift */; };
 		9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1575061CB1B27500EA395E /* LibraryViewController.swift */; };
 		9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D15750B1CB1B27500EA395E /* Assets.xcassets */; };
@@ -151,6 +152,7 @@
 		31D50A05229DA45100E0F144 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		31D50A0A229DB88600E0F144 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		31D50A0F229DCF8100E0F144 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		31E925ED22A5627100F9EC8D /* WColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WColor.swift; sourceTree = "<group>"; };
 		9D1575011CB1B27500EA395E /* WBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1575041CB1B27500EA395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D1575061CB1B27500EA395E /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 		318E463C22A1799500649BE1 /* Book Detail */ = {
 			isa = PBXGroup;
 			children = (
+				31E925EC22A5626400F9EC8D /* Colors */,
 				318E463E22A179A300649BE1 /* View */,
 				318E463D22A1799D00649BE1 /* Detail */,
 			);
@@ -402,6 +405,14 @@
 				31D50A05229DA45100E0F144 /* SettingsView.xib */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		31E925EC22A5626400F9EC8D /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				31E925ED22A5627100F9EC8D /* WColor.swift */,
+			);
+			name = Colors;
 			sourceTree = "<group>";
 		};
 		9D1574F81CB1B27500EA395E = {
@@ -724,6 +735,7 @@
 				318E463622A1799200649BE1 /* BookDetailViewModel.swift in Sources */,
 				318E462722A1667D00649BE1 /* AuthUser.swift in Sources */,
 				318E462522A165D500649BE1 /* Book.swift in Sources */,
+				31E925EE22A5627100F9EC8D /* WColor.swift in Sources */,
 				31D509FB229D923200E0F144 /* RentalsView.swift in Sources */,
 				318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */,
 				318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */,

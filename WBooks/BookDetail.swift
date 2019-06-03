@@ -33,22 +33,22 @@ class BookDetail: UIView, NibLoadable {
         titleLabel.numberOfLines = 0
         
         availabilityLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        availabilityLabel.textColor = UIColor(displayP3Red: 172.0 / 255.0, green: 194.0 / 255.0, blue: 93.0 / 255.0, alpha: 1.0)
+        availabilityLabel.textColor = UIColor.wOliveGreen
         
         addToWishlistButton.clipsToBounds = true
-        addToWishlistButton.layer.borderColor = UIColor(displayP3Red: 88.0 / 255.0, green: 160.0 / 255.0, blue: 222.0 / 255.0, alpha: 1.0).cgColor
+        addToWishlistButton.layer.borderColor = UIColor.wBlue.cgColor
         addToWishlistButton.layer.borderWidth = 1
         addToWishlistButton.layer.cornerRadius = 25 * (UIScreen.main.bounds.height / 896)
         addToWishlistButton.setTitle("DETAIL_WISHLIST_BUTTON_TITLE".localized(), for: .normal)
         addToWishlistButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19 * (UIScreen.main.bounds.height / 896))
-        addToWishlistButton.setTitleColor(UIColor(displayP3Red: 88.0 / 255.0, green: 160.0 / 255.0, blue: 222.0 / 255.0, alpha: 1.0), for: .normal)
+        addToWishlistButton.setTitleColor(UIColor.wBlue, for: .normal)
         addToWishlistButton.heightAnchor.constraint(equalToConstant: 53.0).isActive = true
         
         rentButton.clipsToBounds = true
-        rentButton.layer.borderColor = UIColor(displayP3Red: 88.0 / 255.0, green: 160.0 / 255.0, blue: 222.0 / 255.0, alpha: 1.0).cgColor
+        rentButton.layer.borderColor = UIColor.wBlue.cgColor
         rentButton.layer.borderWidth = 4
         rentButton.layer.cornerRadius = 25 * (UIScreen.main.bounds.height / 896)
-        rentButton.backgroundColor = UIColor(displayP3Red: 88.0 / 255.0, green: 160.0 / 255.0, blue: 222.0 / 255.0, alpha: 1.0)
+        rentButton.backgroundColor = UIColor.wBlue
         rentButton.setTitle("DETAIL_RENT_BUTTON_TITLE".localized(), for: .normal)
         rentButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19 * (UIScreen.main.bounds.height / 896))
         rentButton.setTitleColor(UIColor.white, for: .normal)
