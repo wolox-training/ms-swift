@@ -31,6 +31,14 @@ final class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
+        
+        bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
+            print("Rent Button tapped")
+        }
+        
+        bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
+            print("Add to wishlist button tapped")
+        }
     }
     
     func setupNav() {
