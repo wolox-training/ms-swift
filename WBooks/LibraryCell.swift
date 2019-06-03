@@ -13,7 +13,7 @@ class LibraryCell: UITableViewCell {
     static let xibFileCellName = "LibraryCell"
     
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var botLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var imageBook: UIImageView!
     @IBOutlet weak var viewDisplay: UIView!
     
@@ -31,7 +31,7 @@ class LibraryCell: UITableViewCell {
         layer.backgroundColor = cellBackgroundColor.cgColor
         
         topLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        botLabel.font = UIFont.systemFont(ofSize: 12)
+        bottomLabel.font = UIFont.systemFont(ofSize: 12)
         
         topLabel.lineBreakMode = .byWordWrapping
         topLabel.numberOfLines = 0
