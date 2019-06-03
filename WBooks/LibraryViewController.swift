@@ -77,7 +77,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.topLabel?.text = book.title
-        cell.botLabel?.text = book.author
+        cell.bottomLabel?.text = book.author
         
         return cell
     }
