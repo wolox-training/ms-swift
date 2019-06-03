@@ -10,7 +10,7 @@ import UIKit
 
 class BookDetailController: UIViewController {
     
-    private let bookDetail: BookDetail = BookDetail.loadFromNib()!
+    let bookDetail: BookDetail = BookDetail.loadFromNib()!
     
     override func loadView() {
         view = bookDetail

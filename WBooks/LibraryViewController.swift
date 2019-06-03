@@ -31,6 +31,8 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.dataSource = self
         
         setupBindings()
+        
+
     }
 
 }
@@ -78,6 +80,11 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.topLabel?.text = book.title
         cell.bottomLabel?.text = book.author
+        
+        cell.addTapGestureRecognizer { _ in
+            let bookDetailViewController = BookDetailViewController(book: book)
+            self.present(bookDetailViewController, animated: true, completion: nil)
+        }
         
         return cell
     }

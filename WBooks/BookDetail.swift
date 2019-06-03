@@ -15,7 +15,7 @@ class BookDetail: UIView, NibLoadable {
     @IBOutlet weak var whiteView: UIView!
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var availabilityLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
@@ -32,8 +32,8 @@ class BookDetail: UIView, NibLoadable {
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.numberOfLines = 0
         
-        availabilityLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        availabilityLabel.textColor = UIColor.wOliveGreen
+        statusLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        statusLabel.textColor = UIColor.wOliveGreen
         
         addToWishlistButton.clipsToBounds = true
         addToWishlistButton.layer.borderColor = UIColor.wBlue.cgColor

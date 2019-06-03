@@ -330,7 +330,6 @@
 		318E463C22A1799500649BE1 /* Book Detail */ = {
 			isa = PBXGroup;
 			children = (
-				31E925EC22A5626400F9EC8D /* Colors */,
 				318E463E22A179A300649BE1 /* View */,
 				318E463D22A1799D00649BE1 /* Detail */,
 			);
@@ -452,6 +451,7 @@
 				3144CB80229C1E1E002A680A /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
 				316AF80F2295A82800A3A2B3 /* Library */,
+				31E925EC22A5626400F9EC8D /* Colors */,
 				316AF80722959FB700A3A2B3 /* ConfigurationFiles */,
 				E1530D9A1ED378F9002A9002 /* Services */,
 				9D1575041CB1B27500EA395E /* AppDelegate.swift */,
