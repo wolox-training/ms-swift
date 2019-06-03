@@ -17,6 +17,8 @@ extension UIColor {
     
     static let wLightBlue = UIColor(displayP3Red: 231.0 / 255.0, green: 245.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
     
+    static let wRentedYellow = UIColor(displayP3Red: 255.0 / 255.0, green: 211.0 / 255.0, blue: 0.0, alpha: 1.0)
+    
     func RGBColor(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor {
         return UIColor(displayP3Red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
     }
