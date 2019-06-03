@@ -20,11 +20,17 @@
                     <rect key="frame" x="20" y="90" width="375" height="295"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav bar" translatesAutoresizingMaskIntoConstraints="NO" id="wGK-BL-Iuf">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5NY-FT-vzP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="46" id="0Wy-g1-apN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5NY-FT-vzP" secondAttribute="trailing" constant="19" id="18L-Rv-kjP"/>
+                <constraint firstItem="wGK-BL-Iuf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3AQ-gU-wQc"/>
+                <constraint firstItem="wGK-BL-Iuf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Guf-xP-5cD"/>
+                <constraint firstItem="wGK-BL-Iuf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="bFA-wU-osB"/>
                 <constraint firstItem="5NY-FT-vzP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="j0D-uQ-8Ak"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -34,4 +40,7 @@
             <point key="canvasLocation" x="37.681159420289859" y="34.821428571428569"/>
         </view>
     </objects>
+    <resources>
+        <image name="bc_nav bar" width="750" height="204"/>
+    </resources>
 </document>

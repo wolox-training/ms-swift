@@ -31,8 +31,6 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.dataSource = self
         
         setupBindings()
-        
-
     }
 
 }
@@ -83,7 +81,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.addTapGestureRecognizer { _ in
             let bookDetailViewController = BookDetailViewController(book: book)
-            self.present(bookDetailViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(bookDetailViewController, animated: true)
         }
         
         return cell

@@ -30,6 +30,15 @@ final class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNav()
+    }
+    
+    func setupNav() {
+        loadBookDetails()
+        setNavigationBar()
+    }
+    
+    func loadBookDetails() {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
         let bookDetailViewModel = BookDetailViewModel(book: book)
         if bookDetailViewModel.book.status == "available" {
@@ -48,5 +57,9 @@ final class BookDetailViewController: UIViewController {
         if let url = book.imageUrl {
             bookDetailController.bookDetail.bookCover?.load(url: url)
         }
+    }
+    
+    func setNavigationBar() {
+        navigationItem.title = "DETAIL_VIEW_NAVIGATION_TITLE".localized()
     }
 }
