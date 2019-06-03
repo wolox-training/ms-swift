@@ -41,6 +41,13 @@ class BookDetail: UIView, NibLoadable {
         addToWishlistButton.layer.borderColor = UIColor.red.cgColor
         addToWishlistButton.layer.borderWidth = 4
         addToWishlistButton.layer.cornerRadius = 30 * (UIScreen.main.bounds.height / 896)
+        addToWishlistButton.setTitle("DETAIL_WISHLIST_BUTTON_TITLE".localized(), for: .normal)
+        
+        rentButton.clipsToBounds = true
+        rentButton.layer.borderColor = UIColor.red.cgColor
+        rentButton.layer.borderWidth = 4
+        rentButton.layer.cornerRadius = 30 * (UIScreen.main.bounds.height / 896)
+        rentButton.setTitle("DETAIL_RENT_BUTTON_TITLE".localized(), for: .normal)
         
        // clipsToBounds = true
        // frame = CGRect(origin: CGPoint(x: 80, y: 100), size: self.frame.size)
