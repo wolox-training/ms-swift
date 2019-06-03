@@ -19,5 +19,6 @@ class BookDetailView: UIView, NibLoadable {
         layer.backgroundColor = UIColor.wLightBlue.cgColor
         childDetailView.layer.cornerRadius = 22
         
+        
     }
 }
