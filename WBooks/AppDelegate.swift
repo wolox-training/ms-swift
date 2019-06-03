@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          *
          */
         
+        NetworkingBootstrapper.shared.bootstrap()
         NetworkActivityLogger.shared.level = .debug
         NetworkActivityLogger.shared.startLogging()
 
@@ -36,8 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // App starts with the log in scren
         window?.rootViewController = LogInViewController()
         window?.makeKeyAndVisible()
-        
-  //      UINavigationBar.appearance().barTintColor = .red
+
         
         return true
     }

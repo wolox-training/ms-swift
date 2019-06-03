@@ -20,6 +20,12 @@
 		316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8152295AADE00A3A2B3 /* LogInViewController.swift */; };
 		316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8172295AAEA00A3A2B3 /* LogInView.swift */; };
 		316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AF8192295AAF600A3A2B3 /* LogInView.xib */; };
+		318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */; };
+		318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462122A1656C00649BE1 /* WBooksRepository.swift */; };
+		318E462522A165D500649BE1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462422A165D500649BE1 /* Book.swift */; };
+		318E462722A1667D00649BE1 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462622A1667D00649BE1 /* AuthUser.swift */; };
+		318E462A22A16CC300649BE1 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462922A16CC300649BE1 /* UIImageViewExtension.swift */; };
+		318E462D22A16D0D00649BE1 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462C22A16D0D00649BE1 /* ImageFetcher.swift */; };
 		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
 		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
 		31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B6229D797800E0F144 /* WishListView.swift */; };
@@ -110,6 +116,12 @@
 		316AF8152295AADE00A3A2B3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		316AF8172295AAEA00A3A2B3 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		316AF8192295AAF600A3A2B3 /* LogInView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
+		318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingBootstraper.swift; sourceTree = "<group>"; };
+		318E462122A1656C00649BE1 /* WBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBooksRepository.swift; sourceTree = "<group>"; };
+		318E462422A165D500649BE1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		318E462622A1667D00649BE1 /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		318E462922A16CC300649BE1 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		318E462C22A16D0D00649BE1 /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		31D509E6229D7CF800E0F144 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -258,6 +270,47 @@
 			name = "Log In";
 			sourceTree = "<group>";
 		};
+		318E461D22A1651000649BE1 /* Bootstraper */ = {
+			isa = PBXGroup;
+			children = (
+				318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */,
+			);
+			name = Bootstraper;
+			sourceTree = "<group>";
+		};
+		318E462022A1655F00649BE1 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				318E462122A1656C00649BE1 /* WBooksRepository.swift */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		318E462322A165C600649BE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				318E462422A165D500649BE1 /* Book.swift */,
+				318E462622A1667D00649BE1 /* AuthUser.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		318E462822A16CA800649BE1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				318E462922A16CC300649BE1 /* UIImageViewExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		318E462B22A16D0100649BE1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				318E462C22A16D0D00649BE1 /* ImageFetcher.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		31D509B5229D796F00E0F144 /* Wish List */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +342,7 @@
 		31D509F9229D921D00E0F144 /* Rentals */ = {
 			isa = PBXGroup;
 			children = (
+				31D509F0229D91D300E0F144 /* Add New */,
 				31D509FC229D924100E0F144 /* RentalsViewController.swift */,
 				31D509FA229D923200E0F144 /* RentalsView.swift */,
 				31D509FE229D925300E0F144 /* RentalsView.xib */,
@@ -330,10 +384,14 @@
 		9D1575031CB1B27500EA395E /* WBooks */ = {
 			isa = PBXGroup;
 			children = (
+				318E462B22A16D0100649BE1 /* Utils */,
+				318E462822A16CA800649BE1 /* Extensions */,
+				318E462322A165C600649BE1 /* Models */,
+				318E462022A1655F00649BE1 /* Repositories */,
+				318E461D22A1651000649BE1 /* Bootstraper */,
 				31D509E5229D7CF200E0F144 /* Tab Bar */,
 				31D50A00229DA42D00E0F144 /* Settings */,
 				31D509F9229D921D00E0F144 /* Rentals */,
-				31D509F0229D91D300E0F144 /* Add New */,
 				31D509B5229D796F00E0F144 /* Wish List */,
 				3144CB80229C1E1E002A680A /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
@@ -600,6 +658,7 @@
 				316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */,
 				CEB934DD1D21992100DF75C2 /* Environment.swift in Sources */,
 				31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */,
+				318E462D22A16D0D00649BE1 /* ImageFetcher.swift in Sources */,
 				316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */,
 				31D50A02229DA43F00E0F144 /* SettingsView.swift in Sources */,
 				31D509F8229D921500E0F144 /* AddNewViewController.swift in Sources */,
@@ -610,7 +669,12 @@
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
 				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
+				318E462A22A16CC300649BE1 /* UIImageViewExtension.swift in Sources */,
+				318E462722A1667D00649BE1 /* AuthUser.swift in Sources */,
+				318E462522A165D500649BE1 /* Book.swift in Sources */,
 				31D509FB229D923200E0F144 /* RentalsView.swift in Sources */,
+				318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */,
+				318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */,
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,
 				31D509FD229D924100E0F144 /* RentalsViewController.swift in Sources */,
 				31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */,
