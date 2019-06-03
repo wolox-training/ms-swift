@@ -30,4 +30,19 @@ final class NavigationController: UINavigationController {
     @objc func notificationsButtonTapped() {
         print("Notifications button tapped")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // The following only works on this specific method
+        let navigationBar = self.navigationBar
+        
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.backgroundColor = .clear
+        navigationBar.isTranslucent = true
+        navigationBar.tintColor = UIColor.white
+        
+        navigationBar.topItem?.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
 }
