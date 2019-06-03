@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvi-OG-lCL">
                     <rect key="frame" x="14" y="14" width="347" height="267"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8b1-Za-vey">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8b1-Za-vey">
                             <rect key="frame" x="3" y="10" width="341.5" height="252"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FkY-D1-hiF">
@@ -67,10 +67,6 @@
                                             </constraints>
                                         </stackView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="uDU-pi-2tl" firstAttribute="top" secondItem="FkY-D1-hiF" secondAttribute="top" constant="20" id="Xos-34-vUR"/>
-                                        <constraint firstItem="uDU-pi-2tl" firstAttribute="leading" secondItem="FkY-D1-hiF" secondAttribute="leading" constant="40" id="oO0-Mg-j50"/>
-                                    </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yO-4g-pP9">
                                     <rect key="frame" x="0.0" y="151.5" width="341.5" height="30"/>
