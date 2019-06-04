@@ -151,14 +151,16 @@ final class BookDetailViewController: UIViewController {
     }
     
     func changeStatusOnBookStructure() {
-        if bookDetailViewModel.book.status == "available" {
-            bookDetailViewModel.book.status = "rented"
-            bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
-        } else if bookDetailViewModel.book.status == "rented" {
-            bookDetailViewModel.book.status = "available"
-            bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
+        DispatchQueue.main.async {
+            if self.bookDetailViewModel.book.status == "available" {
+                self.bookDetailViewModel.book.status = "rented"
+                self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
+            } else if self.bookDetailViewModel.book.status == "rented" {
+                self.bookDetailViewModel.book.status = "available"
+                self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
+            }
+            self.bookDetailController.bookDetail.statusLabel.text = self.bookDetailViewModel.book.status.capitalized
         }
-        bookDetailController.bookDetail.statusLabel.text = bookDetailViewModel.book.status.capitalized
     }
     
     func setupNav() {
