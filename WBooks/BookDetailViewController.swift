@@ -74,10 +74,15 @@ final class BookDetailViewController: UIViewController {
         dispatchGroup.enter()
         
         DispatchQueue.global().sync {
-            let parameters = ["userID": 2,
-                              "bookID": 5,
-                              "from": "",
-                              "to": "2019-06-05"] as [String: Any]
+            
+            let today: String = Date.getCurrentDateYYYY_MM_DD()
+            let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
+            let userID = Int(AuthUser().sessionToken!)
+            let bookID = self.bookDetailViewModel.book.id
+            let parameters = ["userID": userID!,
+                              "bookID": bookID,
+                              "from": today,
+                              "to": tomorrow] as [String: Any]
      
             guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents") else {
                 exitValue = false
