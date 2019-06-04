@@ -34,11 +34,122 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
+            self.rent()
         }
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
         }
+    }
+    
+    func rent() {
+        if checkBookStatus() {
+            if requestRent() {
+                rentRequestSuccessful()
+            } else {
+                rentRequestFailed()
+            }
+        } else {
+            bookIsUnavailable()
+        }
+        
+    }
+    
+    func checkBookStatus() -> Bool {
+        return book.status == "available"
+    }
+    
+    func requestRent() -> Bool {
+        // Hard coded, the API request function goes here
+        let parameters = ["userID": 2,
+                          "bookID": 5,
+                          "from": "2019-06-04",
+                          "to": "2019-06-05"] as [String: Any]
+ 
+        guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents") else { return false }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return false }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print (response)
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+ 
+        /*
+        let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        request.httpBody =  """
+                            "{\n  \"userID\": 2,\n  \"bookID\": 5,\n  \"from\": \"2018-09-17\",\n  \"to\": \"2018-09-17\"\n}"
+                            """.data(using: .utf8)
+        
+        print(request.httpBody)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response {
+                print(response)
+                
+                if let data = data, let body = String(data: data, encoding: .utf8) {
+                    print(body)
+                }
+            } else {
+                print(error ?? "Unknown error")
+            }
+        }
+ 
+        task.resume()*/
+        return true
+    }
+    
+    func bookIsUnavailable() {
+        // Alert popup (error), book is already rented
+        let alert = UIAlertController(title: "Error", message: "Book already rented", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func rentRequestSuccessful() {
+        // Alert popup, book successfully rented
+        let alert = UIAlertController(title: "Book rented", message: "Book rented successfully", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func rentRequestFailed() {
+        // Alert popup (error), couldn't fetch request from server
+        let alert = UIAlertController(title: "Error", message: "Couldn't push request to server", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setupNav() {
