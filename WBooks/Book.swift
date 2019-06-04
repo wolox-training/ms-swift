@@ -14,13 +14,13 @@ import Curry
 struct Book {
     
     // MARK: - Properties
-    let status: String
-    let id: Int
-    let author: String
-    let title: String
-    let imageUrl: URL?
-    let year: String
-    let genre: String
+    var status: String
+    var id: Int
+    var author: String
+    var title: String
+    var imageUrl: URL?
+    var year: String
+    var genre: String
     
     init(status: String, id: Int, author: String, title: String, image: String?, year: String, genre: String) {
         self.status = status

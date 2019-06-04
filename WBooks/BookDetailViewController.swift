@@ -13,9 +13,13 @@ final class BookDetailViewController: UIViewController {
     private let book: Book
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
-
+    private var bookDetailViewModel = BookDetailViewModel(book: Book(status: "nil", id: -1, author: "nil", title: "nil", image: "nil", year: "nil", genre: "nil"))
+    
+    let dispatchGroup = DispatchGroup()
+    
     init(book: Book) {
         self.book = book
+        self.bookDetailViewModel.book = book
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
     }
     
@@ -43,8 +47,14 @@ final class BookDetailViewController: UIViewController {
     }
     
     func rent() {
+        var rentStatus: Bool = true
         if checkBookStatus() {
-            if requestRent() {
+            
+            dispatchGroup.notify(queue: .main) {
+                rentStatus = self.requestRent()
+            }
+            
+            if rentStatus {
                 rentRequestSuccessful()
             } else {
                 rentRequestFailed()
@@ -60,15 +70,13 @@ final class BookDetailViewController: UIViewController {
     }
     
     func requestRent() -> Bool {
-        // Hard coded, the API request function goes here
-        var exitValue: Bool = true
-        let dispatchGroup = DispatchGroup()
+        var exitValue: Bool = false
         dispatchGroup.enter()
         
-        DispatchQueue.global().async {
+        DispatchQueue.global().sync {
             let parameters = ["userID": 2,
                               "bookID": 5,
-                              "from": "2019-06-04",
+                              "from": "",
                               "to": "2019-06-05"] as [String: Any]
      
             guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents") else {
@@ -91,22 +99,22 @@ final class BookDetailViewController: UIViewController {
                 if let response = response {
                     print (response)
                 }
-                
                 if let data = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
                         print(json)
                         exitValue = true
+                        self.changeStatusOnBookStructure()
                     } catch {
                         print(error)
                         exitValue = false
                     }
                 }
             }.resume()
-        dispatchGroup.leave()
+
         }
-        dispatchGroup.wait()
-        return exitValue
+            dispatchGroup.leave()
+            return exitValue
     }
     
     func bookIsUnavailable() {
@@ -142,6 +150,17 @@ final class BookDetailViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func changeStatusOnBookStructure() {
+        if bookDetailViewModel.book.status == "available" {
+            bookDetailViewModel.book.status = "rented"
+            bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
+        } else if bookDetailViewModel.book.status == "rented" {
+            bookDetailViewModel.book.status = "available"
+            bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
+        }
+        bookDetailController.bookDetail.statusLabel.text = bookDetailViewModel.book.status.capitalized
+    }
+    
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
@@ -149,7 +168,8 @@ final class BookDetailViewController: UIViewController {
     
     func loadBookDetails() {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
-        let bookDetailViewModel = BookDetailViewModel(book: book)
+    //    let bookDetailViewModel = BookDetailViewModel(book: book)
+        
         if bookDetailViewModel.book.status == "available" {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
         } else if bookDetailViewModel.book.status == "rented"{

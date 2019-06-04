@@ -11,7 +11,7 @@ import UIKit
 
 final class BookDetailViewModel {
 
-    let book: Book
+    var book: Book
     
     init(book: Book) {
         self.book = book
