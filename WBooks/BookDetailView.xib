@@ -19,6 +19,9 @@
                 <view contentMode="scaleAspectFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="295" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-FT-vzP" userLabel="ChildDetailView">
                     <rect key="frame" x="20" y="90" width="375" height="295"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="295" id="AFX-CD-ogc"/>
+                    </constraints>
                 </view>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav bar" translatesAutoresizingMaskIntoConstraints="NO" id="wGK-BL-Iuf">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
