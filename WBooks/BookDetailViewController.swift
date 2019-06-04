@@ -61,62 +61,52 @@ final class BookDetailViewController: UIViewController {
     
     func requestRent() -> Bool {
         // Hard coded, the API request function goes here
-        let parameters = ["userID": 2,
-                          "bookID": 5,
-                          "from": "2019-06-04",
-                          "to": "2019-06-05"] as [String: Any]
- 
-        guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents") else { return false }
+        var exitValue: Bool = true
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return false }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print (response)
+        DispatchQueue.global().async {
+            let parameters = ["userID": 2,
+                              "bookID": 5,
+                              "from": "2019-06-04",
+                              "to": "2019-06-05"] as [String: Any]
+     
+            guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents") else {
+                exitValue = false
+                return
             }
             
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
+                exitValue = false
+                return
             }
-        }.resume()
- 
-        /*
-        let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        request.httpBody =  """
-                            "{\n  \"userID\": 2,\n  \"bookID\": 5,\n  \"from\": \"2018-09-17\",\n  \"to\": \"2018-09-17\"\n}"
-                            """.data(using: .utf8)
-        
-        print(request.httpBody)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response {
-                print(response)
+            request.httpBody = httpBody
+            
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print (response)
+                }
                 
-                if let data = data, let body = String(data: data, encoding: .utf8) {
-                    print(body)
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                        exitValue = true
+                    } catch {
+                        print(error)
+                        exitValue = false
+                    }
                 }
-            } else {
-                print(error ?? "Unknown error")
-            }
+            }.resume()
+        dispatchGroup.leave()
         }
- 
-        task.resume()*/
-        return true
+        dispatchGroup.wait()
+        return exitValue
     }
     
     func bookIsUnavailable() {
