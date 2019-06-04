@@ -156,6 +156,7 @@ final class BookDetailViewController: UIViewController {
     }
     
     func changeStatusOnBookStructure() {
+        // Works only in display view. Must make the book in-app book database global to keep changes when changing views
         DispatchQueue.main.async {
             if self.bookDetailViewModel.book.status == "available" {
                 self.bookDetailViewModel.book.status = "rented"
