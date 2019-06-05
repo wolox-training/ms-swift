@@ -14,6 +14,7 @@
 		312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312C4ADA22971EBF006150C3 /* LibraryCell.swift */; };
 		3144CB82229C1E31002A680A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3144CB81229C1E31002A680A /* NavigationController.swift */; };
 		315CAE3122A7020100511930 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315CAE3022A7020100511930 /* DateExtension.swift */; };
+		3165C25722A802EF00B20C47 /* BookDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3165C25622A802EF00B20C47 /* BookDB.swift */; };
 		316AF80922959FD300A3A2B3 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 316AF80822959FD300A3A2B3 /* Release.xcconfig */; };
 		316AF80E2295A4AA00A3A2B3 /* LogInVIew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316AF80D2295A4AA00A3A2B3 /* LogInVIew.storyboard */; };
 		316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8102295A89900A3A2B3 /* LibraryView.swift */; };
@@ -116,6 +117,7 @@
 		312C4ADA22971EBF006150C3 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		3144CB81229C1E31002A680A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		315CAE3022A7020100511930 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		3165C25622A802EF00B20C47 /* BookDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDB.swift; sourceTree = "<group>"; };
 		316AF80822959FD300A3A2B3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		316AF80A22959FDF00A3A2B3 /* Alpha.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Alpha.xcconfig; sourceTree = "<group>"; };
 		316AF80B22959FE000A3A2B3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			children = (
 				318E462422A165D500649BE1 /* Book.swift */,
 				318E462622A1667D00649BE1 /* AuthUser.swift */,
+				3165C25622A802EF00B20C47 /* BookDB.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
+				3165C25722A802EF00B20C47 /* BookDB.swift in Sources */,
 				318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */,
 				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
