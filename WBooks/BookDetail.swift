@@ -50,7 +50,6 @@ class BookDetail: UIView, NibLoadable {
         rentButton.layer.cornerRadius = 25 * (UIScreen.main.bounds.height / 896)
         rentButton.backgroundColor = UIColor.wBlue
         rentButton.setTitle("DETAIL_RENT_BUTTON_TITLE".localized(), for: .normal)
-        rentButton.setTitle("PRESSED AAAA", for: .highlighted)
         rentButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19 * (UIScreen.main.bounds.height / 896))
         rentButton.setTitleColor(UIColor.white, for: .normal)
         rentButton.heightAnchor.constraint(equalToConstant: 53.0).isActive = true

@@ -18,8 +18,5 @@ class BookDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bookDetail.bookCover.image = UIImage(named: "img_book1") // Hard coded for development
-        bookDetail.titleLabel.text = "Short Title"
     }
 }

@@ -124,9 +124,9 @@ final class BookDetailViewController: UIViewController {
     
     func bookIsUnavailable() {
         // Alert popup (error), book is already rented
-        let alert = UIAlertController(title: "Error", message: "Book already rented", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "DETAIL_ALERT_ERROR_TITLE".localized(), message: "DETAIL_ALERT_ERROR_RENTED".localized(), preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "DETAIL_ALERT_OK".localized(), style: UIAlertActionStyle.default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
         
@@ -135,9 +135,9 @@ final class BookDetailViewController: UIViewController {
     
     func rentRequestSuccessful() {
         // Alert popup, book successfully rented
-        let alert = UIAlertController(title: "Book rented", message: "Book rented successfully", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "DETAIL_ALERT_BOOK_RENTED_TITLE".localized(), message: "DETAIL_ALERT_BOOK_RENTED_MESSAGE".localized(), preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "DETAIL_ALERT_OK".localized(), style: UIAlertActionStyle.default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
         
@@ -146,9 +146,9 @@ final class BookDetailViewController: UIViewController {
     
     func rentRequestFailed() {
         // Alert popup (error), couldn't fetch request from server
-        let alert = UIAlertController(title: "Error", message: "Couldn't push request to server", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "DETAIL_ALERT_ERROR_TITLE".localized(), message: "DETAIL_ALERT_ERROR_PUSH".localized(), preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "DETAIL_ALERT_OK".localized(), style: UIAlertActionStyle.default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
         
