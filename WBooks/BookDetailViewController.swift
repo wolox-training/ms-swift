@@ -10,21 +10,21 @@ import UIKit
 
 final class BookDetailViewController: UIViewController {
 
-    private let book: Book
+    private let bookID: Int
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
-    private var bookDetailViewModel = BookDetailViewModel(book: Book(status: "nil", id: -1, author: "nil", title: "nil", image: "nil", year: "nil", genre: "nil"))
+    private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
     
     let dispatchGroup = DispatchGroup()
     
-    init(book: Book) {
-        self.book = book
-        self.bookDetailViewModel.book = book
+    init(bookID: Int) {
+        self.bookID = bookID
+        self.bookDetailViewModel.bookID = bookID
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.book = Book(status: "nil", id: -1, author: "nil", title: "nil", image: "nil", year: "nil", genre: "nil")
+        self.bookID = -1
         super.init(coder: aDecoder)
     }
 
@@ -66,7 +66,7 @@ final class BookDetailViewController: UIViewController {
     }
     
     func checkBookStatus() -> Bool {
-        return book.status == "available"
+        return BookDB.bookArrayDB[bookID].status == "available"
     }
     
     func requestRent() -> Bool {
@@ -78,7 +78,7 @@ final class BookDetailViewController: UIViewController {
             let today: String = Date.getCurrentDateYYYY_MM_DD()
             let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
             let userID = Int(AuthUser().sessionToken!)
-            let bookID = self.bookDetailViewModel.book.id
+            let bookID = self.bookID
             let parameters = ["userID": userID!,
                               "bookID": bookID,
                               "from": today,
@@ -158,28 +158,23 @@ final class BookDetailViewController: UIViewController {
     func changeStatusOnBookStructure() {
         // Works only in display view. Must make the book in-app book database global to keep changes when changing views
         DispatchQueue.main.async {
-            if self.bookDetailViewModel.book.status == "available" {
-                self.bookDetailViewModel.book.status = "rented"
-                self.saveChangesOnBookDatabase()
+            if BookDB.bookArrayDB[self.bookID].status == "available" {
+                BookDB.bookArrayDB[self.bookID].status = "rented"
+        //        self.saveChangesOnBookDatabase()
                 self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
-            } else if self.bookDetailViewModel.book.status == "rented" {
-                self.bookDetailViewModel.book.status = "available"
-                self.saveChangesOnBookDatabase()
+            } else if BookDB.bookArrayDB[self.bookID].status == "rented" {
+                BookDB.bookArrayDB[self.bookID].status = "available"
+        //         self.saveChangesOnBookDatabase()
                 self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
             }
-            self.bookDetailController.bookDetail.statusLabel.text = self.bookDetailViewModel.book.status.capitalized
+            self.bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
         }
     }
-    
+    /*
     func saveChangesOnBookDatabase() {
-        var index = 0
-        while book.id != BookDB.bookArrayDB[index].id {
-            index += 1
-        }
-        
-        BookDB.bookArrayDB[index].status = bookDetailViewModel.book.status
+        BookDB.bookArrayDB[self.bookID].status = bookDetailViewModel.book.status
     }
-    
+    */
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
@@ -189,20 +184,20 @@ final class BookDetailViewController: UIViewController {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
     //    let bookDetailViewModel = BookDetailViewModel(book: book)
         
-        if bookDetailViewModel.book.status == "available" {
+        if BookDB.bookArrayDB[self.bookID].status == "available" {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
-        } else if bookDetailViewModel.book.status == "rented"{
+        } else if BookDB.bookArrayDB[self.bookID].status == "rented"{
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
         } else {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.red
         }
-        bookDetailController.bookDetail.statusLabel.text = bookDetailViewModel.book.status.capitalized
-        bookDetailController.bookDetail.titleLabel.text = bookDetailViewModel.book.title.capitalized
-        bookDetailController.bookDetail.authorLabel.text = bookDetailViewModel.book.author.capitalized
-        bookDetailController.bookDetail.yearLabel.text = bookDetailViewModel.book.year
-        bookDetailController.bookDetail.genreLabel.text = bookDetailViewModel.book.genre.capitalized
+        bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
+        bookDetailController.bookDetail.titleLabel.text = BookDB.bookArrayDB[self.bookID].title.capitalized
+        bookDetailController.bookDetail.authorLabel.text = BookDB.bookArrayDB[self.bookID].author.capitalized
+        bookDetailController.bookDetail.yearLabel.text = BookDB.bookArrayDB[self.bookID].year
+        bookDetailController.bookDetail.genreLabel.text = BookDB.bookArrayDB[self.bookID].genre.capitalized
         bookDetailController.bookDetail.bookCover.image = UIImage()
-        if let url = book.imageUrl {
+        if let url = BookDB.bookArrayDB[self.bookID].imageUrl {
             bookDetailController.bookDetail.bookCover?.load(url: url)
         }
     }

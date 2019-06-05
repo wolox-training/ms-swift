@@ -8,8 +8,15 @@
 
 import Foundation
 
-class BookDB {
-    static var bookArrayDB: [Book] = []
+struct BookDB {
+    
+    static var bookArrayDB: [Book] = [] {
+        didSet {
+            self.bookArrayDB = bookArrayDB.sorted(by: { $0.id < $1.id })
+        }
+    }
+    
+  //  static var bookArrayDB: [Book] = []
     
     static var loadedFromAPI: Bool = false
 }

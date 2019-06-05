@@ -11,9 +11,9 @@ import UIKit
 
 final class BookDetailViewModel {
 
-    var book: Book
+    var bookID: Int
     
-    init(book: Book) {
-        self.book = book
+    init(bookID: Int) {
+        self.bookID = bookID
     }
 }
