@@ -20,20 +20,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_user1" translatesAutoresizingMaskIntoConstraints="NO" id="UfK-fG-AyJ">
-                        <rect key="frame" x="16" y="11" width="45" height="45"/>
+                        <rect key="frame" x="8" y="11" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="45" id="f7m-48-Hjf"/>
                             <constraint firstAttribute="height" constant="45" id="pUg-mm-i9i"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQy-yd-9ye">
-                        <rect key="frame" x="69" y="11" width="235" height="21"/>
+                        <rect key="frame" x="61" y="11" width="243" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohz-PW-Bvc">
-                        <rect key="frame" x="69" y="35" width="235" height="54"/>
+                        <rect key="frame" x="61" y="35" width="243" height="54"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -41,15 +41,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Ohz-PW-Bvc" secondAttribute="trailing" constant="16" id="4cA-5P-ra5"/>
+                    <constraint firstItem="UfK-fG-AyJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="AOj-Dl-vdA"/>
                     <constraint firstAttribute="trailing" secondItem="XQy-yd-9ye" secondAttribute="trailing" constant="16" id="MtW-3k-Km8"/>
                     <constraint firstItem="XQy-yd-9ye" firstAttribute="leading" secondItem="UfK-fG-AyJ" secondAttribute="trailing" constant="8" id="SU6-uI-iGm"/>
                     <constraint firstItem="Ohz-PW-Bvc" firstAttribute="top" secondItem="XQy-yd-9ye" secondAttribute="bottom" constant="3" id="Szj-7P-s0N"/>
                     <constraint firstAttribute="bottom" secondItem="Ohz-PW-Bvc" secondAttribute="bottom" constant="10.5" id="VJ5-wa-JML"/>
                     <constraint firstItem="UfK-fG-AyJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="fSu-Z4-qCf"/>
-                    <constraint firstItem="UfK-fG-AyJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="fZf-ha-qdF"/>
                     <constraint firstItem="XQy-yd-9ye" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="lGq-kb-f1s"/>
                     <constraint firstItem="Ohz-PW-Bvc" firstAttribute="leading" secondItem="UfK-fG-AyJ" secondAttribute="trailing" constant="8" id="mHv-Bx-xfG"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="UfK-fG-AyJ" secondAttribute="trailing" constant="243" id="ttJ-l1-gLc"/>
                     <constraint firstItem="UfK-fG-AyJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="w8H-Px-nCC"/>
                 </constraints>
             </tableViewCellContentView>

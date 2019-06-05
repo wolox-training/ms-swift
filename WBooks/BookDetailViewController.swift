@@ -15,7 +15,7 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
     
-    private let commentList: [Comment] = [Comment(username: "username 1", image: "img_user1", comment: "comment 1"), Comment(username: "username 2", image: "img_user2", comment: "comment 2"), Comment(username: "username 3", image: "img_user1", comment: "comment 3"), Comment(username: "username 4", image: "img_user2", comment: "comment 4")]
+    private let commentList: [Comment] = [Comment(username: "username 1", image: "img_user1", comment: "asbfjhksdb fhjsdbhjf bsdahjfbhsjad bfhjsdb hjfbsdahjfbhasdjk bhkjsadb hjdsbhfdsabhfjsdab hjdbhjk fbhadshjfbhashfyasdgfisdhhifhasdiufbdshjkghfkudsag ad "), Comment(username: "username 2", image: "img_user2", comment: "comment 2"), Comment(username: "username 3", image: "img_user1", comment: "comment 3"), Comment(username: "username 4", image: "img_user2", comment: "comment 4")]
     
     let dispatchGroup = DispatchGroup()
     
