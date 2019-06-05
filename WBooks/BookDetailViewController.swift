@@ -15,6 +15,8 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
     
+    private let commentList: [Comment] = [Comment(username: "username 1", image: "img_user1", comment: "comment 1"), Comment(username: "username 2", image: "img_user2", comment: "comment 2"), Comment(username: "username 3", image: "img_user1", comment: "comment 3"), Comment(username: "username 4", image: "img_user2", comment: "comment 4")]
+    
     let dispatchGroup = DispatchGroup()
     
     init(bookID: Int) {
@@ -35,6 +37,11 @@ final class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
+        
+        let nib = UINib(nibName: CommentCell.xibFileCommentCellName, bundle: nil)
+        bookDetailView.commentTable.register(nib, forCellReuseIdentifier: CommentCell.xibFileCommentCellName)
+        bookDetailView.commentTable.delegate = self
+        bookDetailView.commentTable.dataSource = self
         
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
@@ -178,6 +185,11 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
+        loadComments()
+    }
+    
+    func loadComments() {
+        
     }
     
     func loadBookDetails() {
@@ -204,5 +216,40 @@ final class BookDetailViewController: UIViewController {
     
     func setNavigationBar() {
         navigationItem.title = "DETAIL_VIEW_NAVIGATION_TITLE".localized()
+    }
+}
+
+extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return commentList.count
+    }
+    
+    // Hard coded to fit all info. Should be replaced to dynamic height in function of components
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+/*    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }*/
+    // Cell generator
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentCell.xibFileCommentCellName) as? CommentCell else {
+            return UITableViewCell()
+        }
+        
+        cell.usernameLabel.text = commentList[indexPath.row].username
+        cell.commentLabel.text = commentList[indexPath.row].comment
+        cell.userIcon.image = UIImage(named: commentList[indexPath.row].image)
+        
+        return cell
     }
 }

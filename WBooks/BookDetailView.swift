@@ -13,6 +13,7 @@ import WolmoCore
 class BookDetailView: UIView, NibLoadable {
     
     @IBOutlet weak var childDetailView: UIView!
+    @IBOutlet weak var commentTable: UITableView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

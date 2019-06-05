@@ -25,8 +25,8 @@ final class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: LibraryCell.xibFileCellName, bundle: nil)
-        libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileCellName)
+        let nib = UINib(nibName: LibraryCell.xibFileLibraryCellName, bundle: nil)
+        libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileLibraryCellName)
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
         
@@ -65,7 +65,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // Cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileCellName) as? LibraryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileLibraryCellName) as? LibraryCell else {
             return UITableViewCell()
         }
         loadBooksToAppDatabase()
