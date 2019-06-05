@@ -68,6 +68,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileCellName) as? LibraryCell else {
             return UITableViewCell()
         }
+        loadBooksToAppDatabase()
 
         let book: Book = BookDB.bookArrayDB[indexPath.section]
         
@@ -98,6 +99,11 @@ private extension LibraryViewController {
     }
     
     func loadBooksToAppDatabase() {
-        BookDB.bookArrayDB = libraryViewModel.books.value
+        if BookDB.loadedFromAPI == false {
+            BookDB.bookArrayDB = libraryViewModel.books.value
+            if BookDB.bookArrayDB.count != 0 {
+                BookDB.loadedFromAPI = true
+            }
+        }
     }
 }

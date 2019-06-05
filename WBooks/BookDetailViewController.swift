@@ -160,13 +160,24 @@ final class BookDetailViewController: UIViewController {
         DispatchQueue.main.async {
             if self.bookDetailViewModel.book.status == "available" {
                 self.bookDetailViewModel.book.status = "rented"
+                self.saveChangesOnBookDatabase()
                 self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
             } else if self.bookDetailViewModel.book.status == "rented" {
                 self.bookDetailViewModel.book.status = "available"
+                self.saveChangesOnBookDatabase()
                 self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
             }
             self.bookDetailController.bookDetail.statusLabel.text = self.bookDetailViewModel.book.status.capitalized
         }
+    }
+    
+    func saveChangesOnBookDatabase() {
+        var index = 0
+        while book.id != BookDB.bookArrayDB[index].id {
+            index += 1
+        }
+        
+        BookDB.bookArrayDB[index].status = bookDetailViewModel.book.status
     }
     
     func setupNav() {
