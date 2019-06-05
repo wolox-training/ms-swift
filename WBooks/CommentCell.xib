@@ -54,21 +54,8 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="commentLabel" destination="Ohz-PW-Bvc" id="mGB-Xu-dFi"/>
-                <outlet property="userIcon" destination="UfK-fG-AyJ" id="pWo-2q-mpm"/>
-                <outlet property="usernameLabel" destination="XQy-yd-9ye" id="h6N-Gd-Dsp"/>
-            </connections>
             <point key="canvasLocation" x="41.600000000000001" y="71.064467766116948"/>
         </tableViewCell>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DgU-FK-pSF">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-10" y="61"/>
-        </label>
     </objects>
     <resources>
         <image name="img_user1" width="90" height="90"/>

@@ -246,9 +246,9 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.usernameLabel.text = commentList[indexPath.row].username
-        cell.commentLabel.text = commentList[indexPath.row].comment
-        cell.userIcon.image = UIImage(named: commentList[indexPath.row].image)
+        cell.usernameLabel?.text = commentList[indexPath.row].username
+        cell.commentLabel?.text = commentList[indexPath.row].comment
+        cell.userIcon?.image = UIImage(named: commentList[indexPath.row].image)
         
         return cell
     }
