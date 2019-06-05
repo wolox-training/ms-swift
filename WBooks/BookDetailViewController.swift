@@ -14,6 +14,7 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
+    private let commentsController = CommentsController()
     
     let dispatchGroup = DispatchGroup()
     
@@ -178,10 +179,15 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
+        loadComments()
+    }
+    
+    func loadComments() {
+        bookDetailView.childBottomDetailView.addSubview(commentsController.view)
     }
     
     func loadBookDetails() {
-        bookDetailView.childDetailView.addSubview(bookDetailController.view)
+        bookDetailView.childTopDetailView.addSubview(bookDetailController.view)
     //    let bookDetailViewModel = BookDetailViewModel(book: book)
         
         if BookDB.bookArrayDB[self.bookID].status == "available" {
