@@ -14,6 +14,6 @@ final class BookDetailViewModel {
     var bookID: Int
     
     init(bookID: Int) {
-        self.bookID = bookID
+        self.bookID = bookID-1
     }
 }

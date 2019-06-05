@@ -18,7 +18,7 @@ final class BookDetailViewController: UIViewController {
     let dispatchGroup = DispatchGroup()
     
     init(bookID: Int) {
-        self.bookID = bookID
+        self.bookID = bookID-1
         self.bookDetailViewModel.bookID = bookID
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
     }
