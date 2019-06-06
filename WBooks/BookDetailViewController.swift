@@ -45,6 +45,9 @@ final class BookDetailViewController: UIViewController {
         bookDetailView.commentTable.delegate = self
         bookDetailView.commentTable.dataSource = self
         
+        dispatchGroup.notify(queue: .main) {
+            self.bookDetailView.commentTable.reloadData()
+        }
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
             self.rent()
@@ -55,6 +58,7 @@ final class BookDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 self.bookDetailView.commentTable.reloadData()
             }
+            self.bookDetailView.commentTable.reloadData()
         }
     }
     
@@ -278,7 +282,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentList.count
+        return CommentDB.commentArray.count
     }
     
     // Hard coded to fit all info. Should be replaced to dynamic height in function of components
