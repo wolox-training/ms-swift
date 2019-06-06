@@ -14,17 +14,28 @@ struct CommentDB {
                                           Comment(bookID: 1, username: "username 3", image: "img_user1", comment: "comment 3"),
                                           Comment(bookID: 1, username: "username 4", image: "img_user2", comment: "comment 4")]
     */
-    static var commentArray: [Comment] = []
+    static var commentArray: [CommentWithLoadedCheck] = []
     
+    static var loadedFromAPI: Bool = false
+    
+
+
     static func getCommentsUsingBookID(bookID: Int) -> [Comment] {
         var comments: [Comment] = []
         
-        for index in 0..<CommentDB.commentArray.count where CommentDB.commentArray[index].bookID == bookID {
-            comments.append(CommentDB.commentArray[index])
+        for index in 0..<CommentDB.commentArray.count where CommentDB.commentArray[index].comment.bookID == bookID {
+            comments.append(CommentDB.commentArray[index].comment)
         }
         
         return comments
     }
+    
+    
+}
+
+struct CommentWithLoadedCheck {
+    var loadedFromAPI: Bool = false
+    var comment: Comment = Comment(bookID: -1, username: "", image: "", comment: "")
 }
 
 struct CommentFromJSON: Codable {
@@ -34,6 +45,7 @@ struct CommentFromJSON: Codable {
     var user: User
     
     func loadFromJSONToDataBase() {
-        CommentDB.commentArray.append(Comment(bookID: book.id, username: user.username, image: user.image, comment: content))
+        CommentDB.commentArray.append(CommentWithLoadedCheck(loadedFromAPI: true, comment: Comment(bookID: book.id, username: user.username, image: user.image, comment: content)))
     }
 }
+

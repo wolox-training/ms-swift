@@ -31,6 +31,7 @@ final class LibraryViewController: UIViewController {
         libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileLibraryCellName)
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
+
         setupBindings()
     }
 }
@@ -82,6 +83,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bottomLabel?.text = book.author
         
         cell.addTapGestureRecognizer { _ in
+            CommentDB.commentArray = []
             let bookDetailViewController = BookDetailViewController(bookID: book.id)
             self.navigationController?.pushViewController(bookDetailViewController, animated: true)
         }

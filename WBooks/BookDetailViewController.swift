@@ -48,6 +48,7 @@ final class BookDetailViewController: UIViewController {
         dispatchGroup.notify(queue: .main) {
             self.bookDetailView.commentTable.reloadData()
         }
+        
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
             self.rent()
@@ -55,10 +56,11 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
+            /*
             DispatchQueue.main.async {
                 self.bookDetailView.commentTable.reloadData()
             }
-            self.bookDetailView.commentTable.reloadData()
+            self.bookDetailView.commentTable.reloadData() */
         }
     }
     
@@ -172,34 +174,29 @@ final class BookDetailViewController: UIViewController {
     }
     
     func changeStatusOnBookStructure() {
-        // Works only in display view. Must make the book in-app book database global to keep changes when changing views
         DispatchQueue.main.async {
             if BookDB.bookArrayDB[self.bookID].status == "available" {
                 BookDB.bookArrayDB[self.bookID].status = "rented"
-        //        self.saveChangesOnBookDatabase()
                 self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
             } else if BookDB.bookArrayDB[self.bookID].status == "rented" {
                 BookDB.bookArrayDB[self.bookID].status = "available"
-        //         self.saveChangesOnBookDatabase()
                 self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
             }
             self.bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
         }
     }
-    /*
-    func saveChangesOnBookDatabase() {
-        BookDB.bookArrayDB[self.bookID].status = bookDetailViewModel.book.status
-    }
-    */
+
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
-        dispatchGroup.notify(queue: .main) {
-            self.loadComments()
-        }
+            dispatchGroup.notify(queue: .main) {
+                self.loadComments()
+            }
+        /*
         DispatchQueue.main.async {
             self.bookDetailView.commentTable.reloadData()
         }
+         */
     }
     
     func loadComments() {
@@ -226,7 +223,7 @@ final class BookDetailViewController: UIViewController {
                                 jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
                                 for index in 0..<jsonCommentList.count {
                                     jsonCommentList[index].loadFromJSONToDataBase()
-                                    print(CommentDB.commentArray[index].comment)
+                                    print(CommentDB.commentArray[index].comment.comment)
                                 }
                                 DispatchQueue.main.async {
                                     self.bookDetailView.commentTable.reloadData()
@@ -302,9 +299,9 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.usernameLabel?.text = CommentDB.commentArray[indexPath.row].username
-        cell.commentLabel?.text = CommentDB.commentArray[indexPath.row].comment
-        cell.userIcon?.image = UIImage(named: CommentDB.commentArray[indexPath.row].image)
+        cell.usernameLabel?.text = CommentDB.commentArray[indexPath.row].comment.username
+        cell.commentLabel?.text = CommentDB.commentArray[indexPath.row].comment.comment
+        cell.userIcon?.image = UIImage(named: CommentDB.commentArray[indexPath.row].comment.image)
         
         return cell
     }
