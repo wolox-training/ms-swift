@@ -21,6 +21,12 @@ class CommentCell: UITableViewCell {
         // Initialization code
         
         usernameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        userIcon.layer.backgroundColor = UIColor.clear.cgColor
+        userIcon.layer.cornerRadius = 20
+        userIcon.layer.borderWidth = 2
+        userIcon.layer.masksToBounds = true
+        userIcon.layer.borderColor = UIColor.white.cgColor
     }
 
 }

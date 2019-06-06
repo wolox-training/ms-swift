@@ -56,11 +56,6 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
-            /*
-            DispatchQueue.main.async {
-                self.bookDetailView.commentTable.reloadData()
-            }
-            self.bookDetailView.commentTable.reloadData() */
         }
     }
     
@@ -192,11 +187,6 @@ final class BookDetailViewController: UIViewController {
             dispatchGroup.notify(queue: .main) {
                 self.loadComments()
             }
-        /*
-        DispatchQueue.main.async {
-            self.bookDetailView.commentTable.reloadData()
-        }
-         */
     }
     
     func loadComments() {
@@ -292,7 +282,6 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.usernameLabel?.text = CommentDB.commentArray[indexPath.row].comment.username
         cell.commentLabel?.text = CommentDB.commentArray[indexPath.row].comment.comment
-       // cell.userIcon?.image = UIImage(named: CommentDB.commentArray[indexPath.row].comment.image)
         
         cell.userIcon?.image = UIImage()   // Add grey frame to make loading prettier
         

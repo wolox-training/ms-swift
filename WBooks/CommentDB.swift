@@ -48,4 +48,3 @@ struct CommentFromJSON: Codable {
         CommentDB.commentArray.append(CommentWithLoadedCheck(loadedFromAPI: true, comment: Comment(bookID: book.id, username: user.username, image: user.image, comment: content)))
     }
 }
-
