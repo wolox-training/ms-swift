@@ -15,18 +15,20 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
     
-    private let commentList: [Comment] = [Comment(username: "username 1", image: "img_user1", comment: "asbfjhksdb fhjsdbhjf bsdahjfbhsjad bfhjsdb hjfbsdahjfbhasdjk bhkjsadb hjdsbhfdsabhfjsdab hjdbhjk fbhadshjfbhashfyasdgfisdhhifhasdiufbdshjkghfkudsag ad "), Comment(username: "username 2", image: "img_user2", comment: "comment 2"), Comment(username: "username 3", image: "img_user1", comment: "comment 3"), Comment(username: "username 4", image: "img_user2", comment: "comment 4")]
+    private let commentList: [Comment]
     
     let dispatchGroup = DispatchGroup()
     
     init(bookID: Int) {
         self.bookID = bookID-1
         self.bookDetailViewModel.bookID = bookID
+        commentList = CommentDB.getCommentsUsingBookID(bookID: bookID)
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.bookID = -1
+        self.commentList = []
         super.init(coder: aDecoder)
     }
 
@@ -50,6 +52,7 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
+            print(self.commentList)
         }
     }
     

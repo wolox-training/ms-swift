@@ -12,6 +12,7 @@ struct BookDB {
     
     static var bookArrayDB: [Book] = [] {
         didSet {
+            // Sort books by bookID to access content using it's id
             self.bookArrayDB = bookArrayDB.sorted(by: { $0.id < $1.id })
         }
     }

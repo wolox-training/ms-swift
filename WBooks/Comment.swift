@@ -9,7 +9,8 @@
 import Foundation
 
 struct Comment {
-    let username: String
-    let image: String
-    let comment: String
+    var bookID: Int
+    var username: String
+    var image: String
+    var comment: String
 }
