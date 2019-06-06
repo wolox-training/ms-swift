@@ -9,12 +9,12 @@
 import Foundation
 
 struct CommentDB {
-    static var commentArray: [Comment] = [Comment(bookID: 1, username: "username 1", image: "img_user1", comment: "comment1"),
+  /*  static var commentArray: [Comment] = [Comment(bookID: 1, username: "username 1", image: "img_user1", comment: "comment1"),
                                           Comment(bookID: 1, username: "username 2", image: "img_user2", comment: "comment 2"),
                                           Comment(bookID: 1, username: "username 3", image: "img_user1", comment: "comment 3"),
                                           Comment(bookID: 1, username: "username 4", image: "img_user2", comment: "comment 4")]
-    
-  //  static var commentArray: [Comment] = []
+    */
+    static var commentArray: [Comment] = []
     
     static func getCommentsUsingBookID(bookID: Int) -> [Comment] {
         var comments: [Comment] = []
@@ -28,8 +28,12 @@ struct CommentDB {
 }
 
 struct CommentFromJSON: Codable {
-    let book: Book
-    let content: String
-    let id: Int
-    let user: User
+    var book: Book
+    var content: String
+    var id: Int
+    var user: User
+    
+    func loadFromJSONToDataBase() {
+        CommentDB.commentArray.append(Comment(bookID: book.id, username: user.username, image: user.image, comment: content))
+    }
 }

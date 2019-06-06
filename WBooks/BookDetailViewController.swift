@@ -52,7 +52,9 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
-            print(self.commentList)
+            DispatchQueue.main.async {
+                self.bookDetailView.commentTable.reloadData()
+            }
         }
     }
     
@@ -189,42 +191,52 @@ final class BookDetailViewController: UIViewController {
         loadBookDetails()
         setNavigationBar()
         loadComments()
+        DispatchQueue.main.async {
+            self.bookDetailView.commentTable.reloadData()
+        }
     }
     
     func loadComments() {
-        let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
-        var request = URLRequest(url: url)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        dispatchGroup.enter()
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response {
-                print(response)
-                
-                if let data = data, let body = String(data: data, encoding: .utf8) {
-                    print(body)
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        print(json)
-                        let decoder = JSONDecoder()
+        DispatchQueue.global().sync {
+            let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
+            var request = URLRequest(url: url)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let response = response {
+                    print(response)
+                    
+                    if let data = data, let body = String(data: data, encoding: .utf8) {
+                        print(body)
                         do {
-                            let jsonCommentList: [CommentFromJSON]
-                            jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
-                            print("------------ COMMENT -------------")
-                            print(jsonCommentList[0].content)
+                            let json = try JSONSerialization.jsonObject(with: data, options: [])
+                            print(json)
+                            let decoder = JSONDecoder()
+                            do {
+                                let jsonCommentList: [CommentFromJSON]
+                                jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
+                                for index in 0..<jsonCommentList.count {
+                                    jsonCommentList[index].loadFromJSONToDataBase()
+                                    print(CommentDB.commentArray[index].comment)
+                                }
+                            } catch {
+                                print(error)
+                            }
                         } catch {
                             print(error)
                         }
-                    } catch {
-                        print(error)
                     }
+                } else {
+                    print(error ?? "Unknown error")
                 }
-            } else {
-                print(error ?? "Unknown error")
             }
+            
+            task.resume()
         }
-        
-        task.resume()
+        dispatchGroup.leave()
     }
     
     func loadBookDetails() {
@@ -281,9 +293,9 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.usernameLabel?.text = commentList[indexPath.row].username
-        cell.commentLabel?.text = commentList[indexPath.row].comment
-        cell.userIcon?.image = UIImage(named: commentList[indexPath.row].image)
+        cell.usernameLabel?.text = CommentDB.commentArray[indexPath.row].username
+        cell.commentLabel?.text = CommentDB.commentArray[indexPath.row].comment
+        cell.userIcon?.image = UIImage(named: CommentDB.commentArray[indexPath.row].image)
         
         return cell
     }
