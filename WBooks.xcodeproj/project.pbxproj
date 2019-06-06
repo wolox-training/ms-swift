@@ -39,6 +39,7 @@
 		318E463A22A1799200649BE1 /* BookDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318E463322A1799200649BE1 /* BookDetail.xib */; };
 		318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E463422A1799200649BE1 /* BookDetailViewController.swift */; };
 		319883BE22A94A4C000172AB /* CommentDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319883BD22A94A4C000172AB /* CommentDB.swift */; };
+		319883C022A9664B000172AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319883BF22A9664B000172AB /* User.swift */; };
 		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
 		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
 		31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B6229D797800E0F144 /* WishListView.swift */; };
@@ -149,6 +150,7 @@
 		318E463322A1799200649BE1 /* BookDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetail.xib; sourceTree = "<group>"; };
 		318E463422A1799200649BE1 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		319883BD22A94A4C000172AB /* CommentDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDB.swift; sourceTree = "<group>"; };
+		319883BF22A9664B000172AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		31D509E6229D7CF800E0F144 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				318E462622A1667D00649BE1 /* AuthUser.swift */,
 				3165C25622A802EF00B20C47 /* BookDB.swift */,
 				319883BD22A94A4C000172AB /* CommentDB.swift */,
+				319883BF22A9664B000172AB /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
+				319883C022A9664B000172AB /* User.swift in Sources */,
 				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
 				318E462A22A16CC300649BE1 /* UIImageViewExtension.swift in Sources */,
 				318E463622A1799200649BE1 /* BookDetailViewModel.swift in Sources */,

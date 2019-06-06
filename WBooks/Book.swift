@@ -11,7 +11,7 @@ import Argo
 import Runes
 import Curry
 
-struct Book {
+struct Book: Codable {
     
     // MARK: - Properties
     var status: String

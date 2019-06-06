@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Comment {
+struct Comment: Codable {
     var bookID: Int
     var username: String
     var image: String

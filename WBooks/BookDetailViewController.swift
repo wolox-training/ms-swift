@@ -15,7 +15,7 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
     
-    private let commentList: [Comment]
+    private var commentList: [Comment]
     
     let dispatchGroup = DispatchGroup()
     
@@ -192,7 +192,39 @@ final class BookDetailViewController: UIViewController {
     }
     
     func loadComments() {
+        let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response {
+                print(response)
+                
+                if let data = data, let body = String(data: data, encoding: .utf8) {
+                    print(body)
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                        let decoder = JSONDecoder()
+                        do {
+                            let jsonCommentList: [CommentFromJSON]
+                            jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
+                            print("------------ COMMENT -------------")
+                            print(jsonCommentList[0].content)
+                        } catch {
+                            print(error)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+            } else {
+                print(error ?? "Unknown error")
+            }
+        }
+        
+        task.resume()
     }
     
     func loadBookDetails() {
