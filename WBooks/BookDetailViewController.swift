@@ -190,7 +190,9 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
-        loadComments()
+        dispatchGroup.notify(queue: .main) {
+            self.loadComments()
+        }
         DispatchQueue.main.async {
             self.bookDetailView.commentTable.reloadData()
         }
@@ -221,6 +223,9 @@ final class BookDetailViewController: UIViewController {
                                 for index in 0..<jsonCommentList.count {
                                     jsonCommentList[index].loadFromJSONToDataBase()
                                     print(CommentDB.commentArray[index].comment)
+                                }
+                                DispatchQueue.main.async {
+                                    self.bookDetailView.commentTable.reloadData()
                                 }
                             } catch {
                                 print(error)
