@@ -223,7 +223,6 @@ final class BookDetailViewController: UIViewController {
                                 jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
                                 for index in 0..<jsonCommentList.count {
                                     jsonCommentList[index].loadFromJSONToDataBase()
-                                    print(CommentDB.commentArray[index].comment.comment)
                                 }
                                 DispatchQueue.main.async {
                                     self.bookDetailView.commentTable.reloadData()
@@ -239,7 +238,6 @@ final class BookDetailViewController: UIViewController {
                     print(error ?? "Unknown error")
                 }
             }
-            
             task.resume()
         }
         dispatchGroup.leave()
@@ -247,7 +245,6 @@ final class BookDetailViewController: UIViewController {
     
     func loadBookDetails() {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
-    //    let bookDetailViewModel = BookDetailViewModel(book: book)
         
         if BookDB.bookArrayDB[self.bookID].status == "available" {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
@@ -286,13 +283,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
-/*    // Make the background color show through
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }*/
+
     // Cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentCell.xibFileCommentCellName) as? CommentCell else {
@@ -301,7 +292,13 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.usernameLabel?.text = CommentDB.commentArray[indexPath.row].comment.username
         cell.commentLabel?.text = CommentDB.commentArray[indexPath.row].comment.comment
-        cell.userIcon?.image = UIImage(named: CommentDB.commentArray[indexPath.row].comment.image)
+       // cell.userIcon?.image = UIImage(named: CommentDB.commentArray[indexPath.row].comment.image)
+        
+        cell.userIcon?.image = UIImage()   // Add grey frame to make loading prettier
+        
+        if let url = URL(string: CommentDB.commentArray[indexPath.row].comment.image) {
+            cell.userIcon?.load(url: url)
+        }
         
         return cell
     }
