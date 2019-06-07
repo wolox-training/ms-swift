@@ -16,7 +16,5 @@ struct BookDB {
         }
     }
     
-  //  static var bookArrayDB: [Book] = []
-    
     static var loadedFromAPI: Bool = false
 }
