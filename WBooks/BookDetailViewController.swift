@@ -90,14 +90,14 @@ final class BookDetailViewController: UIViewController {
             
             let today: String = Date.getCurrentDateYYYY_MM_DD()
             let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
-            let userID = Int(AuthUser().sessionToken!)
+            let userID = 8  // userID assigned by trainer
             let bookID = self.bookID
-            let parameters = ["userID": userID!,
+            let parameters = ["userID": userID,
                               "bookID": bookID,
                               "from": today,
                               "to": tomorrow] as [String: Any]
      
-            guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/user_id/rents") else {
+            guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/8/rents") else {
                 exitValue = false
                 return
             }
@@ -143,7 +143,7 @@ final class BookDetailViewController: UIViewController {
             alert.dismiss(animated: true, completion: nil)
         }))
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func rentRequestSuccessful() {
@@ -154,7 +154,7 @@ final class BookDetailViewController: UIViewController {
             alert.dismiss(animated: true, completion: nil)
         }))
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func rentRequestFailed() {
@@ -165,7 +165,7 @@ final class BookDetailViewController: UIViewController {
             alert.dismiss(animated: true, completion: nil)
         }))
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func changeStatusOnBookStructure() {
