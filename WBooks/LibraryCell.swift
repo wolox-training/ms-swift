@@ -10,7 +10,7 @@ import UIKit
 
 class LibraryCell: UITableViewCell {
 
-    static let xibFileCellName = "LibraryCell"
+    static let xibFileLibraryCellName = "LibraryCell"
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!

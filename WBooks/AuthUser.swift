@@ -10,5 +10,5 @@ import Foundation
 import Networking
 
 struct AuthUser: AuthenticableUser {
-    let sessionToken: String? = "1"
+    let sessionToken: String? = "8"
 }

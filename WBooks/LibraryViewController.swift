@@ -12,6 +12,8 @@ import WolmoCore
 
 final class LibraryViewController: UIViewController {
   
+    let dispatchGroup = DispatchGroup()
+    
     private let libraryView: LibraryView = LibraryView.loadFromNib()!
     
     static let spacingBetweenCells: CGFloat = 10
@@ -25,14 +27,13 @@ final class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: LibraryCell.xibFileCellName, bundle: nil)
-        libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileCellName)
+        let nib = UINib(nibName: LibraryCell.xibFileLibraryCellName, bundle: nil)
+        libraryView.tableBooks.register(nib, forCellReuseIdentifier: LibraryCell.xibFileLibraryCellName)
         libraryView.tableBooks.delegate = self  
         libraryView.tableBooks.dataSource = self
-        
+
         setupBindings()
     }
-
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -65,7 +66,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // Cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileCellName) as? LibraryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileLibraryCellName) as? LibraryCell else {
             return UITableViewCell()
         }
         loadBooksToAppDatabase()
@@ -82,6 +83,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bottomLabel?.text = book.author
         
         cell.addTapGestureRecognizer { _ in
+            CommentDB.commentArray = []
             let bookDetailViewController = BookDetailViewController(bookID: book.id)
             self.navigationController?.pushViewController(bookDetailViewController, animated: true)
         }
