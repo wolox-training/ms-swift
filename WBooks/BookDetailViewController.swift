@@ -67,7 +67,6 @@ final class BookDetailViewController: UIViewController {
             print("Add to wishlist button tapped")
         }
     }
-
     func bookIsUnavailable() {
         // Alert popup (error), book is already rented
         let alert = UIAlertController(title: "DETAIL_ALERT_ERROR_TITLE".localized(), message: "DETAIL_ALERT_ERROR_RENTED".localized(), preferredStyle: UIAlertControllerStyle.alert)
@@ -101,6 +100,7 @@ final class BookDetailViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
@@ -153,7 +153,7 @@ final class BookDetailViewController: UIViewController {
     
     func loadBookDetails() {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
-        
+
         if BookDB.bookArrayDB[self.bookID].status == "available" {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
         } else if BookDB.bookArrayDB[self.bookID].status == "rented"{
