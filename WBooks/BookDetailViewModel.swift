@@ -36,7 +36,7 @@ final class BookDetailViewModel {
     
     func rent() -> Int {
         var rentStatus: Bool = true
-        if checkBookStatus() {
+        if !checkBookStatus() { // ! sign added for debugging. Must be deleted on deployment or until back-end resolves rented on all books
             
             dispatchGroup.notify(queue: .main) {
                 rentStatus = self.requestRent()
@@ -130,9 +130,5 @@ final class BookDetailViewModel {
             // self.bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
             // Create signal to update the label on View
        // }
-    }
-    
-    func sendSignal() {
-        changeLabelSignalPipe.input.send(value: "Hi!")
     }
 }
