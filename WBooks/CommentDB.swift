@@ -9,17 +9,11 @@
 import Foundation
 
 struct CommentDB {
-  /*  static var commentArray: [Comment] = [Comment(bookID: 1, username: "username 1", image: "img_user1", comment: "comment1"),
-                                          Comment(bookID: 1, username: "username 2", image: "img_user2", comment: "comment 2"),
-                                          Comment(bookID: 1, username: "username 3", image: "img_user1", comment: "comment 3"),
-                                          Comment(bookID: 1, username: "username 4", image: "img_user2", comment: "comment 4")]
-    */
+
     static var commentArray: [CommentWithLoadedCheck] = []
     
     static var loadedFromAPI: Bool = false
     
-
-
     static func getCommentsUsingBookID(bookID: Int) -> [Comment] {
         var comments: [Comment] = []
         
@@ -29,7 +23,6 @@ struct CommentDB {
         
         return comments
     }
-    
     
 }
 

@@ -16,4 +16,6 @@ final class BookDetailViewModel {
     init(bookID: Int) {
         self.bookID = bookID-1
     }
+    
+    
 }

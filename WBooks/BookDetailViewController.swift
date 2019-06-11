@@ -202,11 +202,9 @@ final class BookDetailViewController: UIViewController {
                 if let response = response {
                     print(response)
                     
-                    if let data = data, let body = String(data: data, encoding: .utf8) {
-                        print(body)
+                    if let data = data, let _ = String(data: data, encoding: .utf8) {
                         do {
-                            let json = try JSONSerialization.jsonObject(with: data, options: [])
-                            print(json)
+                            try JSONSerialization.jsonObject(with: data, options: [])
                             let decoder = JSONDecoder()
                             do {
                                 let jsonCommentList: [CommentFromJSON]
