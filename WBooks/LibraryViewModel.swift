@@ -14,7 +14,7 @@ import Result
 class LibraryViewModel {
     
     private let mutableBooks = MutableProperty<[Book]>([])
-    public let books : Property<[Book]>
+    public let books: Property<[Book]>
     
     private let bookRepository: WBookRepositoryType
     

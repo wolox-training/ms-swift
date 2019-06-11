@@ -39,6 +39,7 @@ final class LibraryViewController: UIViewController {
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        loadBooksToAppDatabase()
         return libraryViewModel.books.value.count
     }
     
@@ -67,8 +68,9 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LibraryCell.xibFileCellName) as? LibraryCell else {
             return UITableViewCell()
         }
-        
-        let book: Book = libraryViewModel.books.value[indexPath.section]
+        loadBooksToAppDatabase()
+
+        let book: Book = BookDB.bookArrayDB[indexPath.section]
         
         cell.imageBook?.image = UIImage()   // Add grey frame to make loading prettier
         
@@ -78,6 +80,11 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.topLabel?.text = book.title
         cell.bottomLabel?.text = book.author
+        
+        cell.addTapGestureRecognizer { _ in
+            let bookDetailViewController = BookDetailViewController(bookID: book.id)
+            self.navigationController?.pushViewController(bookDetailViewController, animated: true)
+        }
         
         return cell
     }
@@ -91,4 +98,12 @@ private extension LibraryViewController {
         }
     }
     
+    func loadBooksToAppDatabase() {
+        if BookDB.loadedFromAPI == false {
+            BookDB.bookArrayDB = libraryViewModel.books.value
+            if BookDB.bookArrayDB.count != 0 {
+                BookDB.loadedFromAPI = true
+            }
+        }
+    }
 }

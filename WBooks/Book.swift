@@ -14,14 +14,16 @@ import Curry
 struct Book {
     
     // MARK: - Properties
-    let id: Int
-    let author: String
-    let title: String
-    let imageUrl: URL?
-    let year: String
-    let genre: String
+    var status: String
+    var id: Int
+    var author: String
+    var title: String
+    var imageUrl: URL?
+    var year: String
+    var genre: String
     
-    init(id: Int, author: String, title: String, image: String?, year: String, genre: String) {
+    init(status: String, id: Int, author: String, title: String, image: String?, year: String, genre: String) {
+        self.status = status
         self.id = id
         self.author = author
         self.title = title
@@ -35,7 +37,8 @@ extension Book: Argo.Decodable {
     
     static func decode(_ json: JSON) -> Decoded<Book> {
         return curry(Book.init)
-            <^> json <| "id"
+            <^> json <| "status"
+            <*> json <| "id"
             <*> json <| "author"
             <*> json <| "title"
             <*> json <|? "image"

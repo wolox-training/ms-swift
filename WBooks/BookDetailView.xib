@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookDetailView" customModule="WBooks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleAspectFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="295" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-FT-vzP" userLabel="ChildDetailView">
+                    <rect key="frame" x="20" y="90" width="375" height="295"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="295" id="AFX-CD-ogc"/>
+                    </constraints>
+                </view>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav bar" translatesAutoresizingMaskIntoConstraints="NO" id="wGK-BL-Iuf">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5NY-FT-vzP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="46" id="0Wy-g1-apN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5NY-FT-vzP" secondAttribute="trailing" constant="19" id="18L-Rv-kjP"/>
+                <constraint firstItem="wGK-BL-Iuf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3AQ-gU-wQc"/>
+                <constraint firstItem="wGK-BL-Iuf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Guf-xP-5cD"/>
+                <constraint firstItem="wGK-BL-Iuf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="bFA-wU-osB"/>
+                <constraint firstItem="5NY-FT-vzP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="j0D-uQ-8Ak"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="childDetailView" destination="5NY-FT-vzP" id="czU-77-Uy1"/>
+            </connections>
+            <point key="canvasLocation" x="37.681159420289859" y="34.821428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bc_nav bar" width="750" height="204"/>
+    </resources>
+</document>
