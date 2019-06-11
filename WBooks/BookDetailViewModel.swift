@@ -21,7 +21,14 @@ final class BookDetailViewModel {
     var changeLabelSignal: Signal<String, NoError> {
         return changeLabelSignalPipe.output
     }
+
+    private let rentSignalPipe = Signal<Bool, NoError>.pipe()
+    var rentSignal: Signal <Bool, NoError> {
+        return rentSignalPipe.output
+    }
+    
     deinit {
+        rentSignalPipe.input.sendCompleted()
         changeLabelSignalPipe.input.sendCompleted()
     }
     
@@ -112,23 +119,12 @@ final class BookDetailViewModel {
         return exitValue
     }
     func changeStatusOnBookStructure() {
-       // DispatchQueue.main.async {
-
-            if BookDB.bookArrayDB[self.bookID].status == "available" {
-                BookDB.bookArrayDB[self.bookID].status = "rented"
-                changeLabelSignalPipe.input.send(value: "rented")
-                
-                // self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
-                // Create signal to update the label on View
-                
-            } else if BookDB.bookArrayDB[self.bookID].status == "rented" {
-                BookDB.bookArrayDB[self.bookID].status = "available"
-                changeLabelSignalPipe.input.send(value: "available")
-                // self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
-                // Create signal to update the label on View
-            }
-            // self.bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
-            // Create signal to update the label on View
-       // }
+        if BookDB.bookArrayDB[self.bookID].status == "available" {
+            BookDB.bookArrayDB[self.bookID].status = "rented"
+            changeLabelSignalPipe.input.send(value: "rented")
+        } else if BookDB.bookArrayDB[self.bookID].status == "rented" {
+            BookDB.bookArrayDB[self.bookID].status = "available"
+            changeLabelSignalPipe.input.send(value: "available")
+        }
     }
 }
