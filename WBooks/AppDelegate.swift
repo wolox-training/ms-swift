@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = LogInViewController()
         window?.makeKeyAndVisible()
 
-        
         return true
     }
 

@@ -51,90 +51,23 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
-            self.rent()
+            let rentResult = self.bookDetailViewModel.rent()
+            
+            switch rentResult {
+            case 0:
+                self.rentRequestSuccessful()
+            case 2:
+                self.bookIsUnavailable()
+            default:
+                self.rentRequestFailed()    // If rentResult == 1 or otherwise (!= 0, != 2), it failed
+            }
         }
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
         }
     }
-    
-    func rent() {
-        var rentStatus: Bool = true
-        if checkBookStatus() {
-            
-            dispatchGroup.notify(queue: .main) {
-                rentStatus = self.requestRent()
-            }
-            
-            if rentStatus {
-                rentRequestSuccessful()
-            } else {
-                rentRequestFailed()
-            }
-        } else {
-            bookIsUnavailable()
-        }
-        
-    }
-    
-    func checkBookStatus() -> Bool {
-        return BookDB.bookArrayDB[bookID].status == "available"
-    }
-    
-    func requestRent() -> Bool {
-        var exitValue: Bool = false
-        dispatchGroup.enter()
-        
-        DispatchQueue.global().sync {
-            
-            let today: String = Date.getCurrentDateYYYY_MM_DD()
-            let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
-            let userID = 8  // userID assigned by trainer
-            let bookID = self.bookID
-            let parameters = ["userID": userID,
-                              "bookID": bookID,
-                              "from": today,
-                              "to": tomorrow] as [String: Any]
-     
-            guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/8/rents") else {
-                exitValue = false
-                return
-            }
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
-                exitValue = false
-                return
-            }
-            request.httpBody = httpBody
-            
-            let session = URLSession.shared
-            session.dataTask(with: request) { (data, response, error) in
-                if let response = response {
-                    print (response)
-                }
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        print(json)
-                        exitValue = true
-                        self.changeStatusOnBookStructure()
-                    } catch {
-                        print(error)
-                        exitValue = false
-                    }
-                }
-            }.resume()
 
-        }
-            dispatchGroup.leave()
-            return exitValue
-    }
-    
     func bookIsUnavailable() {
         // Alert popup (error), book is already rented
         let alert = UIAlertController(title: "DETAIL_ALERT_ERROR_TITLE".localized(), message: "DETAIL_ALERT_ERROR_RENTED".localized(), preferredStyle: UIAlertControllerStyle.alert)
@@ -168,19 +101,6 @@ final class BookDetailViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func changeStatusOnBookStructure() {
-        DispatchQueue.main.async {
-            if BookDB.bookArrayDB[self.bookID].status == "available" {
-                BookDB.bookArrayDB[self.bookID].status = "rented"
-                self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
-            } else if BookDB.bookArrayDB[self.bookID].status == "rented" {
-                BookDB.bookArrayDB[self.bookID].status = "available"
-                self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
-            }
-            self.bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
-        }
-    }
-
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
