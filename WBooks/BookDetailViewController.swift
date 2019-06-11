@@ -38,6 +38,10 @@ final class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bookDetailViewModel.changeLabelSignal.observeValues { data in
+            print("Got data: \(data)")
+        }
         setupNav()
         
         let nib = UINib(nibName: CommentCell.xibFileCommentCellName, bundle: nil)
@@ -54,9 +58,9 @@ final class BookDetailViewController: UIViewController {
             let rentResult = self.bookDetailViewModel.rent()
             
             switch rentResult {
-            case 0:
+            case 2: // hardcoded for debugging - change 0 to 2
                 self.rentRequestSuccessful()
-            case 2:
+            case 0: // hardcoded for debugging - change 2 to 0
                 self.bookIsUnavailable()
             default:
                 self.rentRequestFailed()    // If rentResult == 1 or otherwise (!= 0, != 2), it failed
@@ -65,7 +69,9 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
+            self.bookDetailViewModel.sendSignal()
         }
+
     }
 
     func bookIsUnavailable() {

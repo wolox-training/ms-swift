@@ -8,12 +8,28 @@
 
 import Foundation
 import UIKit
+import ReactiveSwift
+import ReactiveCocoa
+import Result
 
 final class BookDetailViewModel {
 
     let dispatchGroup = DispatchGroup()
     var bookID: Int
+ 
+    private let changeLabelSignalPipe = Signal<String, NoError>.pipe()
+    var changeLabelSignal: Signal<String, NoError> {
+        return changeLabelSignalPipe.output
+    }
+    deinit {
+        changeLabelSignalPipe.input.sendCompleted()
+    }
     
+    /*
+    let changeLabelSignalProducer: SignalProducer<String, NoError> = SignalProducer { (observer, lifetime) in
+        observer.send(value: <#T##String#>)
+    }
+    */
     init(bookID: Int) {
         self.bookID = bookID-1
     }
@@ -96,18 +112,27 @@ final class BookDetailViewModel {
         return exitValue
     }
     func changeStatusOnBookStructure() {
-        DispatchQueue.main.async {
+       // DispatchQueue.main.async {
+
             if BookDB.bookArrayDB[self.bookID].status == "available" {
                 BookDB.bookArrayDB[self.bookID].status = "rented"
+                changeLabelSignalPipe.input.send(value: "rented")
+                
                 // self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
                 // Create signal to update the label on View
+                
             } else if BookDB.bookArrayDB[self.bookID].status == "rented" {
                 BookDB.bookArrayDB[self.bookID].status = "available"
+                changeLabelSignalPipe.input.send(value: "available")
                 // self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
                 // Create signal to update the label on View
             }
             // self.bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
             // Create signal to update the label on View
-        }
+       // }
+    }
+    
+    func sendSignal() {
+        changeLabelSignalPipe.input.send(value: "Hi!")
     }
 }
