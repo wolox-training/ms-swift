@@ -31,6 +31,18 @@ struct Book: Codable {
         self.year = year
         self.genre = genre
     }
+    
+    func asDictionary() -> [String: Any] {
+        let today: String = Date.getCurrentDateYYYY_MM_DD()
+        let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
+        let userID = 8  // userID assigned by trainer
+        let bookID = self.id
+        
+        return ["userID": userID,
+                "bookID": bookID,
+                "from": today,
+                "to": tomorrow] as [String: Any]
+    }
 }
 
 extension Book: Argo.Decodable {

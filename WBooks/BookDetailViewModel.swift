@@ -69,6 +69,9 @@ final class BookDetailViewModel {
     
     func requestRent() {
         
+        print(bookRepository.postRent(book: book))
+        
+        /*
         let today: String = Date.getCurrentDateYYYY_MM_DD()
         let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
         let userID = 8  // userID assigned by trainer
@@ -110,6 +113,7 @@ final class BookDetailViewModel {
                 }
             }
         }.resume()
+        */
     }
     func changeStatusOnBookStructure() {
         if book.status == "available" {

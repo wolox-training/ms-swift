@@ -40,7 +40,6 @@ final class LibraryViewController: UIViewController {
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-     //   loadBooksToAppDatabase()
         return libraryViewModel.books.value.count
     }
     

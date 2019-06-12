@@ -14,7 +14,6 @@
 		312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312C4ADA22971EBF006150C3 /* LibraryCell.swift */; };
 		3144CB82229C1E31002A680A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3144CB81229C1E31002A680A /* NavigationController.swift */; };
 		315CAE3122A7020100511930 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315CAE3022A7020100511930 /* DateExtension.swift */; };
-		3165C25722A802EF00B20C47 /* BookDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3165C25622A802EF00B20C47 /* BookDB.swift */; };
 		3165C26522A838FF00B20C47 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3165C26322A838FF00B20C47 /* CommentCell.xib */; };
 		3165C26722A83BE300B20C47 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3165C26622A83BE300B20C47 /* CommentCell.swift */; };
 		3165C26B22A8426200B20C47 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3165C26A22A8426200B20C47 /* Comment.swift */; };
@@ -121,7 +120,6 @@
 		312C4ADA22971EBF006150C3 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		3144CB81229C1E31002A680A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		315CAE3022A7020100511930 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		3165C25622A802EF00B20C47 /* BookDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDB.swift; sourceTree = "<group>"; };
 		3165C26322A838FF00B20C47 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		3165C26622A83BE300B20C47 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		3165C26A22A8426200B20C47 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			children = (
 				3165C26322A838FF00B20C47 /* CommentCell.xib */,
 				3165C26622A83BE300B20C47 /* CommentCell.swift */,
-				3165C26A22A8426200B20C47 /* Comment.swift */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -327,9 +324,9 @@
 		318E462322A165C600649BE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3165C26A22A8426200B20C47 /* Comment.swift */,
 				318E462422A165D500649BE1 /* Book.swift */,
 				318E462622A1667D00649BE1 /* AuthUser.swift */,
-				3165C25622A802EF00B20C47 /* BookDB.swift */,
 				319883BF22A9664B000172AB /* User.swift */,
 			);
 			name = Models;
@@ -756,7 +753,6 @@
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
-				3165C25722A802EF00B20C47 /* BookDB.swift in Sources */,
 				318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */,
 				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
