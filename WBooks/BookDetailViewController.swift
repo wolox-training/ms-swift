@@ -28,8 +28,6 @@ final class BookDetailViewController: UIViewController {
     
     private var commentList: [Comment]
     
-//    let dispatchGroup = DispatchGroup()
-    
     init(bookID: Int) {
         self.bookID = bookID-1
         self.bookDetailViewModel.bookID = bookID
@@ -67,11 +65,7 @@ final class BookDetailViewController: UIViewController {
         bookDetailView.commentTable.register(nib, forCellReuseIdentifier: CommentCell.xibFileCommentCellName)
         bookDetailView.commentTable.delegate = self
         bookDetailView.commentTable.dataSource = self
-        /*
-        dispatchGroup.notify(queue: .main) {
-            self.bookDetailView.commentTable.reloadData()
-        }
-        */
+        
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
             let rentResult = self.bookDetailViewModel.rent()
@@ -128,10 +122,8 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
-           /* dispatchGroup.notify(queue: .main) {
-                self.loadComments()
-            }*/
         loadComments()
+        
         loadedCommentsSignal.observeValues { result in
             print(result)
             DispatchQueue.main.async {
@@ -141,50 +133,40 @@ final class BookDetailViewController: UIViewController {
     }
     
     func loadComments() {
-        //dispatchGroup.enter()
-        
-       // DispatchQueue.global().sync {
-            let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
-            var request = URLRequest(url: url)
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
+        var request = URLRequest(url: url)
+           request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+           request.addValue("application/json", forHTTPHeaderField: "Accept")
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                if let response = response {
-                    print(response)
-                    
-                    if let data = data, let _ = String(data: data, encoding: .utf8) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response {
+                print(response)
+                if let data = data, let _ = String(data: data, encoding: .utf8) {
+                    do {
+                        try JSONSerialization.jsonObject(with: data, options: [])
+                        let decoder = JSONDecoder()
                         do {
-                            try JSONSerialization.jsonObject(with: data, options: [])
-                            let decoder = JSONDecoder()
-                            do {
-                                let jsonCommentList: [CommentFromJSON]
-                                jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
-                                for index in 0..<jsonCommentList.count {
-                                    jsonCommentList[index].loadFromJSONToDataBase()
-                                }
-                                self.loadedCommmentsSignalPipe.input.send(value: true)
-                                /*
-                                DispatchQueue.main.async {
-                                    self.bookDetailView.commentTable.reloadData()
-                                }*/
-                            } catch {
-                                print(error)
-                                self.loadedCommmentsSignalPipe.input.send(value: false)
+                            let jsonCommentList: [CommentFromJSON]
+                            jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
+                            for index in 0..<jsonCommentList.count {
+                                jsonCommentList[index].loadFromJSONToDataBase()
                             }
+                            self.loadedCommmentsSignalPipe.input.send(value: true)
                         } catch {
                             print(error)
                             self.loadedCommmentsSignalPipe.input.send(value: false)
                         }
+                    } catch {
+                        print(error)
+                        self.loadedCommmentsSignalPipe.input.send(value: false)
                     }
-                } else {
-                    print(error ?? "Unknown error")
-                    self.loadedCommmentsSignalPipe.input.send(value: false)
                 }
+            } else {
+                print(error ?? "Unknown error")
+                self.loadedCommmentsSignalPipe.input.send(value: false)
             }
-            task.resume()
-      //  }
-      //  dispatchGroup.leave()
+        }
+        task.resume()
     }
     
     func loadBookDetails() {

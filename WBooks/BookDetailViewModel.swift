@@ -14,7 +14,7 @@ import Result
 
 final class BookDetailViewModel {
 
-    let dispatchGroup = DispatchGroup()
+   // let dispatchGroup = DispatchGroup()
     var bookID: Int
  
     private let changeLabelSignalPipe = Signal<String, NoError>.pipe()
@@ -32,21 +32,18 @@ final class BookDetailViewModel {
         changeLabelSignalPipe.input.sendCompleted()
     }
     
-    /*
-    let changeLabelSignalProducer: SignalProducer<String, NoError> = SignalProducer { (observer, lifetime) in
-        observer.send(value: <#T##String#>)
-    }
-    */
+
     init(bookID: Int) {
         self.bookID = bookID-1
     }
     
     func rent() -> Int {
         var rentStatus: Bool = true
-        if checkBookStatus() { 
-            
-            dispatchGroup.notify(queue: .main) {
-                rentStatus = self.requestRent()
+        if checkBookStatus() {
+            self.requestRent()
+            rentSignal.observeValues { result in
+                rentStatus = result
+                print(result)
             }
             
             if rentStatus {
@@ -66,57 +63,49 @@ final class BookDetailViewModel {
         return BookDB.bookArrayDB[bookID].status == "available"
     }
     
-    func requestRent() -> Bool {
-        var exitValue: Bool = false
-        dispatchGroup.enter()
+    func requestRent() {
         
-        DispatchQueue.global().sync {
+        let today: String = Date.getCurrentDateYYYY_MM_DD()
+        let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
+        let userID = 8  // userID assigned by trainer
+        let bookID = self.bookID
+        let parameters = ["userID": userID,
+                          "bookID": bookID,
+                          "from": today,
+                          "to": tomorrow] as [String: Any]
             
-            let today: String = Date.getCurrentDateYYYY_MM_DD()
-            let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
-            let userID = 8  // userID assigned by trainer
-            let bookID = self.bookID
-            let parameters = ["userID": userID,
-                              "bookID": bookID,
-                              "from": today,
-                              "to": tomorrow] as [String: Any]
-            
-            guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/8/rents") else {
-                exitValue = false
-                return
-            }
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
-                exitValue = false
-                return
-            }
-            request.httpBody = httpBody
-            
-            let session = URLSession.shared
-            session.dataTask(with: request) { (data, response, error) in
-                if let response = response {
-                    print (response)
-                }
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        print(json)
-                        exitValue = true
-                        self.changeStatusOnBookStructure()
-                    } catch {
-                        print(error)
-                        exitValue = false
-                    }
-                }
-                }.resume()
-            
+        guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/8/rents") else {
+            rentSignalPipe.input.send(value: false)
+            return
         }
-        dispatchGroup.leave()
-        return exitValue
+            
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
+            rentSignalPipe.input.send(value: false)
+            return
+        }
+        request.httpBody = httpBody
+            
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print (response)
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    self.rentSignalPipe.input.send(value: true)
+                    self.changeStatusOnBookStructure()
+                } catch {
+                    print(error)
+                    self.rentSignalPipe.input.send(value: false)
+                }
+            }
+        }.resume()
     }
     func changeStatusOnBookStructure() {
         if BookDB.bookArrayDB[self.bookID].status == "available" {
