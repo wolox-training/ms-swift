@@ -22,10 +22,11 @@ final class BookDetailViewModel {
     private let mutableComments = MutableProperty<[Comment]>([])
     public let comments: Property<[Comment]>
     
-    /*
-    private let mutableRentProperty = MutableProperty<Bool>(false)
-    public let rentProperty: Property<Bool>
-    */
+    private let finishedRentingPipe = Signal<Void, NoError>.pipe()
+    public var finishedRentingSignal: Signal<Void, NoError> {
+        return finishedRentingPipe.output
+    }
+
     
   //  private let mutableRentResult = MutableProperty<Void?>(nil)
     public var rentResult: SignalProducer<Void, RepositoryError> = SignalProducer<Void, RepositoryError> { (_, _) in
@@ -45,6 +46,7 @@ final class BookDetailViewModel {
     deinit {
         rentSignalPipe.input.sendCompleted()
         changeLabelSignalPipe.input.sendCompleted()
+        finishedRentingPipe.input.sendCompleted()
     }
     
     init(book: Book, bookRepository: WBookRepositoryType = NetworkingBootstrapper.shared.createWBooksRepository()) {
@@ -61,48 +63,28 @@ final class BookDetailViewModel {
     }
     
     func rent() -> Int {
+        var returnValue = 2
         var rentStatus: Bool = false
-        if checkBookStatus() {
+        if !checkBookStatus() { // ! added for debugging
             rentResult = bookRepository.postRent(book: book)
             rentResult.producer.startWithResult { _ in
                 rentStatus = true
-                } /*(Signal<Void, RepositoryError>.Observer(
-                value: { _ in
-                    rentStatus = true
-                    return
-            },
-                failed: { _ in
-                    rentStatus = false
-                    return
-            },
-                completed: {
-                    rentStatus = true
-                    return
-            },
-                interrupted: {
-                    rentStatus = false
-                    return
-            }))
-            */
-            print(rentStatus)
-            
-            
-            /*
-            rentSignal.observeValues { result in
-                rentStatus = result
-            }
-            */
-            if rentStatus {
-                //rentRequestSuccessful()
-                return 0
-            } else {
-                //rentRequestFailed()
-                return 1
+                self.finishedRentingPipe.input.send(value: ())
+                
+                print(rentStatus)
+                if rentStatus {
+                    //rentRequestSuccessful()
+                    returnValue = 0
+                } else {
+                    //rentRequestFailed()
+                    returnValue = 1
+                }
             }
         } else {
             //bookIsUnavailable()
-            return 2
+            returnValue = 2
         }
+        return returnValue
     }
     
     func checkBookStatus() -> Bool {
