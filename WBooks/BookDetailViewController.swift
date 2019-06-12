@@ -15,7 +15,7 @@ final class BookDetailViewController: UIViewController {
     private let bookID: Int
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
-    private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
+    private var bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
     
     private let loadedCommmentsSignalPipe = Signal<Bool, NoError>.pipe()
     var loadedCommentsSignal: Signal<Bool, NoError> {
@@ -82,9 +82,17 @@ final class BookDetailViewController: UIViewController {
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
         }
+        
+        setupBindings()
 
     }
 
+    func setupBindings() {
+        bookDetailViewModel.comments.producer.startWithValues { [unowned self ] _ in
+            self.bookDetailView.commentTable.reloadData()
+        }
+    }
+    
     func bookIsUnavailable() {
         // Alert popup (error), book is already rented
         let alert = UIAlertController(title: "DETAIL_ALERT_ERROR_TITLE".localized(), message: "DETAIL_ALERT_ERROR_RENTED".localized(), preferredStyle: UIAlertControllerStyle.alert)

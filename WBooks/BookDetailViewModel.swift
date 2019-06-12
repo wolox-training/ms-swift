@@ -15,6 +15,11 @@ import Result
 final class BookDetailViewModel {
 
     var bookID: Int
+    public let book: Book
+    private let bookRepository: WBookRepositoryType
+    private let mutableComments = MutableProperty<[Comment]>([])
+    public let comments: Property<[Comment]>
+    
  
     private let changeLabelSignalPipe = Signal<String, NoError>.pipe()
     var changeLabelSignal: Signal<String, NoError> {
@@ -31,8 +36,12 @@ final class BookDetailViewModel {
         changeLabelSignalPipe.input.sendCompleted()
     }
     
-    init(bookID: Int) {
-        self.bookID = bookID-1
+    init(book: Book, bookRepository: WBookRepositoryType = NetworkingBootstrapper.shared.createWBooksRepository()) {
+        self.book = book
+        self.bookRepository = bookRepository
+        self.comments = Property(mutableComments)
+        mutableComments <~ bookRepository.fetchComments(book: book)
+            .flatMapError { _ in SignalProducer<[Comment], NoError>.empty }
     }
     
     func rent() -> Int {

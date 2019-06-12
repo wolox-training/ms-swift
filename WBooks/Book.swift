@@ -45,5 +45,4 @@ extension Book: Argo.Decodable {
             <*> json <| "year"
             <*> json <| "genre"
     }
-    
 }
