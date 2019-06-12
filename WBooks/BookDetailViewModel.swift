@@ -14,7 +14,6 @@ import Result
 
 final class BookDetailViewModel {
 
-   // let dispatchGroup = DispatchGroup()
     var bookID: Int
  
     private let changeLabelSignalPipe = Signal<String, NoError>.pipe()
@@ -32,7 +31,6 @@ final class BookDetailViewModel {
         changeLabelSignalPipe.input.sendCompleted()
     }
     
-
     init(bookID: Int) {
         self.bookID = bookID-1
     }
@@ -43,7 +41,6 @@ final class BookDetailViewModel {
             self.requestRent()
             rentSignal.observeValues { result in
                 rentStatus = result
-                print(result)
             }
             
             if rentStatus {

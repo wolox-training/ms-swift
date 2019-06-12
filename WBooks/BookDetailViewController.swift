@@ -49,7 +49,6 @@ final class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         
         bookDetailViewModel.changeLabelSignal.observeValues { data in
-            print("Got data: \(data)")
             DispatchQueue.main.async {
                 self.bookDetailController.bookDetail.statusLabel.text = data.capitalized
                 if data == "available" {
@@ -125,7 +124,6 @@ final class BookDetailViewController: UIViewController {
         loadComments()
         
         loadedCommentsSignal.observeValues { result in
-            print(result)
             DispatchQueue.main.async {
                 self.bookDetailView.commentTable.reloadData()
             }
@@ -140,7 +138,6 @@ final class BookDetailViewController: UIViewController {
             
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response {
-                print(response)
                 if let data = data, let _ = String(data: data, encoding: .utf8) {
                     do {
                         try JSONSerialization.jsonObject(with: data, options: [])
