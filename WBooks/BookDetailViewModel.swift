@@ -14,13 +14,11 @@ import Result
 
 final class BookDetailViewModel {
 
-    var bookID: Int
-    public let book: Book
+    public var book: Book
     private let bookRepository: WBookRepositoryType
     private let mutableComments = MutableProperty<[Comment]>([])
     public let comments: Property<[Comment]>
     
- 
     private let changeLabelSignalPipe = Signal<String, NoError>.pipe()
     var changeLabelSignal: Signal<String, NoError> {
         return changeLabelSignalPipe.output
@@ -66,7 +64,7 @@ final class BookDetailViewModel {
     }
     
     func checkBookStatus() -> Bool {
-        return BookDB.bookArrayDB[bookID].status == "available"
+        return book.status == "available"
     }
     
     func requestRent() {
@@ -74,7 +72,7 @@ final class BookDetailViewModel {
         let today: String = Date.getCurrentDateYYYY_MM_DD()
         let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
         let userID = 8  // userID assigned by trainer
-        let bookID = self.bookID
+        let bookID = book.id
         let parameters = ["userID": userID,
                           "bookID": bookID,
                           "from": today,
@@ -114,11 +112,11 @@ final class BookDetailViewModel {
         }.resume()
     }
     func changeStatusOnBookStructure() {
-        if BookDB.bookArrayDB[self.bookID].status == "available" {
-            BookDB.bookArrayDB[self.bookID].status = "rented"
+        if book.status == "available" {
+            book.status = "rented"
             changeLabelSignalPipe.input.send(value: "rented")
-        } else if BookDB.bookArrayDB[self.bookID].status == "rented" {
-            BookDB.bookArrayDB[self.bookID].status = "available"
+        } else if book.status == "rented" {
+            book.status = "available"
             changeLabelSignalPipe.input.send(value: "available")
         }
     }

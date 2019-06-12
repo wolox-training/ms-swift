@@ -89,8 +89,8 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bottomLabel?.text = book.author
         
         cell.addTapGestureRecognizer { _ in
-            CommentDB.commentArray = [] // Reset comment buffer
-            let bookDetailViewController = BookDetailViewController(bookID: book.id)
+          //  CommentDB.commentArray = [] // Reset comment buffer
+            let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
             self.navigationController?.pushViewController(bookDetailViewController, animated: true)
             self.makeAllBooksAvailable() // Added for debugging. Should be deleted when book API is fixed
         }

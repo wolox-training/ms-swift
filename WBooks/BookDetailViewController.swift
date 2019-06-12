@@ -12,10 +12,12 @@ import UIKit
 
 final class BookDetailViewController: UIViewController {
 
-    private let bookID: Int
+  //  private let bookID: Int
+    
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
-    private var bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
+    //private var bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
+    private var bookDetailViewModel: BookDetailViewModel
     
     private let loadedCommmentsSignalPipe = Signal<Bool, NoError>.pipe()
     var loadedCommentsSignal: Signal<Bool, NoError> {
@@ -26,18 +28,20 @@ final class BookDetailViewController: UIViewController {
         loadedCommmentsSignalPipe.input.sendCompleted()
     }
     
-    private var commentList: [Comment]
+    private var commentList: [Comment] = []
     
-    init(bookID: Int) {
-        self.bookID = bookID-1
-        self.bookDetailViewModel.bookID = bookID
-        commentList = CommentDB.getCommentsUsingBookID(bookID: bookID)
+    init(withBookDetailViewModel: BookDetailViewModel) {
+      //  self.bookID = bookID-1
+    //    self.bookDetailViewModel.bookID = bookID
+   //     commentList = CommentDB.getCommentsUsingBookID(bookID: bookID)
+        self.bookDetailViewModel = withBookDetailViewModel
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.bookID = -1
-        self.commentList = []
+     //   self.bookID = -1
+    //    self.commentList = []
+        self.bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
         super.init(coder: aDecoder)
     }
 
@@ -129,7 +133,6 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
-        loadComments()
         
         loadedCommentsSignal.observeValues { result in
             DispatchQueue.main.async {
@@ -137,7 +140,7 @@ final class BookDetailViewController: UIViewController {
             }
         }
     }
-    
+    /*
     func loadComments() {
         let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
         var request = URLRequest(url: url)
@@ -173,24 +176,24 @@ final class BookDetailViewController: UIViewController {
         }
         task.resume()
     }
-    
+    */
     func loadBookDetails() {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
         
-        if BookDB.bookArrayDB[self.bookID].status == "available" {
+        if bookDetailViewModel.book.status == "available" {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
-        } else if BookDB.bookArrayDB[self.bookID].status == "rented"{
+        } else if bookDetailViewModel.book.status == "rented"{
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
         } else {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.red
         }
-        bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
-        bookDetailController.bookDetail.titleLabel.text = BookDB.bookArrayDB[self.bookID].title.capitalized
-        bookDetailController.bookDetail.authorLabel.text = BookDB.bookArrayDB[self.bookID].author.capitalized
-        bookDetailController.bookDetail.yearLabel.text = BookDB.bookArrayDB[self.bookID].year
-        bookDetailController.bookDetail.genreLabel.text = BookDB.bookArrayDB[self.bookID].genre.capitalized
+        bookDetailController.bookDetail.statusLabel.text = bookDetailViewModel.book.status.capitalized
+        bookDetailController.bookDetail.titleLabel.text = bookDetailViewModel.book.title.capitalized
+        bookDetailController.bookDetail.authorLabel.text = bookDetailViewModel.book.author.capitalized
+        bookDetailController.bookDetail.yearLabel.text = bookDetailViewModel.book.year
+        bookDetailController.bookDetail.genreLabel.text = bookDetailViewModel.book.genre.capitalized
         bookDetailController.bookDetail.bookCover.image = UIImage()
-        if let url = BookDB.bookArrayDB[self.bookID].imageUrl {
+        if let url = bookDetailViewModel.book.imageUrl {
             bookDetailController.bookDetail.bookCover?.load(url: url)
         }
     }
@@ -207,7 +210,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CommentDB.commentArray.count
+        return bookDetailViewModel.comments.value.count
     }
     
     // Hard coded to fit all info. Should be replaced to dynamic height in function of components
@@ -221,12 +224,12 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.usernameLabel?.text = CommentDB.commentArray[indexPath.row].comment.username
-        cell.commentLabel?.text = CommentDB.commentArray[indexPath.row].comment.comment
+        cell.usernameLabel?.text = bookDetailViewModel.comments.value[indexPath.row].user.username
+        cell.commentLabel?.text = bookDetailViewModel.comments.value[indexPath.row].content
         
         cell.userIcon?.image = UIImage()   // Add grey frame to make loading prettier
         
-        if let url = URL(string: CommentDB.commentArray[indexPath.row].comment.image) {
+        if let url = URL(string: bookDetailViewModel.comments.value[indexPath.row].user.image) {
             cell.userIcon?.load(url: url)
         }
         

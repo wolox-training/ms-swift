@@ -9,7 +9,7 @@
 import Foundation
 
 struct CommentDB {
-
+/*
     static var commentArray: [CommentWithLoadedCheck] = []
     
     static var loadedFromAPI: Bool = false
@@ -39,5 +39,5 @@ struct CommentFromJSON: Codable {
     
     func loadFromJSONToDataBase() {
         CommentDB.commentArray.append(CommentWithLoadedCheck(loadedFromAPI: true, comment: Comment(bookID: book.id, username: user.username, image: user.image, comment: content)))
-    }
+    }*/
 }
