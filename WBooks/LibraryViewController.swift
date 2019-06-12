@@ -34,6 +34,12 @@ final class LibraryViewController: UIViewController {
 
         setupBindings()
     }
+    
+    func makeAllBooksAvailable() {
+        for index in 0..<BookDB.bookArrayDB.count {
+            BookDB.bookArrayDB[index].status = "available"
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -83,9 +89,10 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bottomLabel?.text = book.author
         
         cell.addTapGestureRecognizer { _ in
-            CommentDB.commentArray = []
+            CommentDB.commentArray = [] // Reset comment buffer
             let bookDetailViewController = BookDetailViewController(bookID: book.id)
             self.navigationController?.pushViewController(bookDetailViewController, animated: true)
+            self.makeAllBooksAvailable() // Added for debugging. Should be deleted when book API is fixed
         }
         
         return cell

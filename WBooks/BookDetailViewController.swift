@@ -5,7 +5,9 @@
 //  Created by Matías David Schwalb on 30/05/2019.
 //  Copyright © 2019 Wolox. All rights reserved.
 //
-
+import ReactiveSwift
+import Result
+import ReactiveCocoa
 import UIKit
 
 final class BookDetailViewController: UIViewController {
@@ -15,9 +17,18 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
     
+    private let loadedCommmentsSignalPipe = Signal<Bool, NoError>.pipe()
+    var loadedCommentsSignal: Signal<Bool, NoError> {
+        return loadedCommmentsSignalPipe.output
+    }
+    
+    deinit {
+        loadedCommmentsSignalPipe.input.sendCompleted()
+    }
+    
     private var commentList: [Comment]
     
-    let dispatchGroup = DispatchGroup()
+//    let dispatchGroup = DispatchGroup()
     
     init(bookID: Int) {
         self.bookID = bookID-1
@@ -56,16 +67,16 @@ final class BookDetailViewController: UIViewController {
         bookDetailView.commentTable.register(nib, forCellReuseIdentifier: CommentCell.xibFileCommentCellName)
         bookDetailView.commentTable.delegate = self
         bookDetailView.commentTable.dataSource = self
-        
+        /*
         dispatchGroup.notify(queue: .main) {
             self.bookDetailView.commentTable.reloadData()
         }
-        
+        */
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
             let rentResult = self.bookDetailViewModel.rent()
             
-            switch rentResult {
+            switch rentResult { // Maybe implement this using enum?
             case 0:
                 self.rentRequestSuccessful()
             case 2: 
@@ -117,15 +128,22 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
-            dispatchGroup.notify(queue: .main) {
+           /* dispatchGroup.notify(queue: .main) {
                 self.loadComments()
+            }*/
+        loadComments()
+        loadedCommentsSignal.observeValues { result in
+            print(result)
+            DispatchQueue.main.async {
+                self.bookDetailView.commentTable.reloadData()
             }
+        }
     }
     
     func loadComments() {
-        dispatchGroup.enter()
+        //dispatchGroup.enter()
         
-        DispatchQueue.global().sync {
+       // DispatchQueue.global().sync {
             let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
             var request = URLRequest(url: url)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -145,23 +163,28 @@ final class BookDetailViewController: UIViewController {
                                 for index in 0..<jsonCommentList.count {
                                     jsonCommentList[index].loadFromJSONToDataBase()
                                 }
+                                self.loadedCommmentsSignalPipe.input.send(value: true)
+                                /*
                                 DispatchQueue.main.async {
                                     self.bookDetailView.commentTable.reloadData()
-                                }
+                                }*/
                             } catch {
                                 print(error)
+                                self.loadedCommmentsSignalPipe.input.send(value: false)
                             }
                         } catch {
                             print(error)
+                            self.loadedCommmentsSignalPipe.input.send(value: false)
                         }
                     }
                 } else {
                     print(error ?? "Unknown error")
+                    self.loadedCommmentsSignalPipe.input.send(value: false)
                 }
             }
             task.resume()
-        }
-        dispatchGroup.leave()
+      //  }
+      //  dispatchGroup.leave()
     }
     
     func loadBookDetails() {

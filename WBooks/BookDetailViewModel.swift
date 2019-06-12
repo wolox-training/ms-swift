@@ -43,7 +43,7 @@ final class BookDetailViewModel {
     
     func rent() -> Int {
         var rentStatus: Bool = true
-        if !checkBookStatus() { // ! sign added for debugging. Must be deleted on deployment or until back-end resolves rented on all books
+        if checkBookStatus() { 
             
             dispatchGroup.notify(queue: .main) {
                 rentStatus = self.requestRent()
