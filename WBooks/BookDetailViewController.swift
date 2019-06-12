@@ -11,12 +11,9 @@ import ReactiveCocoa
 import UIKit
 
 final class BookDetailViewController: UIViewController {
-
-  //  private let bookID: Int
     
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
-    //private var bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
     private var bookDetailViewModel: BookDetailViewModel
     
     private let loadedCommmentsSignalPipe = Signal<Bool, NoError>.pipe()
@@ -31,16 +28,11 @@ final class BookDetailViewController: UIViewController {
     private var commentList: [Comment] = []
     
     init(withBookDetailViewModel: BookDetailViewModel) {
-      //  self.bookID = bookID-1
-    //    self.bookDetailViewModel.bookID = bookID
-   //     commentList = CommentDB.getCommentsUsingBookID(bookID: bookID)
         self.bookDetailViewModel = withBookDetailViewModel
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
-     //   self.bookID = -1
-    //    self.commentList = []
         self.bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
         super.init(coder: aDecoder)
     }
@@ -133,50 +125,8 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
-        
-        loadedCommentsSignal.observeValues { result in
-            DispatchQueue.main.async {
-                self.bookDetailView.commentTable.reloadData()
-            }
-        }
     }
-    /*
-    func loadComments() {
-        let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
-        var request = URLRequest(url: url)
-           request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-           request.addValue("application/json", forHTTPHeaderField: "Accept")
-            
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response {
-                if let data = data, let _ = String(data: data, encoding: .utf8) {
-                    do {
-                        try JSONSerialization.jsonObject(with: data, options: [])
-                        let decoder = JSONDecoder()
-                        do {
-                            let jsonCommentList: [CommentFromJSON]
-                            jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
-                            for index in 0..<jsonCommentList.count {
-                                jsonCommentList[index].loadFromJSONToDataBase()
-                            }
-                            self.loadedCommmentsSignalPipe.input.send(value: true)
-                        } catch {
-                            print(error)
-                            self.loadedCommmentsSignalPipe.input.send(value: false)
-                        }
-                    } catch {
-                        print(error)
-                        self.loadedCommmentsSignalPipe.input.send(value: false)
-                    }
-                }
-            } else {
-                print(error ?? "Unknown error")
-                self.loadedCommmentsSignalPipe.input.send(value: false)
-            }
-        }
-        task.resume()
-    }
-    */
+    
     func loadBookDetails() {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
         
