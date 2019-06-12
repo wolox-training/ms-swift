@@ -11,13 +11,26 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 import Result
+import Networking
+import Argo
 
 final class BookDetailViewModel {
 
     public var book: Book
     private let bookRepository: WBookRepositoryType
+    
     private let mutableComments = MutableProperty<[Comment]>([])
     public let comments: Property<[Comment]>
+    
+    /*
+    private let mutableRentProperty = MutableProperty<Bool>(false)
+    public let rentProperty: Property<Bool>
+    */
+    
+  //  private let mutableRentResult = MutableProperty<Void?>(nil)
+    public var rentResult: SignalProducer<Void, RepositoryError> = SignalProducer<Void, RepositoryError> { (_, _) in
+        return
+    }
     
     private let changeLabelSignalPipe = Signal<String, NoError>.pipe()
     var changeLabelSignal: Signal<String, NoError> {
@@ -38,18 +51,47 @@ final class BookDetailViewModel {
         self.book = book
         self.bookRepository = bookRepository
         self.comments = Property(mutableComments)
+       // self.rentResult = Property(mutableRentResult)
         mutableComments <~ bookRepository.fetchComments(book: book)
             .flatMapError { _ in SignalProducer<[Comment], NoError>.empty }
+        /*
+        mutableRentResult <~ bookRepository.postRent(book: book)
+            .flatMapError { _ in SignalProducer<Void, NoError>.empty }
+         */
     }
     
     func rent() -> Int {
-        var rentStatus: Bool = true
+        var rentStatus: Bool = false
         if checkBookStatus() {
-            self.requestRent()
+            rentResult = bookRepository.postRent(book: book)
+            rentResult.producer.startWithResult { _ in
+                rentStatus = true
+                } /*(Signal<Void, RepositoryError>.Observer(
+                value: { _ in
+                    rentStatus = true
+                    return
+            },
+                failed: { _ in
+                    rentStatus = false
+                    return
+            },
+                completed: {
+                    rentStatus = true
+                    return
+            },
+                interrupted: {
+                    rentStatus = false
+                    return
+            }))
+            */
+            print(rentStatus)
+            
+            
+            /*
             rentSignal.observeValues { result in
                 rentStatus = result
             }
-            
+            */
             if rentStatus {
                 //rentRequestSuccessful()
                 return 0
@@ -68,9 +110,10 @@ final class BookDetailViewModel {
     }
     
     func requestRent() {
-        
-        print(bookRepository.postRent(book: book))
-        
+        // Print not needed, just here for debugging
+     //   print(bookRepository.postRent(book: book))
+
+   //     rentResult.start()
         /*
         let today: String = Date.getCurrentDateYYYY_MM_DD()
         let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
