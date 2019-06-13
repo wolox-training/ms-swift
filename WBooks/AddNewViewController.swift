@@ -16,8 +16,21 @@ final class AddNewViewController: UIViewController {
         view = addNewView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "ADD_NEW_VIEW_NAVIGATION_TITLE".localized()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
+    }
+    
+    func setup() {
+        setupNavigation()
+    }
+    
+    func setupNavigation() {
         
     }
 }

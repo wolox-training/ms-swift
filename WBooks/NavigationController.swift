@@ -42,7 +42,7 @@ final class NavigationController: UINavigationController {
         navigationBar.isTranslucent = true
         navigationBar.tintColor = UIColor.white
         
-        navigationBar.topItem?.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
+//        navigationBar.topItem?.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
 }

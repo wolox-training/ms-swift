@@ -11,13 +11,17 @@ import UIKit
 import WolmoCore
 
 class AddNewView: UIView, NibLoadable {
+    @IBOutlet weak var childView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setupView()
     }
 }
 
 private extension AddNewView {
     func setupView() {
+        layer.backgroundColor = UIColor.wLightBlue.cgColor
+        childView.layer.cornerRadius = 22
     }
 }
