@@ -33,7 +33,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="commentTable" destination="hab-Ch-E6a" id="vYD-wq-80x"/>
+                <outlet property="commentTable" destination="hab-Ch-E6a" id="81V-Xv-xaW"/>
             </connections>
             <point key="canvasLocation" x="132" y="154.27286356821591"/>
         </view>

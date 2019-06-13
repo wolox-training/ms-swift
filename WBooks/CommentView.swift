@@ -16,11 +16,13 @@ class CommentView: UIView, NibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setupView()
     }
 }
 
 private extension CommentView {
     func setupView() {
+        self.layer.cornerRadius = 22
+        commentTable.layer.cornerRadius = 22
     }
 }
