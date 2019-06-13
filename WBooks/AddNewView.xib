@@ -21,7 +21,77 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7h-rf-ujv">
                     <rect key="frame" x="20" y="90" width="374" height="752"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8yP-dA-CFn">
+                            <rect key="frame" x="8" y="8" width="358" height="736"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" verticalHuggingPriority="200" placeholderIntrinsicWidth="342" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="rXZ-j4-bdI">
+                                    <rect key="frame" x="8" y="8" width="342" height="128"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="114" placeholderIntrinsicHeight="128" image="img_book1" translatesAutoresizingMaskIntoConstraints="NO" id="YTu-4Q-shJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="114" height="128"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01F-CE-427">
+                                            <rect key="frame" x="114" y="0.0" width="228" height="128"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YTu-4Q-shJ" firstAttribute="width" secondItem="01F-CE-427" secondAttribute="width" multiplier="0.5" id="hQH-Rc-KAR"/>
+                                    </constraints>
+                                </stackView>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGZ-sl-bzo">
+                                    <rect key="frame" x="8" y="144" width="342" height="90.5"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Author" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDq-p9-n4X">
+                                    <rect key="frame" x="8" y="242.5" width="342" height="91"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Year" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IHJ-61-1xF">
+                                    <rect key="frame" x="8" y="341.5" width="342" height="90.5"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Topic" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bjy-pK-mnj">
+                                    <rect key="frame" x="8" y="440" width="342" height="90.5"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSk-Di-Ono">
+                                    <rect key="frame" x="8" y="538.5" width="342" height="91"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdD-ze-hVV">
+                                    <rect key="frame" x="8" y="637.5" width="342" height="90.5"/>
+                                    <state key="normal" title="ADD NEW"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Bjy-pK-mnj" firstAttribute="height" secondItem="aSk-Di-Ono" secondAttribute="height" id="0r2-sd-dE8"/>
+                                <constraint firstItem="IHJ-61-1xF" firstAttribute="height" secondItem="Bjy-pK-mnj" secondAttribute="height" id="1Sv-2F-PEg"/>
+                                <constraint firstItem="eDq-p9-n4X" firstAttribute="height" secondItem="IHJ-61-1xF" secondAttribute="height" id="Rnc-WC-HTf"/>
+                                <constraint firstItem="AdD-ze-hVV" firstAttribute="height" secondItem="aSk-Di-Ono" secondAttribute="height" id="iEH-Y0-DgW"/>
+                                <constraint firstItem="LGZ-sl-bzo" firstAttribute="height" secondItem="eDq-p9-n4X" secondAttribute="height" id="n0B-iC-dBx"/>
+                            </constraints>
+                            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                        </stackView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="8yP-dA-CFn" secondAttribute="bottom" constant="8" id="3XY-lQ-bLM"/>
+                        <constraint firstItem="8yP-dA-CFn" firstAttribute="leading" secondItem="S7h-rf-ujv" secondAttribute="leading" constant="8" id="VmL-Tb-WA3"/>
+                        <constraint firstAttribute="trailing" secondItem="8yP-dA-CFn" secondAttribute="trailing" constant="8" id="VrI-3f-uQy"/>
+                        <constraint firstItem="8yP-dA-CFn" firstAttribute="top" secondItem="S7h-rf-ujv" secondAttribute="top" constant="8" id="jK8-Iu-gpE"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.90588235289999997" green="0.96078431369999995" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,5 +114,6 @@
     </objects>
     <resources>
         <image name="bc_nav bar" width="750" height="204"/>
+        <image name="img_book1" width="80" height="120"/>
     </resources>
 </document>
