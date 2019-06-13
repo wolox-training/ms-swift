@@ -56,7 +56,7 @@ final class BookDetailViewModel {
     }
     
     func rent() {
-        if !checkBookStatus() { // ! added for debugging
+        if checkBookStatus() { // ! added for debugging
             rentResult = bookRepository.postRent(book: book)
             rentResult.producer.startWithResult { result in
                 if result.value != nil {
