@@ -27,23 +27,22 @@ final class BookDetailViewModel {
         return finishedRentingPipe.output
     }
 
-  //  private let mutableRentResult = MutableProperty<Void?>(nil)
     public var rentResult: SignalProducer<Void, RepositoryError> = SignalProducer<Void, RepositoryError> { (_, _) in
         return
     }
-    
+
     private let changeLabelSignalPipe = Signal<String, NoError>.pipe()
     var changeLabelSignal: Signal<String, NoError> {
         return changeLabelSignalPipe.output
     }
-
+/*
     private let rentSignalPipe = Signal<Bool, NoError>.pipe()
     var rentSignal: Signal <Bool, NoError> {
         return rentSignalPipe.output
     }
-    
+    */
     deinit {
-        rentSignalPipe.input.sendCompleted()
+       //  rentSignalPipe.input.sendCompleted()
         changeLabelSignalPipe.input.sendCompleted()
         finishedRentingPipe.input.sendCompleted()
     }
@@ -52,13 +51,8 @@ final class BookDetailViewModel {
         self.book = book
         self.bookRepository = bookRepository
         self.comments = Property(mutableComments)
-       // self.rentResult = Property(mutableRentResult)
         mutableComments <~ bookRepository.fetchComments(book: book)
             .flatMapError { _ in SignalProducer<[Comment], NoError>.empty }
-        /*
-        mutableRentResult <~ bookRepository.postRent(book: book)
-            .flatMapError { _ in SignalProducer<Void, NoError>.empty }
-         */
     }
     
     func rent() {
@@ -67,8 +61,8 @@ final class BookDetailViewModel {
             rentResult.producer.startWithResult { result in
                 if result.value != nil {
                     self.finishedRentingPipe.input.send(value: 1)
-                }
-                else if result.error != nil {
+                    self.changeStatusOnBookStructure()
+                } else if result.error != nil {
                     self.finishedRentingPipe.input.send(error: result.error!)
                 }
             }
@@ -81,56 +75,7 @@ final class BookDetailViewModel {
     func checkBookStatus() -> Bool {
         return book.status == "available"
     }
-    
-    func requestRent() {
-        // Print not needed, just here for debugging
-     //   print(bookRepository.postRent(book: book))
 
-   //     rentResult.start()
-        /*
-        let today: String = Date.getCurrentDateYYYY_MM_DD()
-        let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
-        let userID = 8  // userID assigned by trainer
-        let bookID = book.id
-        let parameters = ["userID": userID,
-                          "bookID": bookID,
-                          "from": today,
-                          "to": tomorrow] as [String: Any]
-            
-        guard let url = URL(string: "https://swift-training-backend.herokuapp.com/users/8/rents") else {
-            rentSignalPipe.input.send(value: false)
-            return
-        }
-            
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
-            rentSignalPipe.input.send(value: false)
-            return
-        }
-        request.httpBody = httpBody
-            
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print (response)
-            }
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                    self.rentSignalPipe.input.send(value: true)
-                    self.changeStatusOnBookStructure()
-                } catch {
-                    print(error)
-                    self.rentSignalPipe.input.send(value: false)
-                }
-            }
-        }.resume()
-        */
-    }
     func changeStatusOnBookStructure() {
         if book.status == "available" {
             book.status = "rented"
