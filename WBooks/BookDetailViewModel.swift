@@ -22,12 +22,11 @@ final class BookDetailViewModel {
     private let mutableComments = MutableProperty<[Comment]>([])
     public let comments: Property<[Comment]>
     
-    private let finishedRentingPipe = Signal<Void, NoError>.pipe()
-    public var finishedRentingSignal: Signal<Void, NoError> {
+    private let finishedRentingPipe = Signal<Int, RepositoryError>.pipe()
+    public var finishedRentingSignal: Signal<Int, RepositoryError> {
         return finishedRentingPipe.output
     }
 
-    
   //  private let mutableRentResult = MutableProperty<Void?>(nil)
     public var rentResult: SignalProducer<Void, RepositoryError> = SignalProducer<Void, RepositoryError> { (_, _) in
         return
@@ -62,29 +61,21 @@ final class BookDetailViewModel {
          */
     }
     
-    func rent() -> Int {
-        var returnValue = 2
-        var rentStatus: Bool = false
+    func rent() {
         if !checkBookStatus() { // ! added for debugging
             rentResult = bookRepository.postRent(book: book)
-            rentResult.producer.startWithResult { _ in
-                rentStatus = true
-                self.finishedRentingPipe.input.send(value: ())
-                
-                print(rentStatus)
-                if rentStatus {
-                    //rentRequestSuccessful()
-                    returnValue = 0
-                } else {
-                    //rentRequestFailed()
-                    returnValue = 1
+            rentResult.producer.startWithResult { result in
+                if result.value != nil {
+                    self.finishedRentingPipe.input.send(value: 1)
+                }
+                else if result.error != nil {
+                    self.finishedRentingPipe.input.send(error: result.error!)
                 }
             }
         } else {
             //bookIsUnavailable()
-            returnValue = 2
+            self.finishedRentingPipe.input.send(value: 2)
         }
-        return returnValue
     }
     
     func checkBookStatus() -> Bool {
