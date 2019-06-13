@@ -32,7 +32,8 @@ class TabBarController: UITabBarController {
         addNew.tabBarItem.image = UIImage(named: "ic_add new")
         addNew.tabBarItem.tag = 2
         
-        let rentals = RentalsViewController()
+        //let rentals = RentalsViewController()
+        let rentals = CommentTableViewController(usingViewModel: BookDetailViewModel(book: Book(status: "Available", id: 5, author: "Christopher Pike", title: "Scavenger Hunt", image: "http://wolox-training.s3.amazonaws.com/uploads/6963511-M.jpg", year: "1989", genre: "suspense")))
         rentals.tabBarItem = UITabBarItem()
         rentals.tabBarItem.title = "TAB_RENTALS_TITLE".localized()
         rentals.tabBarItem.image = UIImage(named: "ic_myrentals")

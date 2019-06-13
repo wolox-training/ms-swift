@@ -15,6 +15,8 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel: BookDetailViewModel
+    private var commentTableViewController: CommentTableViewController
+    private var commentViewController: CommentViewController
     
     private let loadedCommmentsSignalPipe = Signal<Bool, NoError>.pipe()
     var loadedCommentsSignal: Signal<Bool, NoError> {
@@ -29,11 +31,16 @@ final class BookDetailViewController: UIViewController {
     
     init(withBookDetailViewModel: BookDetailViewModel) {
         self.bookDetailViewModel = withBookDetailViewModel
-        super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
+       // super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
+        self.commentTableViewController = CommentTableViewController(usingViewModel: bookDetailViewModel)
+        self.commentViewController = CommentViewController(usingViewModel: bookDetailViewModel)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
+        self.commentTableViewController = CommentTableViewController(usingViewModel: bookDetailViewModel)
+        self.commentViewController = CommentViewController(usingViewModel: bookDetailViewModel)
         super.init(coder: aDecoder)
     }
 
@@ -78,16 +85,6 @@ final class BookDetailViewController: UIViewController {
             }
             
             self.bookDetailViewModel.rent()
-            //self.bookDetailViewModel.finishedRentingSignal.
-            /*
-            switch rentResult { // Maybe implement this using enum?
-            case 0:
-                self.rentRequestSuccessful()
-            case 2: 
-                self.bookIsUnavailable()
-            default:
-                self.rentRequestFailed()    // If rentResult == 1 or otherwise (!= 0, != 2), it failed
-            }*/
         }
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
@@ -140,10 +137,11 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
+        bookDetailView.childBottomDetailView.addSubview(commentViewController.view)
     }
     
     func loadBookDetails() {
-        bookDetailView.childDetailView.addSubview(bookDetailController.view)
+        bookDetailView.childTopDetailView.addSubview(bookDetailController.view)
         
         if bookDetailViewModel.book.status == "available" {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen

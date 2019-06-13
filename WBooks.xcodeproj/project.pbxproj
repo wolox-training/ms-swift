@@ -24,6 +24,11 @@
 		316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8152295AADE00A3A2B3 /* LogInViewController.swift */; };
 		316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AF8172295AAEA00A3A2B3 /* LogInView.swift */; };
 		316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AF8192295AAF600A3A2B3 /* LogInView.xib */; };
+		31710DFA22B28D170078FF2F /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710DF822B28D170078FF2F /* CommentTableViewController.swift */; };
+		31710DFB22B28D170078FF2F /* CommentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31710DF922B28D170078FF2F /* CommentTableViewController.xib */; };
+		31710DFE22B29D1B0078FF2F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710DFC22B29D1B0078FF2F /* CommentViewController.swift */; };
+		31710E0122B29DB70078FF2F /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0022B29DB70078FF2F /* CommentView.swift */; };
+		31710E0322B29F5B0078FF2F /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31710E0222B29F5B0078FF2F /* CommentView.xib */; };
 		318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */; };
 		318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462122A1656C00649BE1 /* WBooksRepository.swift */; };
 		318E462522A165D500649BE1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462422A165D500649BE1 /* Book.swift */; };
@@ -133,6 +138,11 @@
 		316AF8152295AADE00A3A2B3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		316AF8172295AAEA00A3A2B3 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		316AF8192295AAF600A3A2B3 /* LogInView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
+		31710DF822B28D170078FF2F /* CommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
+		31710DF922B28D170078FF2F /* CommentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewController.xib; sourceTree = "<group>"; };
+		31710DFC22B29D1B0078FF2F /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		31710E0022B29DB70078FF2F /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		31710E0222B29F5B0078FF2F /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingBootstraper.swift; sourceTree = "<group>"; };
 		318E462122A1656C00649BE1 /* WBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBooksRepository.swift; sourceTree = "<group>"; };
 		318E462422A165D500649BE1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -271,6 +281,11 @@
 			children = (
 				3165C26322A838FF00B20C47 /* CommentCell.xib */,
 				3165C26622A83BE300B20C47 /* CommentCell.swift */,
+				31710DF822B28D170078FF2F /* CommentTableViewController.swift */,
+				31710DF922B28D170078FF2F /* CommentTableViewController.xib */,
+				31710DFC22B29D1B0078FF2F /* CommentViewController.swift */,
+				31710E0022B29DB70078FF2F /* CommentView.swift */,
+				31710E0222B29F5B0078FF2F /* CommentView.xib */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -654,6 +669,7 @@
 			files = (
 				318E463522A1799200649BE1 /* BookDetailView.xib in Resources */,
 				316AF8132295A8B100A3A2B3 /* LibraryView.xib in Resources */,
+				31710DFB22B28D170078FF2F /* CommentTableViewController.xib in Resources */,
 				31D50A06229DA45100E0F144 /* SettingsView.xib in Resources */,
 				31D50A09229DB88600E0F144 /* Localizable.strings in Resources */,
 				316AF80E2295A4AA00A3A2B3 /* LogInVIew.storyboard in Resources */,
@@ -665,6 +681,7 @@
 				318E463A22A1799200649BE1 /* BookDetail.xib in Resources */,
 				31D509FF229D925300E0F144 /* RentalsView.xib in Resources */,
 				31D509EB229D817A00E0F144 /* WishListView.xib in Resources */,
+				31710E0322B29F5B0078FF2F /* CommentView.xib in Resources */,
 				316AF81A2295AAF600A3A2B3 /* LogInView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,6 +757,7 @@
 				9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */,
 				316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */,
 				CEB934DD1D21992100DF75C2 /* Environment.swift in Sources */,
+				31710DFE22B29D1B0078FF2F /* CommentViewController.swift in Sources */,
 				31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */,
 				318E463722A1799200649BE1 /* BookDetailController.swift in Sources */,
 				318E463822A1799200649BE1 /* BookDetail.swift in Sources */,
@@ -754,6 +772,8 @@
 				31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
 				318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */,
+				31710DFA22B28D170078FF2F /* CommentTableViewController.swift in Sources */,
+				31710E0122B29DB70078FF2F /* CommentView.swift in Sources */,
 				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
