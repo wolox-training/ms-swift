@@ -97,7 +97,8 @@ final class BookDetailViewController: UIViewController {
 
     func setupBindings() {
         bookDetailViewModel.comments.producer.startWithValues { [unowned self ] _ in
-            self.bookDetailView.commentTable.reloadData()
+            //self.bookDetailView.commentTable.reloadData()
+            self.commentViewController.commentView.commentTable.reloadData()
         }
     }
     

@@ -11,7 +11,7 @@ import UIKit
 final class CommentViewController: UIViewController {
     
     let bookDetailViewModel: BookDetailViewModel
-    private let commentView: CommentView = CommentView.loadFromNib()!
+    let commentView: CommentView = CommentView.loadFromNib()!
     
     override func loadView() {
         view = commentView
@@ -34,8 +34,6 @@ final class CommentViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
 }
 
 extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
