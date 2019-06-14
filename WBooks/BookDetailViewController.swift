@@ -25,8 +25,6 @@ final class BookDetailViewController: UIViewController {
         loadedCommmentsSignalPipe.input.sendCompleted()
     }
     
-    private var commentList: [Comment] = []
-    
     init(withBookDetailViewModel: BookDetailViewModel) {
         self.bookDetailViewModel = withBookDetailViewModel
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
@@ -63,7 +61,6 @@ final class BookDetailViewController: UIViewController {
         
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
-         //   self.bookDetailViewModel.rent()
             
             self.bookDetailViewModel.finishedRentingSignal.observeResult { result in
                 if result.value == 1 {
@@ -78,16 +75,6 @@ final class BookDetailViewController: UIViewController {
             }
             
             self.bookDetailViewModel.rent()
-            //self.bookDetailViewModel.finishedRentingSignal.
-            /*
-            switch rentResult { // Maybe implement this using enum?
-            case 0:
-                self.rentRequestSuccessful()
-            case 2: 
-                self.bookIsUnavailable()
-            default:
-                self.rentRequestFailed()    // If rentResult == 1 or otherwise (!= 0, != 2), it failed
-            }*/
         }
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
