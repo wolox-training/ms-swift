@@ -24,8 +24,36 @@ open class WTextField: UITextField, UITextFieldDelegate {
     func setupTextField() {
         delegate = self
         borderStyle = UITextField.BorderStyle(rawValue: 0)!
+        attributedPlaceholder = NSAttributedString(string: "Holis", attributes: [.foregroundColor: UIColor.lightGray, .font: UIFont.italicSystemFont(ofSize: 14.0)])
         setPadding()
         setBottomLine(state: .sleeping)
+        
+        reactive.continuousTextValues.signal.observeValues { textOnField in
+            self.updateTextFieldState(textOnField: textOnField!)
+        }
+    }
+    
+    func updateTextFieldState(textOnField: String) {
+        let currentState: TextFieldState
+        if self.isEditing {
+            if !isValidInput(textOnField: textOnField) {
+                currentState = .incorrect
+            } else {
+                currentState = .editing
+            }
+        } else {
+        currentState = .sleeping
+        }
+        
+        setBottomLine(state: currentState)
+    }
+    
+    func isValidInput(textOnField: String) -> Bool {
+        if textOnField.contains("&") {
+            return false
+        } else {
+            return true
+        }
     }
     
     func setPadding() {
@@ -44,8 +72,6 @@ open class WTextField: UITextField, UITextFieldDelegate {
             layer.shadowColor = UIColor.lightGray.cgColor
         case .editing:
             layer.shadowColor = UIColor.gray.cgColor
-        case .correct:
-            layer.shadowColor = UIColor.green.cgColor
         case .incorrect:
             layer.shadowColor = UIColor.red.cgColor
         }
@@ -54,7 +80,6 @@ open class WTextField: UITextField, UITextFieldDelegate {
     enum TextFieldState {
         case sleeping
         case editing
-        case correct
         case incorrect
     }
 }
