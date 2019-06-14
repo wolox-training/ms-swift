@@ -35,14 +35,8 @@ final class BookDetailViewModel {
     var changeLabelSignal: Signal<String, NoError> {
         return changeLabelSignalPipe.output
     }
-/*
-    private let rentSignalPipe = Signal<Bool, NoError>.pipe()
-    var rentSignal: Signal <Bool, NoError> {
-        return rentSignalPipe.output
-    }
-    */
+
     deinit {
-       //  rentSignalPipe.input.sendCompleted()
         changeLabelSignalPipe.input.sendCompleted()
         finishedRentingPipe.input.sendCompleted()
     }
@@ -67,7 +61,6 @@ final class BookDetailViewModel {
                 }
             }
         } else {
-            //bookIsUnavailable()
             self.finishedRentingPipe.input.send(value: 2)
         }
     }

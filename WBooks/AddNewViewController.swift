@@ -27,10 +27,7 @@ final class AddNewViewController: UIViewController {
     }
     
     func setup() {
-        setupNavigation()
-    }
-    
-    func setupNavigation() {
         
     }
+    
 }

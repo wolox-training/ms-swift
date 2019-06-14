@@ -8,14 +8,53 @@
 
 import UIKit
 
-class WTextField: UITextField {
+@IBDesignable
+open class WTextField: UITextField, UITextFieldDelegate {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupTextField()
     }
-    */
-
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupTextField()
+    }
+    
+    func setupTextField() {
+        delegate = self
+        borderStyle = UITextField.BorderStyle(rawValue: 0)!
+        setPadding()
+        setBottomLine(state: .sleeping)
+    }
+    
+    func setPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10, height: self.frame.height))
+        leftView = paddingView
+        leftViewMode = .always
+    }
+    
+    func setBottomLine(state: TextFieldState) {
+        layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        layer.shadowOpacity = 1.0
+        layer.shadowRadius = 0.0
+        
+        switch state {
+        case .sleeping:
+            layer.shadowColor = UIColor.lightGray.cgColor
+        case .editing:
+            layer.shadowColor = UIColor.gray.cgColor
+        case .correct:
+            layer.shadowColor = UIColor.green.cgColor
+        case .incorrect:
+            layer.shadowColor = UIColor.red.cgColor
+        }
+    }
+    
+    enum TextFieldState {
+        case sleeping
+        case editing
+        case correct
+        case incorrect
+    }
 }
