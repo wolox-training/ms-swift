@@ -11,6 +11,9 @@ import UIKit
 @IBDesignable
 open class WTextField: UITextField, UITextFieldDelegate {
 
+    public var onlyAcceptsNumbers = false
+    // When using WTextField, user must set this property to true beforehand if the textfield only accepts numbers
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setupTextField()
@@ -49,11 +52,20 @@ open class WTextField: UITextField, UITextFieldDelegate {
     }
     
     func isValidInput(textOnField: String) -> Bool {
+        /*
         if textOnField.contains("&") {
             return false
         } else {
             return true
         }
+         */
+        var returnValue = true
+        if onlyAcceptsNumbers {
+            if textOnField.containsALetter(input: textOnField) {
+                returnValue = false
+            }
+        }
+            return returnValue
     }
     
     func setPadding() {
@@ -81,5 +93,29 @@ open class WTextField: UITextField, UITextFieldDelegate {
         case sleeping
         case editing
         case incorrect
+    }
+}
+
+extension String {
+    
+    func containsALetter(input: String) -> Bool {
+        for forIndex in 0..<input.count {
+            let stringIndex = input.index(input.startIndex, offsetBy: forIndex)
+            if isAlpha(char: input[stringIndex]) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func isAlpha(char: Character) -> Bool {
+        switch char {
+        case "a"..."z":
+            return true
+        case "A"..."Z":
+            return true
+        default:
+            return false
+        }
     }
 }
