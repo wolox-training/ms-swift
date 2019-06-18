@@ -58,6 +58,8 @@ final class AddNewViewController: UIViewController {
                         }))
                         
                         self.present(alert, animated: true, completion: nil)
+                        
+                        self.resetView()
                     }
                     
                     if result.error != nil {
@@ -83,6 +85,15 @@ final class AddNewViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func resetView() {
+        addNewView.titleTextField.text?.removeAll()
+        addNewView.authorTextField.text?.removeAll()
+        addNewView.yearTextField.text?.removeAll()
+        addNewView.topicTextField.text?.removeAll()
+        addNewView.descriptionTextField.text?.removeAll()
+        addNewView.bookCover.image = UIImage(named: "ic_add photo")
     }
     
     func allDataIsValid() -> Bool {

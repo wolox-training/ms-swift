@@ -15,8 +15,7 @@ import Networking
 import Argo
 
 final class NavigationController: UINavigationController {
-    
-    
+        
     func setupNav() {
         // Search button
     let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
