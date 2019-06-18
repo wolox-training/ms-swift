@@ -28,7 +28,8 @@ class WBookRepository: AbstractRepository, WBookRepositoryType {
     
     public func postRent(book: Book) -> SignalProducer<Void, RepositoryError> {
         let path = WBookRepository.PostRentPath
-        let parameters = book.asDictionary()
+        let parameters = book.asDictionaryForRenting()
+
         return performRequest(method: .post, path: path, parameters: parameters) { _ in
             Result(value: ())
         }
@@ -36,7 +37,10 @@ class WBookRepository: AbstractRepository, WBookRepositoryType {
     
     public func postNewBook(book: Book) -> SignalProducer<Void, RepositoryError> {
         let path = WBookRepository.PostNewBookPath
-        let parameters = book.asDictionary()
+        let parameters = book.asDictionaryForAddingNew()
+        print(">>>>>>>>>>>>>\n\n")
+        print(parameters)
+        print("\n\n<<<<<<<<<<<<<")
         return performRequest(method: .post, path: path, parameters: parameters) { _ in
             Result(value: ())
         }

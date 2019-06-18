@@ -26,6 +26,19 @@ final class AddNewViewController: UIViewController {
         
         setup()
 
+
+
+    }
+    
+    func setup() {
+        addNewView.yearTextField.onlyAcceptsNumbers = true
+        addNewView.bookCover.isUserInteractionEnabled = true
+        setupImagePicker()
+        setupButton()
+    }
+    
+    func setupButton() {
+        
         addNewView.addNewButton.addTapGestureRecognizer { _ in
             if self.allDataIsValid() {
                 let addNewViewModel = AddNewViewModel(book: Book(status: "available",
@@ -35,7 +48,31 @@ final class AddNewViewController: UIViewController {
                                                                  image: "some_url",
                                                                  year: self.addNewView.yearTextField.text!,
                                                                  genre: self.addNewView.topicTextField.text!))
-                addNewViewModel.printBook()
+                
+                addNewViewModel.finishedPostingSignal.observeResult { result in
+                    if result.value != nil {
+                        let alert = UIAlertController(title: "Success", message: "Book added successfully", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+                            alert.dismiss(animated: true, completion: nil)
+                        }))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
+                    if result.error != nil {
+                        let alert = UIAlertController(title: "Error", message: "Error posting data to server", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+                            alert.dismiss(animated: true, completion: nil)
+                        }))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                
+                addNewViewModel.postNewBook()
+            
             } else {
                 let alert = UIAlertController(title: "Error", message: "Data is not valid\nPlease check your entry", preferredStyle: UIAlertControllerStyle.alert)
                 
@@ -46,13 +83,6 @@ final class AddNewViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-
-    }
-    
-    func setup() {
-        addNewView.yearTextField.onlyAcceptsNumbers = true
-        addNewView.bookCover.isUserInteractionEnabled = true
-        setupImagePicker()
     }
     
     func allDataIsValid() -> Bool {

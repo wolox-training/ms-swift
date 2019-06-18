@@ -32,7 +32,7 @@ struct Book: Codable {
         self.genre = genre
     }
     
-    func asDictionary() -> [String: Any] {
+    func asDictionaryForRenting() -> [String: Any] {
         let today: String = Date.getCurrentDateYYYY_MM_DD()
         let tomorrow: String = Date.addDaysToCurrentDateYYYY_MM_DD(daysToAdd: 1)
         let userID = 8  // userID assigned by trainer
@@ -42,6 +42,15 @@ struct Book: Codable {
                 "bookID": bookID,
                 "from": today,
                 "to": tomorrow] as [String: Any]
+    }
+    
+    func asDictionaryForAddingNew() -> [String: Any] {
+        return ["author": self.author,
+                "title": self.title,
+                "image": "some_url",
+                "year": self.year,
+                "genre": self.genre,
+                "status": "available"]
     }
 }
 

@@ -16,12 +16,32 @@ import Argo
 
 final class AddNewViewModel {
     let book: Book
+    private let bookRepository: WBookRepositoryType
     
-    init(book: Book) {
+    private let finishedPostingPipe = Signal<Void, RepositoryError>.pipe()
+    public var finishedPostingSignal: Signal<Void, RepositoryError> {
+        return finishedPostingPipe.output
+    }
+    
+    init(book: Book, bookRepository: WBookRepositoryType = NetworkingBootstrapper.shared.createWBooksRepository()) {
         self.book = book
+        self.bookRepository = bookRepository
     }
     
     public func printBook() {
         print(book)
+    }
+    
+    public func postNewBook() {
+        let postNewBookResult = bookRepository.postNewBook(book: book)
+        postNewBookResult.producer.startWithResult { result in
+            if result.value != nil {
+                self.finishedPostingPipe.input.send(value: result.value!)
+            }
+            if result.error != nil {
+                self.finishedPostingPipe.input.send(error: result.error!)
+            }
+        }
+        
     }
 }
