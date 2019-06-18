@@ -8,19 +8,25 @@
 
 import Foundation
 import UIKit
-import WolmoCore
+import ReactiveSwift
+import ReactiveCocoa
+import Result
+import Networking
+import Argo
 
 final class NavigationController: UINavigationController {
-    	func setupNav() {
+    
+    
+    func setupNav() {
         // Search button
-        let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
-        topViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        topViewController?.navigationItem.rightBarButtonItem = searchButton
+    let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
+    topViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    topViewController?.navigationItem.rightBarButtonItem = searchButton
         
-        // Notifications button
-        let notificationsButton = UIBarButtonItem(image: UIImage(named: "ic_notifications"), style: .plain, target: self, action: #selector(notificationsButtonTapped))
-        topViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-        topViewController?.navigationItem.leftBarButtonItem = notificationsButton
+    // Notifications button
+    let notificationsButton = UIBarButtonItem(image: UIImage(named: "ic_notifications"), style: .plain, target: self, action: #selector(notificationsButtonTapped))
+    topViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    topViewController?.navigationItem.leftBarButtonItem = notificationsButton
 
     }
     @objc func searchButtonTapped() {

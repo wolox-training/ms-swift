@@ -25,4 +25,9 @@ class LibraryViewModel {
         mutableBooks <~ bookRepository.fetchEntities()
             .flatMapError { _ in SignalProducer<[Book], NoError>.empty }
     }
+    
+    public func updateRepository() {
+        mutableBooks <~ bookRepository.fetchEntities()
+            .flatMapError { _ in SignalProducer<[Book], NoError>.empty }
+    }
 }

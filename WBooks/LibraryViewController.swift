@@ -27,6 +27,7 @@ final class LibraryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
+        libraryViewModel.updateRepository()
     }
     
     override func viewDidLoad() {
