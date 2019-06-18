@@ -16,16 +16,42 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is my rentals view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiC-jn-afm">
-                    <rect key="frame" x="101" y="260" width="172" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav bar" translatesAutoresizingMaskIntoConstraints="NO" id="QqM-qN-sat">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="818" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SvR-Uj-D6i">
+                    <rect key="frame" x="0.0" y="204" width="414" height="524"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esh-xl-acR">
+                    <rect key="frame" x="0.0" y="736" width="414" height="126"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QqM-qN-sat" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="DDD-nC-rSk"/>
+                <constraint firstItem="esh-xl-acR" firstAttribute="top" secondItem="SvR-Uj-D6i" secondAttribute="bottom" constant="8" id="HCM-y7-SLP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="SvR-Uj-D6i" secondAttribute="bottom" constant="134" id="Jt1-KW-aP6"/>
+                <constraint firstItem="esh-xl-acR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Jvr-j8-lbx"/>
+                <constraint firstItem="esh-xl-acR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="KBX-df-BFt"/>
+                <constraint firstItem="QqM-qN-sat" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Mmr-Af-1wz"/>
+                <constraint firstItem="QqM-qN-sat" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ael-Rr-FPh"/>
+                <constraint firstItem="esh-xl-acR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bGs-Xy-nLk"/>
+                <constraint firstItem="SvR-Uj-D6i" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="fA0-O4-Svh"/>
+                <constraint firstItem="esh-xl-acR" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="fOZ-DD-yv3"/>
+                <constraint firstItem="SvR-Uj-D6i" firstAttribute="top" secondItem="QqM-qN-sat" secondAttribute="bottom" id="hOg-if-APt"/>
+                <constraint firstItem="QqM-qN-sat" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="s5V-Ca-hFa"/>
+                <constraint firstItem="SvR-Uj-D6i" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="zRz-Sn-ZbV"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="carrousselChildView" destination="esh-xl-acR" id="US3-r9-c2P"/>
+                <outlet property="tableRentals" destination="SvR-Uj-D6i" id="aa0-oD-6PF"/>
+            </connections>
         </view>
     </objects>
+    <resources>
+        <image name="bc_nav bar" width="750" height="204"/>
+    </resources>
 </document>
