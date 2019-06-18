@@ -115,6 +115,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="addNewButton" destination="AdD-ze-hVV" id="Dqn-Jm-2hk"/>
                 <outlet property="authorTextField" destination="eDq-p9-n4X" id="eLM-QR-mwE"/>
                 <outlet property="bookCover" destination="YTu-4Q-shJ" id="zwL-5D-EYj"/>
                 <outlet property="childView" destination="S7h-rf-ujv" id="OwA-hh-FWV"/>

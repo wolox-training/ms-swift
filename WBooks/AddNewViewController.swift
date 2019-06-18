@@ -24,25 +24,37 @@ final class AddNewViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        
+    }
+    
+    func setup() {
+        addNewView.yearTextField.onlyAcceptsNumbers = true
+        addNewView.bookCover.isUserInteractionEnabled = true
+        setupImagePicker()
+    }
+    
+}
+
+extension AddNewViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func setupImagePicker() {
         let alertController = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        let galleryAction = UIAlertAction(title: "Gallery", style: .default) { _ in
+        let galleryAction = UIAlertAction(title: "ADD_NEW_VIEW_GALLERY_ACTION".localized(), style: .default) { _ in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: .none)
         }
         alertController.addAction(galleryAction)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+            let cameraAction = UIAlertAction(title: "ADD_NEW_VIEW_CAMERA_ACTION".localized(), style: .default) { _ in
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: .none)
             }
             alertController.addAction(cameraAction)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: .none)
+        let cancelAction = UIAlertAction(title: "ADD_NEW_VIEW_CANCEL_ACTION".localized(), style: .cancel, handler: .none)
         alertController.addAction(cancelAction)
         
         addNewView.bookCover.addTapGestureRecognizer { _ in
@@ -50,15 +62,6 @@ final class AddNewViewController: UIViewController {
         }
     }
     
-    func setup() {
-        addNewView.yearTextField.onlyAcceptsNumbers = true
-        addNewView.bookCover.isUserInteractionEnabled = true
-
-    }
-    
-}
-
-extension AddNewViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             addNewView.bookCover.image = pickedImage
