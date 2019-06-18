@@ -28,6 +28,7 @@
 		31710E0122B29DB70078FF2F /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0022B29DB70078FF2F /* CommentView.swift */; };
 		31710E0322B29F5B0078FF2F /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31710E0222B29F5B0078FF2F /* CommentView.xib */; };
 		31710E0522B2C23C0078FF2F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */; };
+		318B123622B928720036EE53 /* AddNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B123522B928720036EE53 /* AddNewViewModel.swift */; };
 		318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */; };
 		318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462122A1656C00649BE1 /* WBooksRepository.swift */; };
 		318E462522A165D500649BE1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462422A165D500649BE1 /* Book.swift */; };
@@ -142,6 +143,7 @@
 		31710E0022B29DB70078FF2F /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		31710E0222B29F5B0078FF2F /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		318B123522B928720036EE53 /* AddNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewModel.swift; sourceTree = "<group>"; };
 		318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingBootstraper.swift; sourceTree = "<group>"; };
 		318E462122A1656C00649BE1 /* WBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBooksRepository.swift; sourceTree = "<group>"; };
 		318E462422A165D500649BE1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				31D509F7229D921500E0F144 /* AddNewViewController.swift */,
+				318B123522B928720036EE53 /* AddNewViewModel.swift */,
 				31D509F5229D920100E0F144 /* AddNewView.swift */,
 				31D509F1229D91E600E0F144 /* AddNewView.xib */,
 			);
@@ -759,6 +762,7 @@
 				3165C26B22A8426200B20C47 /* Comment.swift in Sources */,
 				315CAE3122A7020100511930 /* DateExtension.swift in Sources */,
 				31D50A02229DA43F00E0F144 /* SettingsView.swift in Sources */,
+				318B123622B928720036EE53 /* AddNewViewModel.swift in Sources */,
 				31D509F8229D921500E0F144 /* AddNewViewController.swift in Sources */,
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */,

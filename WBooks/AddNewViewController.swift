@@ -11,6 +11,7 @@ import UIKit
 final class AddNewViewController: UIViewController {
     
     private let addNewView: AddNewView = AddNewView.loadFromNib()!
+  //  private let bookRepository: WBookRepositoryType
     
     override func loadView() {
         view = addNewView
@@ -24,6 +25,28 @@ final class AddNewViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+
+        addNewView.addNewButton.addTapGestureRecognizer { _ in
+            if self.allDataIsValid() {
+                let addNewViewModel = AddNewViewModel(book: Book(status: "available",
+                                                                 id: Int.random(in: 500...1000),
+                                                                 author: self.addNewView.authorTextField.text!,
+                                                                 title: self.addNewView.titleTextField.text!,
+                                                                 image: "some_url",
+                                                                 year: self.addNewView.yearTextField.text!,
+                                                                 genre: self.addNewView.topicTextField.text!))
+                addNewViewModel.printBook()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Data is not valid\nPlease check your entry", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+
     }
     
     func setup() {
@@ -32,6 +55,9 @@ final class AddNewViewController: UIViewController {
         setupImagePicker()
     }
     
+    func allDataIsValid() -> Bool {
+        return addNewView.authorTextField.isValidInput() && addNewView.titleTextField.isValidInput() && addNewView.yearTextField.isValidInput() && addNewView.topicTextField.isValidInput() && addNewView.descriptionTextField.isValidInput()
+    }
 }
 
 extension AddNewViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

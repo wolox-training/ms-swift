@@ -37,5 +37,6 @@ private extension AddNewView {
         addNewButton.setTitle("ADD_NEW_VIEW_RENT_BUTTON_TITLE".localized(), for: .normal)
         addNewButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19 * (UIScreen.main.bounds.height / 896))
         addNewButton.setTitleColor(UIColor.white, for: .normal)
+       // addNewButton.setTitleColor(UIColor.red, for: .disabled)
     }
 }

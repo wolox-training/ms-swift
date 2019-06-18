@@ -31,15 +31,15 @@ open class WTextField: UITextField, UITextFieldDelegate {
         setPadding()
         setBottomLine(state: .sleeping)
         
-        reactive.continuousTextValues.signal.observeValues { textOnField in
-            self.updateTextFieldState(textOnField: textOnField!)
+        reactive.continuousTextValues.signal.observeValues { _ in
+            self.updateTextFieldState()
         }
     }
     
-    func updateTextFieldState(textOnField: String) {
+    func updateTextFieldState() {
         let currentState: TextFieldState
         if self.isEditing {
-            if !isValidInput(textOnField: textOnField) {
+            if !isValidInput() {
                 currentState = .incorrect
             } else {
                 currentState = .editing
@@ -51,21 +51,20 @@ open class WTextField: UITextField, UITextFieldDelegate {
         setBottomLine(state: currentState)
     }
     
-    func isValidInput(textOnField: String) -> Bool {
-        /*
-        if textOnField.contains("&") {
-            return false
-        } else {
-            return true
-        }
-         */
+    func isValidInput() -> Bool {
+
         var returnValue = true
-        if onlyAcceptsNumbers {
-            if textOnField.containsALetter(input: textOnField) {
-                returnValue = false
+        if text!.isEmpty {
+            returnValue = false
+        } else {
+            if onlyAcceptsNumbers {
+                if text!.containsALetter(input: text!) {
+                    returnValue = false
+                }
             }
         }
-            return returnValue
+        return returnValue
+        
     }
     
     func setPadding() {
