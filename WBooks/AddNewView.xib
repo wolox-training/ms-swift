@@ -28,7 +28,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="rXZ-j4-bdI">
                                     <rect key="frame" x="8" y="8" width="342" height="168"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_book1" translatesAutoresizingMaskIntoConstraints="NO" id="YTu-4Q-shJ">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add new" translatesAutoresizingMaskIntoConstraints="NO" id="YTu-4Q-shJ">
                                             <rect key="frame" x="0.0" y="0.0" width="114" height="168"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01F-CE-427">
@@ -115,13 +115,19 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="authorTextField" destination="eDq-p9-n4X" id="eLM-QR-mwE"/>
+                <outlet property="bookCover" destination="YTu-4Q-shJ" id="zwL-5D-EYj"/>
                 <outlet property="childView" destination="S7h-rf-ujv" id="OwA-hh-FWV"/>
+                <outlet property="descriptionTextField" destination="aSk-Di-Ono" id="hkH-ga-iU6"/>
+                <outlet property="titleTextField" destination="LGZ-sl-bzo" id="JB2-An-qIV"/>
+                <outlet property="topicTextField" destination="Bjy-pK-mnj" id="PEI-is-ZLh"/>
+                <outlet property="yearTextField" destination="IHJ-61-1xF" id="ntS-rL-L1O"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="34.821428571428569"/>
         </view>
     </objects>
     <resources>
         <image name="bc_nav bar" width="750" height="204"/>
-        <image name="img_book1" width="80" height="120"/>
+        <image name="ic_add new" width="50" height="50"/>
     </resources>
 </document>

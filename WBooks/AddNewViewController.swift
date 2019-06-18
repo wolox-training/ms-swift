@@ -24,10 +24,42 @@ final class AddNewViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        
+        let alertController = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        let galleryAction = UIAlertAction(title: "Gallery", style: .default) { _ in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: .none)
+        }
+        alertController.addAction(galleryAction)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: .none)
+            }
+            alertController.addAction(cameraAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: .none)
+        alertController.addAction(cancelAction)
+        
+        addNewView.bookCover.addTapGestureRecognizer { _ in
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
     }
     
     func setup() {
+        addNewView.yearTextField.onlyAcceptsNumbers = true
+        addNewView.bookCover.isUserInteractionEnabled = true
+
         
     }
+    
+}
+
+extension AddNewViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
 }

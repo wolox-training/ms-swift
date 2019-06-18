@@ -27,7 +27,7 @@ open class WTextField: UITextField, UITextFieldDelegate {
     func setupTextField() {
         delegate = self
         borderStyle = UITextField.BorderStyle(rawValue: 0)!
-        attributedPlaceholder = NSAttributedString(string: "", attributes: [.foregroundColor: UIColor.lightGray, .font: UIFont.italicSystemFont(ofSize: 14.0)])
+        attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "default placeholder", attributes: [.foregroundColor: UIColor.lightGray, .font: UIFont.italicSystemFont(ofSize: 14.0)])
         setPadding()
         setBottomLine(state: .sleeping)
         
