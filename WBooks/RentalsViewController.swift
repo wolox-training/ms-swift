@@ -14,6 +14,7 @@ final class RentalsViewController: UIViewController {
     
     private let rentalsView: RentalsView = RentalsView.loadFromNib()!
     private let rentalsViewModel: RentalsViewModel = RentalsViewModel()
+    private let suggestionsViewController = SuggestionsViewController()
     
     override func loadView() {
         view = rentalsView
@@ -30,6 +31,8 @@ final class RentalsViewController: UIViewController {
         rentalsView.tableRentals.register(nib, forCellReuseIdentifier: LibraryCell.xibFileLibraryCellName)
         rentalsView.tableRentals.delegate = self
         rentalsView.tableRentals.dataSource = self
+        
+        rentalsView.carrousselChildView.addSubview(suggestionsViewController.view)
         
         setupBindings()
     }
