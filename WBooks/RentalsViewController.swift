@@ -20,7 +20,7 @@ final class RentalsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = "MY RENTALS"
+        navigationItem.title = "MY RENTALS"
         rentalsViewModel.updateRepository()
     }
     
