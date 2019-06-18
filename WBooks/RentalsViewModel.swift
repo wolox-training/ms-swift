@@ -13,8 +13,8 @@ import Result
 
 class RentalsViewModel {
     
-    private let mutableRentedBooks = MutableProperty<[Book]>([])
-    public var rentedBooks: Property<[Book]>
+    private let mutableRentedBooks = MutableProperty<[RentedBook]>([])
+    public var rentedBooks: Property<[RentedBook]>
     
     private let bookRepository: WBookRepositoryType
     
@@ -23,11 +23,11 @@ class RentalsViewModel {
         
         rentedBooks = Property(mutableRentedBooks)
         mutableRentedBooks <~ bookRepository.fetchRentedBooks()
-            .flatMapError { _ in SignalProducer<[RentedBook], RepositoryError>.empty }
+            .flatMapError { _ in SignalProducer<[RentedBook], NoError>.empty }
     }
     
     public func updateRepository() {
         mutableRentedBooks <~ bookRepository.fetchRentedBooks()
-            .flatMapError { _ in SignalProducer<[RentedBook], RepositoryError>.empty }
+            .flatMapError { _ in SignalProducer<[RentedBook], NoError>.empty }
     }
 }

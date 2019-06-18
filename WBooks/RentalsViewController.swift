@@ -67,7 +67,7 @@ extension RentalsViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let book: Book = rentalsViewModel.rentedBooks.value[indexPath.section]
+        let book: Book = rentalsViewModel.rentedBooks.value[indexPath.section].book
         
         cell.imageBook?.image = UIImage()   // Add grey frame to make loading prettier
         
