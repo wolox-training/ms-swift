@@ -23,7 +23,7 @@ final class CommentViewController: UIViewController {
         commentView.commentTable.register(nib, forCellReuseIdentifier: CommentCell.xibFileCommentCellName)
         commentView.commentTable.delegate = self
         commentView.commentTable.dataSource = self
-        print(bookDetailViewModel.book)
+
     }
     
     init(usingViewModel: BookDetailViewModel) {

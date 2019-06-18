@@ -11,7 +11,6 @@ import UIKit
 final class AddNewViewController: UIViewController {
     
     private let addNewView: AddNewView = AddNewView.loadFromNib()!
-  //  private let bookRepository: WBookRepositoryType
     
     override func loadView() {
         view = addNewView
@@ -25,9 +24,6 @@ final class AddNewViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-
-
-
     }
     
     func setup() {

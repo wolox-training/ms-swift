@@ -28,10 +28,6 @@ final class AddNewViewModel {
         self.bookRepository = bookRepository
     }
     
-    public func printBook() {
-        print(book)
-    }
-    
     public func postNewBook() {
         let postNewBookResult = bookRepository.postNewBook(book: book)
         postNewBookResult.producer.startWithResult { result in
