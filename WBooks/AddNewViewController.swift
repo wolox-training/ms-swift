@@ -48,18 +48,21 @@ final class AddNewViewController: UIViewController {
         addNewView.bookCover.addTapGestureRecognizer { _ in
             self.present(alertController, animated: true, completion: nil)
         }
-        
     }
     
     func setup() {
         addNewView.yearTextField.onlyAcceptsNumbers = true
         addNewView.bookCover.isUserInteractionEnabled = true
 
-        
     }
     
 }
 
 extension AddNewViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            addNewView.bookCover.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
