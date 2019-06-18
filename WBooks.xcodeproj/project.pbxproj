@@ -411,7 +411,6 @@
 		31D509F9229D921D00E0F144 /* Rentals */ = {
 			isa = PBXGroup;
 			children = (
-				31D509F0229D91D300E0F144 /* Add New */,
 				31D509FC229D924100E0F144 /* RentalsViewController.swift */,
 				31D509FA229D923200E0F144 /* RentalsView.swift */,
 				31D509FE229D925300E0F144 /* RentalsView.xib */,
@@ -469,6 +468,7 @@
 				318E461D22A1651000649BE1 /* Bootstraper */,
 				31D509E5229D7CF200E0F144 /* Tab Bar */,
 				31D50A00229DA42D00E0F144 /* Settings */,
+				31D509F0229D91D300E0F144 /* Add New */,
 				31D509F9229D921D00E0F144 /* Rentals */,
 				31D509B5229D796F00E0F144 /* Wish List */,
 				3144CB80229C1E1E002A680A /* Navigation */,

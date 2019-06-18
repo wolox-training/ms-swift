@@ -124,6 +124,7 @@ final class BookDetailViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
@@ -133,6 +134,7 @@ final class BookDetailViewController: UIViewController {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
         
         if bookDetailViewModel.book.status == "available" {
+
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
         } else if bookDetailViewModel.book.status == "rented"{
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
