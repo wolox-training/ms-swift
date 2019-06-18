@@ -7,9 +7,21 @@
 //
 
 import Foundation
+import Argo
+import Runes
+import Curry
 
 struct User: Codable {
+    let username: String
     let id: Int
     let image: String
-    let username: String
+}
+
+extension User: Argo.Decodable {
+    static func decode(_ json: JSON) -> Decoded<User> {
+        return curry(User.init)
+            <^> json <| "username"
+            <*> json <| "id"
+            <*> json <| "image"
+    }
 }

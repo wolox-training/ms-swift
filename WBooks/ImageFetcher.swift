@@ -44,7 +44,7 @@ public class ImageFetcher: ImageFetcherType {
         return session
             .reactive.data(with: URLRequest(url: imageURL))
             .flatMapError { SignalProducer(error: .fetchError($0)) }
-            .flatMap(.concat) { data, response -> SignalProducer<UIImage, ImageFetcherError> in
+            .flatMap(.concat) { data, _ -> SignalProducer<UIImage, ImageFetcherError> in
                 if let image = UIImage(data: data)?.resize(withWidth: 100.0) {  // Width is hardcoded (works for iPhone Xr)
                     return SignalProducer(value: image)
                 } else {
@@ -52,5 +52,4 @@ public class ImageFetcher: ImageFetcherType {
                 }
         }
     }
-    
 }

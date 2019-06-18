@@ -5,30 +5,33 @@
 //  Created by Matías David Schwalb on 30/05/2019.
 //  Copyright © 2019 Wolox. All rights reserved.
 //
-
+import ReactiveSwift
+import Result
+import ReactiveCocoa
 import UIKit
 
 final class BookDetailViewController: UIViewController {
-
-    private let bookID: Int
+    
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
-    private var bookDetailViewModel = BookDetailViewModel(bookID: -1)
+    private var bookDetailViewModel: BookDetailViewModel
     
-    private var commentList: [Comment]
+    private let loadedCommmentsSignalPipe = Signal<Bool, NoError>.pipe()
+    var loadedCommentsSignal: Signal<Bool, NoError> {
+        return loadedCommmentsSignalPipe.output
+    }
     
-    let dispatchGroup = DispatchGroup()
+    deinit {
+        loadedCommmentsSignalPipe.input.sendCompleted()
+    }
     
-    init(bookID: Int) {
-        self.bookID = bookID-1
-        self.bookDetailViewModel.bookID = bookID
-        commentList = CommentDB.getCommentsUsingBookID(bookID: bookID)
+    init(withBookDetailViewModel: BookDetailViewModel) {
+        self.bookDetailViewModel = withBookDetailViewModel
         super.init(nibName: "BookDetailViewController", bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.bookID = -1
-        self.commentList = []
+        self.bookDetailViewModel = BookDetailViewModel(book: Book(status: "-1", id: -1, author: "-1", title: "-1", image: "-1", year: "-1", genre: "-1"))
         super.init(coder: aDecoder)
     }
 
@@ -38,6 +41,17 @@ final class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bookDetailViewModel.changeLabelSignal.observeValues { data in
+            DispatchQueue.main.async {
+                self.bookDetailController.bookDetail.statusLabel.text = data.capitalized
+                if data == "available" {
+                    self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
+                } else if data == "rented" {
+                    self.bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
+                }
+            }
+        }
         setupNav()
         
         let nib = UINib(nibName: CommentCell.xibFileCommentCellName, bundle: nil)
@@ -45,28 +59,38 @@ final class BookDetailViewController: UIViewController {
         bookDetailView.commentTable.delegate = self
         bookDetailView.commentTable.dataSource = self
         
-        dispatchGroup.notify(queue: .main) {
-            self.bookDetailView.commentTable.reloadData()
-        }
-        
         bookDetailController.bookDetail.rentButton.addTapGestureRecognizer { _ in
             print("Rent Button tapped")
-            let rentResult = self.bookDetailViewModel.rent()
             
-            switch rentResult {
-            case 0:
-                self.rentRequestSuccessful()
-            case 2:
-                self.bookIsUnavailable()
-            default:
-                self.rentRequestFailed()    // If rentResult == 1 or otherwise (!= 0, != 2), it failed
+            self.bookDetailViewModel.finishedRentingSignal.observeResult { result in
+                if result.value == 1 {
+                    self.rentRequestSuccessful()
+                } else if result.value == 2 {
+                    self.bookIsUnavailable()
+                }
+                
+                if result.error != nil {
+                    self.rentRequestFailed()
+                }
             }
+            
+            self.bookDetailViewModel.rent()
         }
         
         bookDetailController.bookDetail.addToWishlistButton.addTapGestureRecognizer { _ in
             print("Add to wishlist button tapped")
         }
+        
+        setupBindings()
+
     }
+
+    func setupBindings() {
+        bookDetailViewModel.comments.producer.startWithValues { [unowned self ] _ in
+            self.bookDetailView.commentTable.reloadData()
+        }
+    }
+    
     func bookIsUnavailable() {
         // Alert popup (error), book is already rented
         let alert = UIAlertController(title: "DETAIL_ALERT_ERROR_TITLE".localized(), message: "DETAIL_ALERT_ERROR_RENTED".localized(), preferredStyle: UIAlertControllerStyle.alert)
@@ -104,70 +128,26 @@ final class BookDetailViewController: UIViewController {
     func setupNav() {
         loadBookDetails()
         setNavigationBar()
-            dispatchGroup.notify(queue: .main) {
-                self.loadComments()
-            }
-    }
-    
-    func loadComments() {
-        dispatchGroup.enter()
-        
-        DispatchQueue.global().sync {
-            let url = URL(string: "https://swift-training-backend.herokuapp.com/books/\(bookID+1)/comments")!
-            var request = URLRequest(url: url)
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                if let response = response {
-                    print(response)
-                    
-                    if let data = data, let _ = String(data: data, encoding: .utf8) {
-                        do {
-                            try JSONSerialization.jsonObject(with: data, options: [])
-                            let decoder = JSONDecoder()
-                            do {
-                                let jsonCommentList: [CommentFromJSON]
-                                jsonCommentList = try decoder.decode([CommentFromJSON].self, from: data)
-                                for index in 0..<jsonCommentList.count {
-                                    jsonCommentList[index].loadFromJSONToDataBase()
-                                }
-                                DispatchQueue.main.async {
-                                    self.bookDetailView.commentTable.reloadData()
-                                }
-                            } catch {
-                                print(error)
-                            }
-                        } catch {
-                            print(error)
-                        }
-                    }
-                } else {
-                    print(error ?? "Unknown error")
-                }
-            }
-            task.resume()
-        }
-        dispatchGroup.leave()
     }
     
     func loadBookDetails() {
         bookDetailView.childDetailView.addSubview(bookDetailController.view)
+        
+        if bookDetailViewModel.book.status == "available" {
 
-        if BookDB.bookArrayDB[self.bookID].status == "available" {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wOliveGreen
-        } else if BookDB.bookArrayDB[self.bookID].status == "rented"{
+        } else if bookDetailViewModel.book.status == "rented"{
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.wRentedYellow
         } else {
             bookDetailController.bookDetail.statusLabel.textColor = UIColor.red
         }
-        bookDetailController.bookDetail.statusLabel.text = BookDB.bookArrayDB[self.bookID].status.capitalized
-        bookDetailController.bookDetail.titleLabel.text = BookDB.bookArrayDB[self.bookID].title.capitalized
-        bookDetailController.bookDetail.authorLabel.text = BookDB.bookArrayDB[self.bookID].author.capitalized
-        bookDetailController.bookDetail.yearLabel.text = BookDB.bookArrayDB[self.bookID].year
-        bookDetailController.bookDetail.genreLabel.text = BookDB.bookArrayDB[self.bookID].genre.capitalized
+        bookDetailController.bookDetail.statusLabel.text = bookDetailViewModel.book.status.capitalized
+        bookDetailController.bookDetail.titleLabel.text = bookDetailViewModel.book.title.capitalized
+        bookDetailController.bookDetail.authorLabel.text = bookDetailViewModel.book.author.capitalized
+        bookDetailController.bookDetail.yearLabel.text = bookDetailViewModel.book.year
+        bookDetailController.bookDetail.genreLabel.text = bookDetailViewModel.book.genre.capitalized
         bookDetailController.bookDetail.bookCover.image = UIImage()
-        if let url = BookDB.bookArrayDB[self.bookID].imageUrl {
+        if let url = bookDetailViewModel.book.imageUrl {
             bookDetailController.bookDetail.bookCover?.load(url: url)
         }
     }
@@ -184,7 +164,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CommentDB.commentArray.count
+        return bookDetailViewModel.comments.value.count
     }
     
     // Hard coded to fit all info. Should be replaced to dynamic height in function of components
@@ -198,12 +178,12 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.usernameLabel?.text = CommentDB.commentArray[indexPath.row].comment.username
-        cell.commentLabel?.text = CommentDB.commentArray[indexPath.row].comment.comment
+        cell.usernameLabel?.text = bookDetailViewModel.comments.value[indexPath.row].user.username
+        cell.commentLabel?.text = bookDetailViewModel.comments.value[indexPath.row].content
         
         cell.userIcon?.image = UIImage()   // Add grey frame to make loading prettier
         
-        if let url = URL(string: CommentDB.commentArray[indexPath.row].comment.image) {
+        if let url = URL(string: bookDetailViewModel.comments.value[indexPath.row].user.image) {
             cell.userIcon?.load(url: url)
         }
         

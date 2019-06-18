@@ -7,10 +7,31 @@
 //
 
 import Foundation
+import Argo
+import Runes
+import Curry
 
 struct Comment: Codable {
-    var bookID: Int
-    var username: String
-    var image: String
-    var comment: String
+    
+    var user: User
+    var id: Int
+    var book: Book
+    var content: String
+    
+    init(user: User, id: Int, book: Book, content: String) {
+        self.user = user
+        self.id = id
+        self.book = book
+        self.content = content
+    }
+}
+
+extension Comment: Argo.Decodable {
+    static func decode(_ json: JSON) -> Decoded<Comment> {
+        return curry(Comment.init)
+            <^> json <| "user"
+            <*> json <| "id"
+            <*> json <| "book"
+            <*> json <| "content"
+    }
 }
