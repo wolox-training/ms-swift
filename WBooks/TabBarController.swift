@@ -32,7 +32,8 @@ class TabBarController: UITabBarController {
         addNew.tabBarItem.image = UIImage(named: "ic_add new")
         addNew.tabBarItem.tag = 2
         
-        let rentals = RentalsViewController()
+       // let rentals = RentalsViewController()
+        let rentals = NavigationController(rootViewController: RentalsViewController())
         rentals.tabBarItem = UITabBarItem()
         rentals.tabBarItem.title = "TAB_RENTALS_TITLE".localized()
         rentals.tabBarItem.image = UIImage(named: "ic_myrentals")

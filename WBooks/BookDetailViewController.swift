@@ -10,7 +10,7 @@ import Result
 import ReactiveCocoa
 import UIKit
 
-final class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController {
     
     private let bookDetailView: BookDetailView = BookDetailView.loadFromNib()!
     private let bookDetailController = BookDetailController()
