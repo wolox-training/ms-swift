@@ -13,6 +13,7 @@ import WolmoCore
 class SuggestionsView: UIView, NibLoadable {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var suggestionsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +23,8 @@ class SuggestionsView: UIView, NibLoadable {
 
 private extension SuggestionsView {
     func setupView() {
-        
+        collectionView.layer.backgroundColor = UIColor.clear.cgColor
+        suggestionsLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        layer.backgroundColor = UIColor.clear.cgColor
     }
 }

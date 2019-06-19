@@ -44,4 +44,10 @@ extension SuggestionsViewController: UICollectionViewDelegate, UICollectionViewD
         
         return cell
     }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+  
 }

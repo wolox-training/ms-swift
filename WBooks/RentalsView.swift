@@ -25,5 +25,6 @@ private extension RentalsView {
     func setupView() {
         layer.backgroundColor = UIColor.wLightBlue.cgColor
         tableRentals.layer.backgroundColor = UIColor.clear.cgColor
+        carrousselChildView.layer.backgroundColor = UIColor.clear.cgColor
     }
 }
