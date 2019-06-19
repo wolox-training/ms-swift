@@ -50,6 +50,7 @@
 		318E463A22A1799200649BE1 /* BookDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318E463322A1799200649BE1 /* BookDetail.xib */; };
 		318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E463422A1799200649BE1 /* BookDetailViewController.swift */; };
 		319883C022A9664B000172AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319883BF22A9664B000172AB /* User.swift */; };
+		319FAAB122BA704700479E70 /* SuggestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */; };
 		31A1981022B3CD3200AE1838 /* WTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1980F22B3CD3200AE1838 /* WTextField.swift */; };
 		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
 		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
@@ -172,6 +173,7 @@
 		318E463322A1799200649BE1 /* BookDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetail.xib; sourceTree = "<group>"; };
 		318E463422A1799200649BE1 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		319883BF22A9664B000172AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewModel.swift; sourceTree = "<group>"; };
 		31A1980F22B3CD3200AE1838 /* WTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WTextField.swift; path = "/Users/matiasdavidschwalb/Projects/prueba2/ms-swift/WBooks/WTextField.swift"; sourceTree = "<absolute>"; };
 		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -288,8 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				31303D1122B9814900B7174A /* Cell */,
-				31303D0322B973A100B7174A /* SuggestionsView.swift */,
+				319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */,
 				31303D0722B978AE00B7174A /* SuggestionsViewController.swift */,
+				31303D0322B973A100B7174A /* SuggestionsView.swift */,
 				31303D0522B973D800B7174A /* SuggestionsView.xib */,
 			);
 			name = Suggestions;
@@ -796,6 +799,7 @@
 				31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */,
 				318E463722A1799200649BE1 /* BookDetailController.swift in Sources */,
 				318E463822A1799200649BE1 /* BookDetail.swift in Sources */,
+				319FAAB122BA704700479E70 /* SuggestionsViewModel.swift in Sources */,
 				318E462D22A16D0D00649BE1 /* ImageFetcher.swift in Sources */,
 				316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */,
 				3165C26722A83BE300B20C47 /* CommentCell.swift in Sources */,

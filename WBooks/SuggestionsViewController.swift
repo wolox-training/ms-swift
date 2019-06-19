@@ -11,9 +11,14 @@ import UIKit
 class SuggestionsViewController: UIViewController {
 
     private let suggestionsView: SuggestionsView = SuggestionsView.loadFromNib()!
+    private let suggestionsViewModel: SuggestionsViewModel = SuggestionsViewModel()
     
     override func loadView() {
         view = suggestionsView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        suggestionsViewModel.updateRepository()
     }
     
     override func viewDidLoad() {
@@ -27,12 +32,19 @@ class SuggestionsViewController: UIViewController {
         suggestionsView.collectionView.register(nib, forCellWithReuseIdentifier: SuggestionCollectionViewCell.xibFileSuggestionCollectionViewCell)
         suggestionsView.collectionView.delegate = self
         suggestionsView.collectionView.dataSource = self
+        
+        setupBindings()
     }
 }
 
 extension SuggestionsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5    // Hard coded
+        return suggestionsViewModel.suggestedBooks.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -40,14 +52,21 @@ extension SuggestionsViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
-        cell.bookCover.image = UIImage(named: "img_book2")
+        let book: Book = suggestionsViewModel.suggestedBooks.value[indexPath.row]
+        
+        cell.bookCover.image = UIImage()
+        if let url = book.imageUrl {
+            cell.bookCover?.load(url: url)
+        }
         
         return cell
     }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+}
+
+extension SuggestionsViewController {
+    func setupBindings() {
+        suggestionsViewModel.suggestedBooks.producer.startWithValues { [unowned self] _ in
+            self.suggestionsView.collectionView.reloadData()
+        }
     }
-    
-  
 }

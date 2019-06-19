@@ -18,6 +18,7 @@ protocol WBookRepositoryType {
     func postRent(book: Book) -> SignalProducer<Void, RepositoryError>
     func postNewBook(book: Book) -> SignalProducer<Void, RepositoryError>
     func fetchRentedBooks() -> SignalProducer<[RentedBook], RepositoryError>
+    func fetchSuggestions() -> SignalProducer<[Book], RepositoryError>
 }
 
 class WBookRepository: AbstractRepository, WBookRepositoryType {
@@ -27,6 +28,7 @@ class WBookRepository: AbstractRepository, WBookRepositoryType {
     private static let PostRentPath = "users/8/rents"
     private static let PostNewBookPath = "books"
     private static let RentedBookPaths = "users/$user_id/rents"
+    private static let SuggestionsPath = "books/$user_id/suggestions"
     
     public func postRent(book: Book) -> SignalProducer<Void, RepositoryError> {
         let path = WBookRepository.PostRentPath
@@ -61,6 +63,13 @@ class WBookRepository: AbstractRepository, WBookRepositoryType {
     
     public func fetchEntities() -> SignalProducer<[Book], RepositoryError> {
         let path = WBookRepository.EntitiesPath
+        return performRequest(method: .get, path: path) {
+            decode($0).toResult()
+        }
+    }
+    
+    public func fetchSuggestions() -> SignalProducer<[Book], RepositoryError> {
+        let path = WBookRepository.SuggestionsPath.replacingOccurrences(of: "$user_id", with: "8")
         return performRequest(method: .get, path: path) {
             decode($0).toResult()
         }
