@@ -16,16 +16,7 @@ final class BookDetailViewController: UIViewController {
     private let bookDetailController = BookDetailController()
     private var bookDetailViewModel: BookDetailViewModel
     private var commentViewController: CommentViewController
-    
-    private let loadedCommmentsSignalPipe = Signal<Bool, NoError>.pipe()
-    var loadedCommentsSignal: Signal<Bool, NoError> {
-        return loadedCommmentsSignalPipe.output
-    }
-    
-    deinit {
-        loadedCommmentsSignalPipe.input.sendCompleted()
-    }
-    
+
     init(withBookDetailViewModel: BookDetailViewModel) {
         self.bookDetailViewModel = withBookDetailViewModel
         self.commentViewController = CommentViewController(usingViewModel: bookDetailViewModel)
@@ -88,7 +79,7 @@ final class BookDetailViewController: UIViewController {
             self.commentViewController.commentView.commentTable.reloadData()
         }
     }
-    
+ 
     func bookIsUnavailable() {
         // Alert popup (error), book is already rented
         let alert = UIAlertController(title: "DETAIL_ALERT_ERROR_TITLE".localized(), message: "DETAIL_ALERT_ERROR_RENTED".localized(), preferredStyle: UIAlertControllerStyle.alert)

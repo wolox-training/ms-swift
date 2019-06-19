@@ -59,6 +59,11 @@ extension SuggestionsViewController: UICollectionViewDelegate, UICollectionViewD
             cell.bookCover?.load(url: url)
         }
         
+        cell.addTapGestureRecognizer { _ in
+            let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
+            self.navigationController?.pushViewController(bookDetailViewController, animated: true)
+        }
+        
         return cell
     }
 }

@@ -30,8 +30,5 @@ class SuggestionsViewModel {
         suggestedBooks = Property(mutableSuggestedBooks)
         mutableSuggestedBooks <~ bookRepository.fetchSuggestions()
             .flatMapError { _ in SignalProducer<[Book], NoError>.empty }
-        print("\n\n >>>>>>>>>>>>>>>> \n\n")
-        print(mutableSuggestedBooks)
-        print("\n\n <<<<<<<<<<<<<<<< \n\n")
     }
 }

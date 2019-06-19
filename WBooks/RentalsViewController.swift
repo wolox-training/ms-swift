@@ -80,12 +80,12 @@ extension RentalsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.topLabel?.text = book.title
         cell.bottomLabel?.text = book.author
-        /*
+        
         cell.addTapGestureRecognizer { _ in
             let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
             self.navigationController?.pushViewController(bookDetailViewController, animated: true)
         }
-        */
+ 
         return cell
     }
 }

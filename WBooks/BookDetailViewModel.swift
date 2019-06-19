@@ -45,8 +45,8 @@ final class BookDetailViewModel {
         self.book = book
         self.bookRepository = bookRepository
         self.comments = Property(mutableComments)
-        mutableComments <~ bookRepository.fetchComments(book: book)
-            .flatMapError { _ in SignalProducer<[Comment], NoError>.empty }
+       // mutableComments <~ bookRepository.fetchComments(book: book)
+           // .flatMapError { _ in SignalProducer<[Comment], NoError>.empty }
     }
     
     func rent() {
