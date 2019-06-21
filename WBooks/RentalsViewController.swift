@@ -21,7 +21,7 @@ final class RentalsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationItem.title = "MY RENTALS"
+        navigationItem.title = "RENTALS_VIEW_NAVIGATION_TITLE".localized()
         rentalsViewModel.updateRepository()
     }
     

@@ -51,9 +51,6 @@
 		318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E463422A1799200649BE1 /* BookDetailViewController.swift */; };
 		319883C022A9664B000172AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319883BF22A9664B000172AB /* User.swift */; };
 		319FAAB122BA704700479E70 /* SuggestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */; };
-		319FAAB422BAA8D900479E70 /* RentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FAAB322BAA8D900479E70 /* RentedView.swift */; };
-		319FAAB622BAA8EA00479E70 /* RentedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FAAB522BAA8EA00479E70 /* RentedViewModel.swift */; };
-		319FAAB822BAA8F700479E70 /* RentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FAAB722BAA8F700479E70 /* RentedViewController.swift */; };
 		31A1981022B3CD3200AE1838 /* WTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1980F22B3CD3200AE1838 /* WTextField.swift */; };
 		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
 		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
@@ -177,9 +174,6 @@
 		318E463422A1799200649BE1 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		319883BF22A9664B000172AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewModel.swift; sourceTree = "<group>"; };
-		319FAAB322BAA8D900479E70 /* RentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentedView.swift; sourceTree = "<group>"; };
-		319FAAB522BAA8EA00479E70 /* RentedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentedViewModel.swift; sourceTree = "<group>"; };
-		319FAAB722BAA8F700479E70 /* RentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentedViewController.swift; sourceTree = "<group>"; };
 		31A1980F22B3CD3200AE1838 /* WTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WTextField.swift; path = "/Users/matiasdavidschwalb/Projects/prueba2/ms-swift/WBooks/WTextField.swift"; sourceTree = "<absolute>"; };
 		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -442,16 +436,6 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		319FAAB222BAA8BA00479E70 /* Rented Book */ = {
-			isa = PBXGroup;
-			children = (
-				319FAAB322BAA8D900479E70 /* RentedView.swift */,
-				319FAAB522BAA8EA00479E70 /* RentedViewModel.swift */,
-				319FAAB722BAA8F700479E70 /* RentedViewController.swift */,
-			);
-			name = "Rented Book";
-			sourceTree = "<group>";
-		};
 		31D509B5229D796F00E0F144 /* Wish List */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,7 +468,6 @@
 		31D509F9229D921D00E0F144 /* Rentals */ = {
 			isa = PBXGroup;
 			children = (
-				319FAAB222BAA8BA00479E70 /* Rented Book */,
 				31303D0022B9735300B7174A /* Suggestions */,
 				31D509FC229D924100E0F144 /* RentalsViewController.swift */,
 				318B123722B954C80036EE53 /* RentalsViewModel.swift */,
@@ -817,10 +800,8 @@
 				318E463722A1799200649BE1 /* BookDetailController.swift in Sources */,
 				318E463822A1799200649BE1 /* BookDetail.swift in Sources */,
 				319FAAB122BA704700479E70 /* SuggestionsViewModel.swift in Sources */,
-				319FAAB422BAA8D900479E70 /* RentedView.swift in Sources */,
 				318E462D22A16D0D00649BE1 /* ImageFetcher.swift in Sources */,
 				316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */,
-				319FAAB622BAA8EA00479E70 /* RentedViewModel.swift in Sources */,
 				3165C26722A83BE300B20C47 /* CommentCell.swift in Sources */,
 				3165C26B22A8426200B20C47 /* Comment.swift in Sources */,
 				315CAE3122A7020100511930 /* DateExtension.swift in Sources */,
@@ -847,7 +828,6 @@
 				318E462522A165D500649BE1 /* Book.swift in Sources */,
 				31E925EE22A5627100F9EC8D /* WColor.swift in Sources */,
 				31D509FB229D923200E0F144 /* RentalsView.swift in Sources */,
-				319FAAB822BAA8F700479E70 /* RentedViewController.swift in Sources */,
 				318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */,
 				318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */,
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,

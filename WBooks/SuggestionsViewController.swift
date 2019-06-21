@@ -31,26 +31,12 @@ class SuggestionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        let nib = UINib(nibName: CommentCell.xibFileCommentCellName, bundle: nil)
-        commentView.commentTable.register(nib, forCellReuseIdentifier: CommentCell.xibFileCommentCellName)
-        */
         let nib = UINib(nibName: SuggestionCollectionViewCell.xibFileSuggestionCollectionViewCell, bundle: nil)
-        //suggestionsView.collectionView.register(nib, forCellReuseIdentifier: SuggestionCollectionViewCell.xibFileSuggestionCollectionViewCell)
         suggestionsView.collectionView.register(nib, forCellWithReuseIdentifier: SuggestionCollectionViewCell.xibFileSuggestionCollectionViewCell)
         suggestionsView.collectionView.delegate = self
         suggestionsView.collectionView.dataSource = self
         
         setupBindings()
-    }
-    
-    func pushInNavController(book: Book) {
-        let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
-        self.navigationController?.pushViewController(bookDetailViewController, animated: true)
-        let myNavCont = self.parent?.navigationController
-        print("\n\n >>>>>>>>>>>>>>>>>>>>> \n\n")
-        print(myNavCont)
-        print("\n\n >>>>>>>>>>>>>>>>>>>>> \n\n")
     }
 }
 
@@ -77,10 +63,6 @@ extension SuggestionsViewController: UICollectionViewDelegate, UICollectionViewD
         }
         
         cell.addTapGestureRecognizer { _ in
-           // let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
-            //self.view.superview.navigationController?.pushViewController(bookDetailViewController, animated: true)
-            
-           // self.pushInNavController(book: book)
             self.pushFromSuggestionPipe.input.send(value: book)
         }
         
