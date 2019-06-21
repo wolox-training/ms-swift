@@ -5,11 +5,19 @@
 //  Created by Matías David Schwalb on 18/06/2019.
 //  Copyright © 2019 Wolox. All rights reserved.
 //
-
+import Foundation
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
+import Result
 
 class SuggestionsViewController: UIViewController {
 
+    private let pushFromSuggestionPipe = Signal<Book, NoError>.pipe()
+    public var pushFromSuggestionSignal: Signal<Book, NoError> {
+        return pushFromSuggestionPipe.output
+    }
+    
     private let suggestionsView: SuggestionsView = SuggestionsView.loadFromNib()!
     private let suggestionsViewModel: SuggestionsViewModel = SuggestionsViewModel()
     
@@ -34,6 +42,15 @@ class SuggestionsViewController: UIViewController {
         suggestionsView.collectionView.dataSource = self
         
         setupBindings()
+    }
+    
+    func pushInNavController(book: Book) {
+        let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
+        self.navigationController?.pushViewController(bookDetailViewController, animated: true)
+        let myNavCont = self.parent?.navigationController
+        print("\n\n >>>>>>>>>>>>>>>>>>>>> \n\n")
+        print(myNavCont)
+        print("\n\n >>>>>>>>>>>>>>>>>>>>> \n\n")
     }
 }
 
@@ -60,8 +77,11 @@ extension SuggestionsViewController: UICollectionViewDelegate, UICollectionViewD
         }
         
         cell.addTapGestureRecognizer { _ in
-            let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
+           // let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
             //self.view.superview.navigationController?.pushViewController(bookDetailViewController, animated: true)
+            
+           // self.pushInNavController(book: book)
+            self.pushFromSuggestionPipe.input.send(value: book)
         }
         
         return cell

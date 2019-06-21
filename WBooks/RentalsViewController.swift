@@ -35,6 +35,11 @@ final class RentalsViewController: UIViewController {
         rentalsView.carrousselChildView.addSubview(suggestionsViewController.view)
         
         setupBindings()
+        
+        suggestionsViewController.pushFromSuggestionSignal.observeValues { book in
+            let bookDetailViewController = BookDetailViewController(withBookDetailViewModel: BookDetailViewModel(book: book))
+            self.navigationController?.pushViewController(bookDetailViewController, animated: true)
+        }
     }
 }
 
