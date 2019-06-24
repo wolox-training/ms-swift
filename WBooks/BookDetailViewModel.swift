@@ -14,7 +14,7 @@ import Result
 import Networking
 import Argo
 
-final class BookDetailViewModel {
+class BookDetailViewModel {
 
     public var book: Book
     private let bookRepository: WBookRepositoryType

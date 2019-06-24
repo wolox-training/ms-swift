@@ -12,6 +12,11 @@
 		0CCF002E219208180061050C /* WolmoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF002D219208180061050C /* WolmoCore.framework */; };
 		312C4AD922971EA5006150C3 /* LibraryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C4AD822971EA5006150C3 /* LibraryCell.xib */; };
 		312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312C4ADA22971EBF006150C3 /* LibraryCell.swift */; };
+		31303D0422B973A100B7174A /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31303D0322B973A100B7174A /* SuggestionsView.swift */; };
+		31303D0622B973D800B7174A /* SuggestionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31303D0522B973D800B7174A /* SuggestionsView.xib */; };
+		31303D0822B978AE00B7174A /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31303D0722B978AE00B7174A /* SuggestionsViewController.swift */; };
+		31303D0F22B9814200B7174A /* SuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31303D0D22B9814200B7174A /* SuggestionCollectionViewCell.swift */; };
+		31303D1022B9814200B7174A /* SuggestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31303D0E22B9814200B7174A /* SuggestionCollectionViewCell.xib */; };
 		3144CB82229C1E31002A680A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3144CB81229C1E31002A680A /* NavigationController.swift */; };
 		315CAE3122A7020100511930 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315CAE3022A7020100511930 /* DateExtension.swift */; };
 		3165C26522A838FF00B20C47 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3165C26322A838FF00B20C47 /* CommentCell.xib */; };
@@ -29,6 +34,8 @@
 		31710E0322B29F5B0078FF2F /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31710E0222B29F5B0078FF2F /* CommentView.xib */; };
 		31710E0522B2C23C0078FF2F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */; };
 		318B123622B928720036EE53 /* AddNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B123522B928720036EE53 /* AddNewViewModel.swift */; };
+		318B123822B954C80036EE53 /* RentalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B123722B954C80036EE53 /* RentalsViewModel.swift */; };
+		318B123D22B9617F0036EE53 /* RentedBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B123C22B9617F0036EE53 /* RentedBook.swift */; };
 		318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */; };
 		318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462122A1656C00649BE1 /* WBooksRepository.swift */; };
 		318E462522A165D500649BE1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462422A165D500649BE1 /* Book.swift */; };
@@ -43,6 +50,7 @@
 		318E463A22A1799200649BE1 /* BookDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318E463322A1799200649BE1 /* BookDetail.xib */; };
 		318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E463422A1799200649BE1 /* BookDetailViewController.swift */; };
 		319883C022A9664B000172AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319883BF22A9664B000172AB /* User.swift */; };
+		319FAAB122BA704700479E70 /* SuggestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */; };
 		31A1981022B3CD3200AE1838 /* WTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1980F22B3CD3200AE1838 /* WTextField.swift */; };
 		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
 		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
@@ -124,6 +132,11 @@
 		0CCF002D219208180061050C /* WolmoCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WolmoCore.framework; path = Carthage/Build/iOS/WolmoCore.framework; sourceTree = "<group>"; };
 		312C4AD822971EA5006150C3 /* LibraryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCell.xib; sourceTree = "<group>"; };
 		312C4ADA22971EBF006150C3 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		31303D0322B973A100B7174A /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
+		31303D0522B973D800B7174A /* SuggestionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestionsView.xib; sourceTree = "<group>"; };
+		31303D0722B978AE00B7174A /* SuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
+		31303D0D22B9814200B7174A /* SuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
+		31303D0E22B9814200B7174A /* SuggestionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		3144CB81229C1E31002A680A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		315CAE3022A7020100511930 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3165C26322A838FF00B20C47 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
@@ -144,6 +157,8 @@
 		31710E0222B29F5B0078FF2F /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		318B123522B928720036EE53 /* AddNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewModel.swift; sourceTree = "<group>"; };
+		318B123722B954C80036EE53 /* RentalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalsViewModel.swift; sourceTree = "<group>"; };
+		318B123C22B9617F0036EE53 /* RentedBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentedBook.swift; sourceTree = "<group>"; };
 		318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingBootstraper.swift; sourceTree = "<group>"; };
 		318E462122A1656C00649BE1 /* WBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBooksRepository.swift; sourceTree = "<group>"; };
 		318E462422A165D500649BE1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -158,6 +173,7 @@
 		318E463322A1799200649BE1 /* BookDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetail.xib; sourceTree = "<group>"; };
 		318E463422A1799200649BE1 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		319883BF22A9664B000172AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewModel.swift; sourceTree = "<group>"; };
 		31A1980F22B3CD3200AE1838 /* WTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WTextField.swift; path = "/Users/matiasdavidschwalb/Projects/prueba2/ms-swift/WBooks/WTextField.swift"; sourceTree = "<absolute>"; };
 		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +286,27 @@
 			name = "Library View";
 			sourceTree = "<group>";
 		};
+		31303D0022B9735300B7174A /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				31303D1122B9814900B7174A /* Cell */,
+				319FAAB022BA704700479E70 /* SuggestionsViewModel.swift */,
+				31303D0722B978AE00B7174A /* SuggestionsViewController.swift */,
+				31303D0322B973A100B7174A /* SuggestionsView.swift */,
+				31303D0522B973D800B7174A /* SuggestionsView.xib */,
+			);
+			name = Suggestions;
+			sourceTree = "<group>";
+		};
+		31303D1122B9814900B7174A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				31303D0D22B9814200B7174A /* SuggestionCollectionViewCell.swift */,
+				31303D0E22B9814200B7174A /* SuggestionCollectionViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		3144CB80229C1E1E002A680A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +380,7 @@
 				318E462422A165D500649BE1 /* Book.swift */,
 				318E462622A1667D00649BE1 /* AuthUser.swift */,
 				319883BF22A9664B000172AB /* User.swift */,
+				318B123C22B9617F0036EE53 /* RentedBook.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -430,7 +468,9 @@
 		31D509F9229D921D00E0F144 /* Rentals */ = {
 			isa = PBXGroup;
 			children = (
+				31303D0022B9735300B7174A /* Suggestions */,
 				31D509FC229D924100E0F144 /* RentalsViewController.swift */,
+				318B123722B954C80036EE53 /* RentalsViewModel.swift */,
 				31D509FA229D923200E0F144 /* RentalsView.swift */,
 				31D509FE229D925300E0F144 /* RentalsView.xib */,
 			);
@@ -670,8 +710,10 @@
 				316AF80922959FD300A3A2B3 /* Release.xcconfig in Resources */,
 				9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */,
 				312C4AD922971EA5006150C3 /* LibraryCell.xib in Resources */,
+				31303D1022B9814200B7174A /* SuggestionCollectionViewCell.xib in Resources */,
 				31D509F2229D91E600E0F144 /* AddNewView.xib in Resources */,
 				3165C26522A838FF00B20C47 /* CommentCell.xib in Resources */,
+				31303D0622B973D800B7174A /* SuggestionsView.xib in Resources */,
 				318E463A22A1799200649BE1 /* BookDetail.xib in Resources */,
 				31D509FF229D925300E0F144 /* RentalsView.xib in Resources */,
 				31D509EB229D817A00E0F144 /* WishListView.xib in Resources */,
@@ -752,10 +794,12 @@
 				316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */,
 				CEB934DD1D21992100DF75C2 /* Environment.swift in Sources */,
 				31A1981022B3CD3200AE1838 /* WTextField.swift in Sources */,
+				31303D0F22B9814200B7174A /* SuggestionCollectionViewCell.swift in Sources */,
 				31710DFE22B29D1B0078FF2F /* CommentViewController.swift in Sources */,
 				31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */,
 				318E463722A1799200649BE1 /* BookDetailController.swift in Sources */,
 				318E463822A1799200649BE1 /* BookDetail.swift in Sources */,
+				319FAAB122BA704700479E70 /* SuggestionsViewModel.swift in Sources */,
 				318E462D22A16D0D00649BE1 /* ImageFetcher.swift in Sources */,
 				316AF8182295AAEA00A3A2B3 /* LogInView.swift in Sources */,
 				3165C26722A83BE300B20C47 /* CommentCell.swift in Sources */,
@@ -766,8 +810,10 @@
 				31D509F8229D921500E0F144 /* AddNewViewController.swift in Sources */,
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */,
+				31303D0422B973A100B7174A /* SuggestionsView.swift in Sources */,
 				E1530D9C1ED37905002A9002 /* RollbarService.swift in Sources */,
 				318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */,
+				318B123822B954C80036EE53 /* RentalsViewModel.swift in Sources */,
 				31710E0122B29DB70078FF2F /* CommentView.swift in Sources */,
 				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
 				31710E0522B2C23C0078FF2F /* UIButtonExtension.swift in Sources */,
@@ -777,6 +823,7 @@
 				312C4ADB22971EBF006150C3 /* LibraryCell.swift in Sources */,
 				318E462A22A16CC300649BE1 /* UIImageViewExtension.swift in Sources */,
 				318E463622A1799200649BE1 /* BookDetailViewModel.swift in Sources */,
+				31303D0822B978AE00B7174A /* SuggestionsViewController.swift in Sources */,
 				318E462722A1667D00649BE1 /* AuthUser.swift in Sources */,
 				318E462522A165D500649BE1 /* Book.swift in Sources */,
 				31E925EE22A5627100F9EC8D /* WColor.swift in Sources */,
@@ -786,6 +833,7 @@
 				9D1575051CB1B27500EA395E /* AppDelegate.swift in Sources */,
 				31D509FD229D924100E0F144 /* RentalsViewController.swift in Sources */,
 				31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */,
+				318B123D22B9617F0036EE53 /* RentedBook.swift in Sources */,
 				31D50A04229DA44A00E0F144 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

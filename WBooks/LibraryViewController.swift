@@ -11,12 +11,8 @@ import UIKit
 import WolmoCore
 
 final class LibraryViewController: UIViewController {
-  
-    let dispatchGroup = DispatchGroup()
     
     private let libraryView: LibraryView = LibraryView.loadFromNib()!
-    
-    static let spacingBetweenCells: CGFloat = 10
     
     // MVVM
     private let libraryViewModel: LibraryViewModel = LibraryViewModel()
@@ -59,7 +55,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
 
     // Spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return LibraryViewController.spacingBetweenCells
+        return 10
     }
     
     // Make the background color show through

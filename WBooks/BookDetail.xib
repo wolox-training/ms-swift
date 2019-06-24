@@ -22,7 +22,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8b1-Za-vey">
                             <rect key="frame" x="15" y="10" width="317" height="252"/>
                             <subviews>
-                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="15" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FkY-D1-hiF">
+                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FkY-D1-hiF">
                                     <rect key="frame" x="0.0" y="0.0" width="317" height="120"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" image="img_book1" translatesAutoresizingMaskIntoConstraints="NO" id="uDU-pi-2tl">

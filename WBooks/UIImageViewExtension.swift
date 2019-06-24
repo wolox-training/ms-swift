@@ -15,8 +15,7 @@ import Result
 public extension UIImageView {
     func load(url: URL) {
         
-        let signalProducer = ImageFetcher().fetchImage(url).producer.flatMapError {
-            _ in SignalProducer<UIImage, NoError>.empty
+        let signalProducer = ImageFetcher().fetchImage(url).producer.flatMapError { _ in SignalProducer<UIImage, NoError>.empty
         }
         
         signalProducer.startWithValues { [unowned self] loadedImage in
