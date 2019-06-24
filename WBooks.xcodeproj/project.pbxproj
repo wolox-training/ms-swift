@@ -28,6 +28,7 @@
 		31710E0122B29DB70078FF2F /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0022B29DB70078FF2F /* CommentView.swift */; };
 		31710E0322B29F5B0078FF2F /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31710E0222B29F5B0078FF2F /* CommentView.xib */; };
 		31710E0522B2C23C0078FF2F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */; };
+		318B123622B928720036EE53 /* AddNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B123522B928720036EE53 /* AddNewViewModel.swift */; };
 		318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */; };
 		318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462122A1656C00649BE1 /* WBooksRepository.swift */; };
 		318E462522A165D500649BE1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462422A165D500649BE1 /* Book.swift */; };
@@ -42,6 +43,7 @@
 		318E463A22A1799200649BE1 /* BookDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318E463322A1799200649BE1 /* BookDetail.xib */; };
 		318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E463422A1799200649BE1 /* BookDetailViewController.swift */; };
 		319883C022A9664B000172AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319883BF22A9664B000172AB /* User.swift */; };
+		31A1981022B3CD3200AE1838 /* WTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1980F22B3CD3200AE1838 /* WTextField.swift */; };
 		31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509E6229D7CF800E0F144 /* TabBarController.swift */; };
 		31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B7229D797800E0F144 /* WishListViewController.swift */; };
 		31D509E9229D7E1300E0F144 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D509B6229D797800E0F144 /* WishListView.swift */; };
@@ -141,6 +143,7 @@
 		31710E0022B29DB70078FF2F /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		31710E0222B29F5B0078FF2F /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		318B123522B928720036EE53 /* AddNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewModel.swift; sourceTree = "<group>"; };
 		318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingBootstraper.swift; sourceTree = "<group>"; };
 		318E462122A1656C00649BE1 /* WBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBooksRepository.swift; sourceTree = "<group>"; };
 		318E462422A165D500649BE1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 		318E463322A1799200649BE1 /* BookDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetail.xib; sourceTree = "<group>"; };
 		318E463422A1799200649BE1 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		319883BF22A9664B000172AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		31A1980F22B3CD3200AE1838 /* WTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WTextField.swift; path = "/Users/matiasdavidschwalb/Projects/prueba2/ms-swift/WBooks/WTextField.swift"; sourceTree = "<absolute>"; };
 		31D509B6229D797800E0F144 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		31D509B7229D797800E0F144 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		31D509E6229D7CF800E0F144 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 				315CAE3022A7020100511930 /* DateExtension.swift */,
 				31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */,
 				31E925ED22A5627100F9EC8D /* WColor.swift */,
+				31A1980F22B3CD3200AE1838 /* WTextField.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				31D509F7229D921500E0F144 /* AddNewViewController.swift */,
+				318B123522B928720036EE53 /* AddNewViewModel.swift */,
 				31D509F5229D920100E0F144 /* AddNewView.swift */,
 				31D509F1229D91E600E0F144 /* AddNewView.xib */,
 			);
@@ -745,6 +751,7 @@
 				9D1575071CB1B27500EA395E /* LibraryViewController.swift in Sources */,
 				316AF8162295AADE00A3A2B3 /* LogInViewController.swift in Sources */,
 				CEB934DD1D21992100DF75C2 /* Environment.swift in Sources */,
+				31A1981022B3CD3200AE1838 /* WTextField.swift in Sources */,
 				31710DFE22B29D1B0078FF2F /* CommentViewController.swift in Sources */,
 				31D509E7229D7D4F00E0F144 /* TabBarController.swift in Sources */,
 				318E463722A1799200649BE1 /* BookDetailController.swift in Sources */,
@@ -755,6 +762,7 @@
 				3165C26B22A8426200B20C47 /* Comment.swift in Sources */,
 				315CAE3122A7020100511930 /* DateExtension.swift in Sources */,
 				31D50A02229DA43F00E0F144 /* SettingsView.swift in Sources */,
+				318B123622B928720036EE53 /* AddNewViewModel.swift in Sources */,
 				31D509F8229D921500E0F144 /* AddNewViewController.swift in Sources */,
 				3144CB82229C1E31002A680A /* NavigationController.swift in Sources */,
 				31D50A10229DCF8100E0F144 /* LibraryViewModel.swift in Sources */,

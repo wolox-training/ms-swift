@@ -35,6 +35,7 @@ final class BookDetailViewModel {
     var changeLabelSignal: Signal<String, NoError> {
         return changeLabelSignalPipe.output
     }
+
     deinit {
         changeLabelSignalPipe.input.sendCompleted()
         finishedRentingPipe.input.sendCompleted()

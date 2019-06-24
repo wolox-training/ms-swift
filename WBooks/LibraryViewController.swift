@@ -25,6 +25,11 @@ final class LibraryViewController: UIViewController {
         view = libraryView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
+        libraryViewModel.updateRepository()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: LibraryCell.xibFileLibraryCellName, bundle: nil)

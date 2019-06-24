@@ -16,16 +16,119 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is my Add New view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiU-w4-OTn">
-                    <rect key="frame" x="92" y="367" width="190" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav bar" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-WO-HTc">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7h-rf-ujv">
+                    <rect key="frame" x="20" y="90" width="374" height="752"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8yP-dA-CFn">
+                            <rect key="frame" x="8" y="8" width="358" height="736"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="rXZ-j4-bdI">
+                                    <rect key="frame" x="8" y="8" width="342" height="168"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add new" translatesAutoresizingMaskIntoConstraints="NO" id="YTu-4Q-shJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="114" height="168"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01F-CE-427">
+                                            <rect key="frame" x="114" y="0.0" width="228" height="168"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YTu-4Q-shJ" firstAttribute="width" secondItem="01F-CE-427" secondAttribute="width" multiplier="0.5" id="hQH-Rc-KAR"/>
+                                    </constraints>
+                                </stackView>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGZ-sl-bzo" customClass="WTextField" customModule="WBooks" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="184" width="342" height="84"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Author" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDq-p9-n4X" customClass="WTextField" customModule="WBooks" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="276" width="342" height="84"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IHJ-61-1xF" customClass="WTextField" customModule="WBooks" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="368" width="342" height="84"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Topic" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bjy-pK-mnj" customClass="WTextField" customModule="WBooks" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="460" width="342" height="84"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSk-Di-Ono" customClass="WTextField" customModule="WBooks" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="552" width="342" height="84"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdD-ze-hVV">
+                                    <rect key="frame" x="8" y="644" width="342" height="84"/>
+                                    <state key="normal" title="ADD NEW"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Bjy-pK-mnj" firstAttribute="height" secondItem="aSk-Di-Ono" secondAttribute="height" id="0r2-sd-dE8"/>
+                                <constraint firstItem="IHJ-61-1xF" firstAttribute="height" secondItem="Bjy-pK-mnj" secondAttribute="height" id="1Sv-2F-PEg"/>
+                                <constraint firstItem="eDq-p9-n4X" firstAttribute="height" secondItem="IHJ-61-1xF" secondAttribute="height" id="Rnc-WC-HTf"/>
+                                <constraint firstItem="AdD-ze-hVV" firstAttribute="height" secondItem="aSk-Di-Ono" secondAttribute="height" id="iEH-Y0-DgW"/>
+                                <constraint firstItem="LGZ-sl-bzo" firstAttribute="height" secondItem="eDq-p9-n4X" secondAttribute="height" id="n0B-iC-dBx"/>
+                                <constraint firstItem="01F-CE-427" firstAttribute="height" secondItem="LGZ-sl-bzo" secondAttribute="height" multiplier="2" id="pIf-Q6-UuL"/>
+                                <constraint firstItem="YTu-4Q-shJ" firstAttribute="top" secondItem="8yP-dA-CFn" secondAttribute="top" constant="8" id="rVk-MD-7gN"/>
+                                <constraint firstItem="YTu-4Q-shJ" firstAttribute="leading" secondItem="8yP-dA-CFn" secondAttribute="leading" constant="8" id="sVl-ax-4ZV"/>
+                            </constraints>
+                            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="8yP-dA-CFn" secondAttribute="bottom" constant="8" id="3XY-lQ-bLM"/>
+                        <constraint firstItem="8yP-dA-CFn" firstAttribute="leading" secondItem="S7h-rf-ujv" secondAttribute="leading" constant="8" id="VmL-Tb-WA3"/>
+                        <constraint firstAttribute="trailing" secondItem="8yP-dA-CFn" secondAttribute="trailing" constant="8" id="VrI-3f-uQy"/>
+                        <constraint firstItem="8yP-dA-CFn" firstAttribute="top" secondItem="S7h-rf-ujv" secondAttribute="top" constant="8" id="jK8-Iu-gpE"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.96078431369999995" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="S7h-rf-ujv" secondAttribute="bottom" constant="20" id="0VJ-DZ-e0H"/>
+                <constraint firstItem="Yy3-WO-HTc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="38e-io-usK"/>
+                <constraint firstItem="S7h-rf-ujv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="46" id="4by-oJ-aCf"/>
+                <constraint firstItem="S7h-rf-ujv" firstAttribute="centerX" secondItem="Yy3-WO-HTc" secondAttribute="centerX" id="Gav-CQ-wKT"/>
+                <constraint firstItem="Yy3-WO-HTc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MSp-zJ-I5a"/>
+                <constraint firstItem="Yy3-WO-HTc" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="U5f-vt-idd"/>
+                <constraint firstItem="S7h-rf-ujv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="VMN-uX-fPf"/>
+                <constraint firstItem="Yy3-WO-HTc" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="rr2-HR-fNM"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="addNewButton" destination="AdD-ze-hVV" id="Dqn-Jm-2hk"/>
+                <outlet property="authorTextField" destination="eDq-p9-n4X" id="eLM-QR-mwE"/>
+                <outlet property="bookCover" destination="YTu-4Q-shJ" id="zwL-5D-EYj"/>
+                <outlet property="childView" destination="S7h-rf-ujv" id="OwA-hh-FWV"/>
+                <outlet property="descriptionTextField" destination="aSk-Di-Ono" id="hkH-ga-iU6"/>
+                <outlet property="titleTextField" destination="LGZ-sl-bzo" id="JB2-An-qIV"/>
+                <outlet property="topicTextField" destination="Bjy-pK-mnj" id="PEI-is-ZLh"/>
+                <outlet property="yearTextField" destination="IHJ-61-1xF" id="ntS-rL-L1O"/>
+            </connections>
+            <point key="canvasLocation" x="34.782608695652179" y="34.821428571428569"/>
         </view>
     </objects>
+    <resources>
+        <image name="bc_nav bar" width="750" height="204"/>
+        <image name="ic_add new" width="50" height="50"/>
+    </resources>
 </document>

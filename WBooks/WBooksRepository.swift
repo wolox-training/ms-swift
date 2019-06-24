@@ -16,6 +16,7 @@ protocol WBookRepositoryType {
     func fetchEntities() -> SignalProducer<[Book], RepositoryError>
     func fetchComments(book: Book) -> SignalProducer<[Comment], RepositoryError>
     func postRent(book: Book) -> SignalProducer<Void, RepositoryError>
+    func postNewBook(book: Book) -> SignalProducer<Void, RepositoryError> 
 }
 
 class WBookRepository: AbstractRepository, WBookRepositoryType {
@@ -23,10 +24,20 @@ class WBookRepository: AbstractRepository, WBookRepositoryType {
     private static let EntitiesPath = "books"
     private static let CommentsPath = "books/$book_id/comments"
     private static let PostRentPath = "users/8/rents"
+    private static let PostNewBookPath = "books"
     
     public func postRent(book: Book) -> SignalProducer<Void, RepositoryError> {
         let path = WBookRepository.PostRentPath
-        let parameters = book.asDictionary()
+        let parameters = book.asDictionaryForRenting()
+
+        return performRequest(method: .post, path: path, parameters: parameters) { _ in
+            Result(value: ())
+        }
+    }
+    
+    public func postNewBook(book: Book) -> SignalProducer<Void, RepositoryError> {
+        let path = WBookRepository.PostNewBookPath
+        let parameters = book.asDictionaryForAddingNew()
         return performRequest(method: .post, path: path, parameters: parameters) { _ in
             Result(value: ())
         }

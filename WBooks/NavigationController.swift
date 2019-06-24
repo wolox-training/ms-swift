@@ -8,19 +8,24 @@
 
 import Foundation
 import UIKit
-import WolmoCore
+import ReactiveSwift
+import ReactiveCocoa
+import Result
+import Networking
+import Argo
 
 final class NavigationController: UINavigationController {
-    	func setupNav() {
-        // Search button
-        let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
-        topViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        topViewController?.navigationItem.rightBarButtonItem = searchButton
         
-        // Notifications button
-        let notificationsButton = UIBarButtonItem(image: UIImage(named: "ic_notifications"), style: .plain, target: self, action: #selector(notificationsButtonTapped))
-        topViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-        topViewController?.navigationItem.leftBarButtonItem = notificationsButton
+    func setupNav() {
+        // Search button
+    let searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonTapped))
+    topViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    topViewController?.navigationItem.rightBarButtonItem = searchButton
+        
+    // Notifications button
+    let notificationsButton = UIBarButtonItem(image: UIImage(named: "ic_notifications"), style: .plain, target: self, action: #selector(notificationsButtonTapped))
+    topViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    topViewController?.navigationItem.leftBarButtonItem = notificationsButton
 
     }
     @objc func searchButtonTapped() {
@@ -42,7 +47,7 @@ final class NavigationController: UINavigationController {
         navigationBar.isTranslucent = true
         navigationBar.tintColor = UIColor.white
         
-        navigationBar.topItem?.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
+//        navigationBar.topItem?.title = "LIBRARY_VIEW_NAVIGATION_TITLE".localized()
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
 }
