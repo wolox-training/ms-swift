@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleAspectFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="295" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-FT-vzP" userLabel="ChildDetailView">
+                <view contentMode="scaleAspectFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="295" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-FT-vzP" userLabel="ChildTopDetailView">
                     <rect key="frame" x="20" y="90" width="375" height="295"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -26,28 +26,28 @@
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav bar" translatesAutoresizingMaskIntoConstraints="NO" id="wGK-BL-Iuf">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Ps-og-7gb">
-                    <rect key="frame" x="20" y="405" width="374" height="437"/>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="LrZ-he-eeV" userLabel="ChildBottomDetailView">
+                    <rect key="frame" x="19.5" y="415" width="375" height="427"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5NY-FT-vzP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="46" id="0Wy-g1-apN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LrZ-he-eeV" secondAttribute="bottom" constant="20" id="0gw-In-5zz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5NY-FT-vzP" secondAttribute="trailing" constant="19" id="18L-Rv-kjP"/>
+                <constraint firstItem="LrZ-he-eeV" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="1HD-5Y-b8x"/>
                 <constraint firstItem="wGK-BL-Iuf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3AQ-gU-wQc"/>
+                <constraint firstItem="LrZ-he-eeV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="19.5" id="C95-XB-vCA"/>
                 <constraint firstItem="wGK-BL-Iuf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Guf-xP-5cD"/>
-                <constraint firstItem="2Ps-og-7gb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Mml-OQ-u34"/>
-                <constraint firstItem="2Ps-og-7gb" firstAttribute="top" secondItem="5NY-FT-vzP" secondAttribute="bottom" constant="20" id="O9F-B7-UK8"/>
                 <constraint firstItem="wGK-BL-Iuf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="bFA-wU-osB"/>
-                <constraint firstItem="2Ps-og-7gb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gGl-o4-0sw"/>
+                <constraint firstItem="LrZ-he-eeV" firstAttribute="top" secondItem="5NY-FT-vzP" secondAttribute="bottom" constant="30" id="gvi-JR-Jra"/>
                 <constraint firstItem="5NY-FT-vzP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="j0D-uQ-8Ak"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2Ps-og-7gb" secondAttribute="bottom" constant="20" id="xCO-1n-s2y"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="childDetailView" destination="5NY-FT-vzP" id="czU-77-Uy1"/>
-                <outlet property="commentTable" destination="2Ps-og-7gb" id="0sv-eE-8CK"/>
+                <outlet property="childBottomDetailView" destination="LrZ-he-eeV" id="hnN-Ex-oA4"/>
+                <outlet property="childTopDetailView" destination="5NY-FT-vzP" id="T9K-Kr-n7U"/>
             </connections>
             <point key="canvasLocation" x="37.681159420289859" y="34.821428571428569"/>
         </view>

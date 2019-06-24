@@ -12,13 +12,13 @@ import WolmoCore
 
 class BookDetailView: UIView, NibLoadable {
     
-    @IBOutlet weak var childDetailView: UIView!
-    @IBOutlet weak var commentTable: UITableView!
+    @IBOutlet weak var childTopDetailView: UIView!
+    @IBOutlet weak var childBottomDetailView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.backgroundColor = UIColor.wLightBlue.cgColor
-        childDetailView.layer.cornerRadius = 22
-        commentTable.layer.cornerRadius = 22
+        childBottomDetailView.layer.cornerRadius = 22
+        childTopDetailView.layer.cornerRadius = 22
     }
 }
