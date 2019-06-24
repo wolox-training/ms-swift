@@ -45,10 +45,8 @@ class BookDetail: UIView, NibLoadable {
         addToWishlistButton.heightAnchor.constraint(equalToConstant: 53.0).isActive = true
         
         rentButton.clipsToBounds = true
-        rentButton.layer.borderColor = UIColor.wBlue.cgColor
-        rentButton.layer.borderWidth = 4
         rentButton.layer.cornerRadius = 25 * (UIScreen.main.bounds.height / 896)
-        rentButton.backgroundColor = UIColor.wBlue
+        rentButton.setWGradient(isEnabled: true)
         rentButton.setTitle("DETAIL_RENT_BUTTON_TITLE".localized(), for: .normal)
         rentButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19 * (UIScreen.main.bounds.height / 896))
         rentButton.setTitleColor(UIColor.white, for: .normal)

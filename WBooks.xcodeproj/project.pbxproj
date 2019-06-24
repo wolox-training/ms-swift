@@ -27,6 +27,7 @@
 		31710DFE22B29D1B0078FF2F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710DFC22B29D1B0078FF2F /* CommentViewController.swift */; };
 		31710E0122B29DB70078FF2F /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0022B29DB70078FF2F /* CommentView.swift */; };
 		31710E0322B29F5B0078FF2F /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31710E0222B29F5B0078FF2F /* CommentView.xib */; };
+		31710E0522B2C23C0078FF2F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */; };
 		318E461F22A1652800649BE1 /* NetworkingBootstraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */; };
 		318E462222A1656C00649BE1 /* WBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462122A1656C00649BE1 /* WBooksRepository.swift */; };
 		318E462522A165D500649BE1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E462422A165D500649BE1 /* Book.swift */; };
@@ -139,6 +140,7 @@
 		31710DFC22B29D1B0078FF2F /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		31710E0022B29DB70078FF2F /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		31710E0222B29F5B0078FF2F /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
+		31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		318E461E22A1652800649BE1 /* NetworkingBootstraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingBootstraper.swift; sourceTree = "<group>"; };
 		318E462122A1656C00649BE1 /* WBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBooksRepository.swift; sourceTree = "<group>"; };
 		318E462422A165D500649BE1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -346,6 +348,8 @@
 			children = (
 				318E462922A16CC300649BE1 /* UIImageViewExtension.swift */,
 				315CAE3022A7020100511930 /* DateExtension.swift */,
+				31710E0422B2C23C0078FF2F /* UIButtonExtension.swift */,
+				31E925ED22A5627100F9EC8D /* WColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -437,14 +441,6 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		31E925EC22A5626400F9EC8D /* Colors */ = {
-			isa = PBXGroup;
-			children = (
-				31E925ED22A5627100F9EC8D /* WColor.swift */,
-			);
-			name = Colors;
-			sourceTree = "<group>";
-		};
 		9D1574F81CB1B27500EA395E = {
 			isa = PBXGroup;
 			children = (
@@ -483,7 +479,6 @@
 				3144CB80229C1E1E002A680A /* Navigation */,
 				316AF8142295AAC800A3A2B3 /* Log In */,
 				316AF80F2295A82800A3A2B3 /* Library */,
-				31E925EC22A5626400F9EC8D /* Colors */,
 				316AF80722959FB700A3A2B3 /* ConfigurationFiles */,
 				E1530D9A1ED378F9002A9002 /* Services */,
 				9D1575041CB1B27500EA395E /* AppDelegate.swift */,
@@ -767,6 +762,7 @@
 				318E463B22A1799200649BE1 /* BookDetailViewController.swift in Sources */,
 				31710E0122B29DB70078FF2F /* CommentView.swift in Sources */,
 				31D509E8229D7E1300E0F144 /* WishListViewController.swift in Sources */,
+				31710E0522B2C23C0078FF2F /* UIButtonExtension.swift in Sources */,
 				31D509F6229D920100E0F144 /* AddNewView.swift in Sources */,
 				316AF8112295A89900A3A2B3 /* LibraryView.swift in Sources */,
 				319883C022A9664B000172AB /* User.swift in Sources */,
